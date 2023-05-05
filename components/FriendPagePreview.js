@@ -1,5 +1,4 @@
 import React from "react";
-// import data from "@/data.json";
 import Image from "next/image";
 
 export default function FriendPagePreview({ friend }) {
