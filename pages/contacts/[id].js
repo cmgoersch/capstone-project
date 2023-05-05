@@ -7,11 +7,12 @@ export default function Details() {
   const router = useRouter();
   const { id } = router.query;
   console.log("ID:", id);
-  const testID = id.split("-");
-  const friend = data.find((element) => element.id === testID[0]);
-  if (!friend || !testID) {
+
+  if (!id) {
     return null;
   }
+  const testID = id.split("-");
+  const friend = data.find((element) => element.id === testID[0]);
   return (
     <>
       <FriendsPagePreview friend={friend} />
