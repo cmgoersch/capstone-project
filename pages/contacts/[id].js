@@ -9,7 +9,7 @@ export default function Details() {
   console.log("ID:", id);
   const testID = id.split("-");
   const friend = data.find((element) => element.id === testID[0]);
-  if (!friend) {
+  if (!friend || !testID) {
     return null;
   }
   return (
