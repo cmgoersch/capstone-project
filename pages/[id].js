@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import FriendsPagePreview from "@/components/FriendPagePreview";
-import FriendPages from "@/components/FriendPages";
 import Link from "next/link";
 import data from "@/data.json";
 
