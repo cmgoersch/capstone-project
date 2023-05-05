@@ -7,7 +7,8 @@ export default function Details() {
   const router = useRouter();
   const { id } = router.query;
   console.log("ID:", id);
-  const friend = data.find((element) => element.id === id);
+  const testID = id.split("-");
+  const friend = data.find((element) => element.id === testID[0]);
   if (!friend) {
     return null;
   }

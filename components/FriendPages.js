@@ -18,7 +18,7 @@ export default function FriendPages() {
     <StyledFriendBox>
       {data.map((friend) => (
         <div key={friend.id}>
-          <Link href={`${friend.id}`}>
+          <Link href={`contacts/${friend.id}-${friend.nickname}`}>
             <div>
               <Image
                 src={friend.profileIconSource}
