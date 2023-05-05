@@ -8,7 +8,9 @@ export default function Details() {
   const { id } = router.query;
   console.log("ID:", id);
   const friend = data.find((element) => element.id === id);
-
+  if (!friend) {
+    return null;
+  }
   return (
     <>
       <FriendsPagePreview friend={friend} />
