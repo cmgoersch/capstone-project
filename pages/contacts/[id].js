@@ -11,8 +11,8 @@ export default function Details() {
   if (!id) {
     return null;
   }
-  const testID = id.split("-");
-  const friend = data.find((element) => element.id === testID[0]);
+  const idPath = id.split("-");
+  const friend = data.find((element) => element.id === idPath[0]);
   return (
     <>
       <FriendsPagePreview friend={friend} />
