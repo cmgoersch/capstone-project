@@ -8,9 +8,23 @@ const StyledFriendBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 3rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
   text-align: center;
+`;
+
+const StyledNickname = styled.h2`
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 2px;
+`;
+
+const StyledName = styled.p`
+  color: white;
+  text-decoration: none;
+  font-size: 0.6rem;
+  margin: 6px;
 `;
 
 export default function FriendPages() {
@@ -23,14 +37,14 @@ export default function FriendPages() {
               <Image
                 src={friend.profileIconSource}
                 alt={friend.nickname}
-                width={100}
-                height={100}
+                width={80}
+                height={80}
               />
             </div>
-            <h2>{friend.nickname}</h2>
-            <p>
+            <StyledNickname>{friend.nickname}</StyledNickname>
+            <StyledName>
               {friend.first_name} {friend.last_name}
-            </p>
+            </StyledName>
           </Link>
         </div>
       ))}
