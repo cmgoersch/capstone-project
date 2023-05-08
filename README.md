@@ -1,14 +1,30 @@
-# New Project
+## Hi, this will be my capstone project for the bootcamp of NeueFische
+
+---
+
+I started on 04/05/23 and will finish and present the project on 06/06/23.
+
+---
+
+my project idea:
+
+## better-friend-app
+
+An app which shall help you playfully to contact your and more evenly with your circle of friends!
+
+### Function:
+
+You get a random contact suggested when you open it who is looking forward to a call or a message from you.
+
+### The problem to be solved:
+
+With this app no one will forget about you and your friendships will last longer :)
+
+This app is for contacts that are important to you. People that you really like and that you like to listen to and talk to and who might miss out in a hectic everyday life.
+
+---
 
 This project was created from the neue fische next template.
-
-## Development
-
-### CodeSandbox
-
-Select the "Browser" tab to view this project. If this project contains tests, select the "Tests" tab to check your progress.
-
-> 💡 Please note that Next.js support on CodeSandbox is not great.
 
 ### Local development
 
