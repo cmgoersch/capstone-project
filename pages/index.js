@@ -1,4 +1,5 @@
 import data from "@/data.json";
+import RandomFunction from "@/components/RandomFunction";
 import FriendsPage from "@/components/FriendPages";
 import FriendsPagPreview from "@/components/FriendPagePreview";
 import Header from "@/components/Header";
@@ -9,6 +10,7 @@ export default function HomePage() {
   return (
     <div>
       <Header />
+      <RandomFunction data={data} />
       <StyledLink href={`/contacts`}> Contacts</StyledLink>
     </div>
   );
