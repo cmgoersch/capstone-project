@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
+import { StyledButton } from "./Button/Button.styled";
+import { StyledList } from "./List/List.styled";
 
 const StyledFriend = styled.div`
   display: flex;
@@ -34,10 +36,21 @@ const StyledContactList = styled.ul`
 
 const StyledInfoList = styled.div`
   background-color: white;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 0rem 1rem 0rem 1rem;
+  padding: 0rem 1rem 0rem 1rem;
   border-radius: 1rem;
-  color: blue;
+  color: #2d2e83;
+  text-align: left;
+  text-decoration: none;
+  font-size: 1rem;
+`;
+
+const StyledNotice = styled.div`
+  background-color: white;
+  margin: 1rem 1rem 1rem 1rem;
+  padding: 0rem 1rem 0rem 1rem;
+  border-radius: 1rem;
+  color: #2d2e83;
   text-align: left;
   text-decoration: none;
   font-size: 1rem;
@@ -63,21 +76,28 @@ export default function FriendPagePreview({ friend }) {
       {/* <p>Contact:</p> */}
       <StyledContactList>
         {Object.entries(friend.contactOptions).map(([key, value]) => (
-          <li key={key}>
-            {key}: <a href={value}>{value}</a>
-          </li>
+          <StyledList key={key}>
+            <StyledButton href={value}>
+              {key}{" "}
+              {/* : <br />
+              {value} */}
+            </StyledButton>
+          </StyledList>
         ))}
       </StyledContactList>
       <StyledInfoList>
-        <p>birthday: {friend.birthday}</p>
-        <p>city: {friend.city}</p>
-        <p>hobbies:</p>
+        <p>Birthday: {friend.birthday}</p>
+        <p>City: {friend.city}</p>
+        <p>Hobbies:</p>
         <ul>
           {friend.hobbies.map((hobby, index) => (
             <li key={index}>{hobby}</li>
           ))}
         </ul>
       </StyledInfoList>
+      <StyledNotice>
+        <p>Notice:</p>
+      </StyledNotice>
     </StyledFriend>
   );
 }

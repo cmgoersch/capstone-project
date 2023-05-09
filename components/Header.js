@@ -6,6 +6,10 @@ import styled from "styled-components";
 
 const StyledHeaderBox = styled.div`
   display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
   flex-direction: row;
   justify-content: center;
   padding: 30px 20px 20px 20px;

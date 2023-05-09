@@ -4,11 +4,13 @@ import Link from "next/link";
 import data from "@/data.json";
 import styled from "styled-components";
 import Header from "@/components/Header";
+import { StyledLink } from "@/components/Link/Link.Styled";
 
 const StyledTitleText = styled.h1`
   color: white;
   text-align: center;
   font-size: 1rem;
+  margin: 1.4rem;
 `;
 
 export default function Details() {
@@ -26,7 +28,7 @@ export default function Details() {
       <Header />
       <StyledTitleText>Your friend of the day:</StyledTitleText>
       <FriendsPagePreview friend={friend} />
-      <Link href={`/contacts`}>Back</Link>
+      <StyledLink href={`/contacts`}>Back</StyledLink>
     </>
   );
 }

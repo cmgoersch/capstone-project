@@ -10,6 +10,6 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: Arial;
-background: linear-gradient(63deg, rgba(38,128,255,1) 13%, rgba(0,13,242,1) 58%);
+background: linear-gradient(10deg, rgba(29,113,184,1) 14%, rgba(45,46,131,1) 66%);
   }
 `;
