@@ -8,7 +8,8 @@ export default createGlobalStyle`
   }
 
   body {
-    margin: 2rem;
-    font-family: system-ui;
+    margin: 0;
+    font-family: Arial;
+background: linear-gradient(10deg, rgba(29,113,184,1) 14%, rgba(45,46,131,1) 66%);
   }
 `;
