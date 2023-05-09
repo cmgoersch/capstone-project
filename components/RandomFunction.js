@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { StyledRandomButton } from "./Button/RandomButton.styled";
 import Image from "next/image";
 
 function RandomFunction({ data }) {
   const [friendIndex, setFriendIndex] = useState(null);
+  const intervalId = useRef(null);
+  const [intervalStopped, setIntervalStopped] = useState(false);
 
-  function handleRandomFriendClick() {
-    const randomIndex = Math.floor(Math.random() * data.length);
-    setFriendIndex(randomIndex);
-  }
+  useEffect(() => {
+    if (intervalId.current === null && !intervalStopped) {
+      intervalId.current = setInterval(() => {
+        const index = Math.floor(Math.random() * data.length);
+        setFriendIndex(index);
+      }, 350);
+    }
+    return () => clearInterval(intervalId);
+  }, [data, intervalId, intervalStopped]);
+
+  const handleRandomFriendClick = () => {
+    clearInterval(intervalId.current);
+    setIntervalStopped(true);
+    const link = `/contacts/${data[friendIndex].id}-${data[friendIndex].nickname}`;
+  };
 
   return (
     <div>
