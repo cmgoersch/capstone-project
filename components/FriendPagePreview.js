@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { StyledButton } from "./Button/Button.styled";
@@ -57,7 +56,6 @@ const StyledNotice = styled.div`
 `;
 
 export default function FriendPagePreview({ friend }) {
-  console.log("friend:", friend);
   return (
     <StyledFriend>
       <StyledNickname>{friend.nickname}</StyledNickname>
@@ -87,6 +85,7 @@ export default function FriendPagePreview({ friend }) {
       </StyledContactList>
       <StyledInfoList>
         <p>Birthday: {friend.birthday}</p>
+        <p>Status: {friend.friendship_status}</p>
         <p>City: {friend.city}</p>
         <p>Hobbies:</p>
         <ul>
