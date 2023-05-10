@@ -23,8 +23,4 @@ export const StyledButton = styled.button`
   &:hover {
     cursor: pointer;
   }
-
-  &:visited {
-    color: white;
-  }
 `;

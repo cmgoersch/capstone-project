@@ -7,7 +7,6 @@ export const StyledRandomButtonClicked = styled.button`
   font-family: ${merriweatherSans.style.fontFamily};
   text-decoration: none;
   display: inline-flex;
-
   align-items: center;
   color: white;
   border: 0.2rem solid lightgreen;
@@ -26,9 +25,5 @@ export const StyledRandomButtonClicked = styled.button`
 
   &:hover {
     cursor: pointer;
-  }
-
-  &:visited {
-    color: white;
   }
 `;

@@ -25,8 +25,4 @@ export const StyledRandomButton = styled.button`
   &:hover {
     cursor: pointer;
   }
-
-  &:visited {
-    color: white;
-  }
 `;
