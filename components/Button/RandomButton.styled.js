@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import { Merriweather_Sans } from "next/font/google";
-
-const merriweatherSans = Merriweather_Sans({ subsets: ["latin"] });
 
 export const StyledRandomButton = styled.button`
-  font-family: ${merriweatherSans.style.fontFamily};
   display: inline-flex;
   align-items: center;
   color: white;
