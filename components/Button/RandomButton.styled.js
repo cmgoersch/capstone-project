@@ -5,12 +5,10 @@ const merriweatherSans = Merriweather_Sans({ subsets: ["latin"] });
 
 export const StyledRandomButton = styled.button`
   font-family: ${merriweatherSans.style.fontFamily};
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   color: white;
-  border: 0.2rem solid blue;
-  border-color: green;
+  border: 0.2rem solid green;
   background: linear-gradient(
     270deg,
     rgba(0, 150, 64, 1) 13%,

@@ -15,7 +15,7 @@ function RandomFunction({ data }) {
       intervalId.current = setInterval(() => {
         const index = Math.floor(Math.random() * data.length);
         setFriendIndex(index);
-      }, 350);
+      }, 300);
     }
     return () => clearInterval(intervalId);
   }, [data, intervalId, intervalStopped]);
@@ -40,20 +40,20 @@ function RandomFunction({ data }) {
               height={100}
             />
           </div>
-          {intervalStopped === true ? (
-            <div>{data[friendIndex].nickname} </div>
+          {intervalStopped ? (
+            <div>{data[friendIndex].nickname}</div>
           ) : (
             <div>Who is next?</div>
           )}
         </StyledCleanLink>
       )}
-      {intervalStopped === true ? (
+      {intervalStopped ? (
         <StyledCleanLink
           href={`/contacts/${data[friendIndex].id}-${data[friendIndex].nickname}`}
         >
           <StyledRandomButtonClicked>
             <div>
-              <h1>Get in touch!</h1>
+              <h1>Get in touch</h1>
               <a>Your winner is {data[friendIndex].nickname}! </a>
             </div>
           </StyledRandomButtonClicked>

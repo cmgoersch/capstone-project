@@ -10,8 +10,7 @@ export const StyledRandomButtonClicked = styled.button`
 
   align-items: center;
   color: white;
-  border: 0.2rem solid blue;
-  border-color: lightgreen;
+  border: 0.2rem solid lightgreen;
   background: linear-gradient(
     270deg,
     rgba(0, 150, 64, 1) 13%,

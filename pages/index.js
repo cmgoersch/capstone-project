@@ -2,7 +2,6 @@ import data from "@/data.json";
 import RandomFunction from "@/components/RandomFunction";
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
-import { StyledCleanLink } from "@/components/Link/CleanLink.Styled";
 
 import styled from "styled-components";
 
