@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { StyledRandomButton } from "./Button/RandomButton.styled";
 import Image from "next/image";
+import { StyledCleanLink } from "@/components/Link/CleanLink.Styled";
 
 function RandomFunction({ data }) {
   const [friendIndex, setFriendIndex] = useState(null);
@@ -27,7 +28,7 @@ function RandomFunction({ data }) {
   return (
     <div>
       {friendIndex !== null && (
-        <Link
+        <StyledCleanLink
           href={`/contacts/${data[friendIndex].id}-${data[friendIndex].nickname}`}
         >
           <div>
@@ -38,8 +39,12 @@ function RandomFunction({ data }) {
               height={100}
             />
           </div>
-          <div>{data[friendIndex].nickname}</div>
-        </Link>
+          {intervalStopped === true ? (
+            <div>{data[friendIndex].nickname} </div>
+          ) : (
+            <div>Who is next?</div>
+          )}
+        </StyledCleanLink>
       )}
       <StyledRandomButton onClick={handleRandomFriendClick}>
         <div>

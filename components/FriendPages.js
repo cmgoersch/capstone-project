@@ -2,6 +2,7 @@ import data from "@/data.json";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import { StyledCleanLink } from "./Link/CleanLink.Styled";
 
 const StyledFriendBox = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ export default function FriendPages() {
     <StyledFriendBox>
       {data.map((friend) => (
         <div key={friend.id}>
-          <Link href={`contacts/${friend.id}-${friend.nickname}`}>
+          <StyledCleanLink href={`contacts/${friend.id}-${friend.nickname}`}>
             <div>
               <Image
                 src={friend.profileIconSource}
@@ -44,7 +45,7 @@ export default function FriendPages() {
             <StyledName>
               {friend.first_name} {friend.last_name}
             </StyledName>
-          </Link>
+          </StyledCleanLink>
         </div>
       ))}
     </StyledFriendBox>
