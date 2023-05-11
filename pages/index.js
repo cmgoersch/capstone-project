@@ -22,7 +22,7 @@ const StyledIndex = styled.div`
 `;
 export default function HomePage() {
   return (
-    <div>
+    <>
       <StyledIndex>
         <Header />
         <StyledTitleText>
@@ -36,6 +36,6 @@ export default function HomePage() {
         {" "}
         All <br /> friends
       </StyledLink>
-    </div>
+    </>
   );
 }

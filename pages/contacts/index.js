@@ -19,7 +19,10 @@ export default function Contacts() {
       <StyledTitleText>Your circle of friends</StyledTitleText>
       <FriendPages />
       <StyledLink href={`/`}>back</StyledLink>
-      <StyledLink href={`/addContact`}>Add new Contact</StyledLink>
+      <StyledLink href={`/addContact`}>
+        Add new <br />
+        Contact
+      </StyledLink>
     </>
   );
 }

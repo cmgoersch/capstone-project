@@ -31,7 +31,7 @@ export default function FriendsCounter({ data }) {
     <StyledfriendsCounter>
       <StyledCountertext>you have </StyledCountertext>
       <StyledNumber>{friendsLength}</StyledNumber>
-      <StyledCountertext> Friends</StyledCountertext>
+      <StyledCountertext> friends</StyledCountertext>
     </StyledfriendsCounter>
   );
 }
