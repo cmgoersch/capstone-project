@@ -22,7 +22,6 @@ function RandomFunction({ data }) {
   const handleRandomFriendClick = () => {
     clearInterval(intervalId.current);
     setIntervalStopped(true);
-    const link = `/contacts/${data[friendIndex].id}-${data[friendIndex].nickname}`;
   };
 
   return (
@@ -35,8 +34,8 @@ function RandomFunction({ data }) {
             <Image
               src={data[friendIndex].profileIconSource}
               alt={data[friendIndex].nickname}
-              width={100}
-              height={100}
+              width={95}
+              height={95}
             />
           </div>
           {intervalStopped ? (

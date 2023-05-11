@@ -10,15 +10,56 @@
     "friendship_status": "Friend",
     "hobbies": ["e-scooter", "skateboarding", "inline skates"],
     "city": "Hamburg",
-    "contactOptions": {
-      "phoneNumber": "+49 171 13 12 12",
-      "signal": "+49 171 13 12 12",
-      "telegram": "@rudiroller1312",
-      "mail": "rolli@gmx.de",
-      "instagram": "rudiroller1990",
-      "twitter": "@rollerrudi1312",
-      "linkedIn": "Rudolf Rollschuh"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+49 171 13 12 12",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "Landline",
+        "name": "Landline",
+        "number": "+49 171 13 12 12",
+        "iconSource": "/contact/landline.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+49 171 13 12 12",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@rudiroller1312",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "rolli@gmx.de",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "rudiroller1990",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@rollerrudi1312",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Rudolf Rollschuh",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "2",
@@ -31,15 +72,50 @@
     "friendship_status": "Friend",
     "hobbies": ["motorcycling", "painting", "reading"],
     "city": "Berlin",
-    "contactOptions": {
-      "phoneNumber": "+49 171 22 33 44",
-      "signal": "+49 171 22 33 44",
-      "telegram": "@marta_mofa",
-      "mail": "marta.mofa@gmail.com",
-      "instagram": "marta_mofa",
-      "twitter": "@marta_mofa",
-      "linkedIn": "Marta Mofa"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+49 171 22 33 44",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+49 171 22 33 44",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@marta_mofa",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "marta.mofa@gmail.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "marta_mofa",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@marta_mofa",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Marta Mofa",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "3",
@@ -52,15 +128,56 @@
     "friendship_status": "Friend",
     "hobbies": ["swimming", "hiking", "photography"],
     "city": "Munich",
-    "contactOptions": {
-      "phoneNumber": "+49 171 55 66 77",
-      "signal": "+49 171 55 66 77",
-      "telegram": "@paula_pinguin",
-      "mail": "paula_pinguin@yahoo.com",
-      "instagram": "paula_pinguin",
-      "twitter": "@pinguin_paula",
-      "linkedIn": "Paula Pinguin"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+49 171 55 66 77",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "landline",
+        "name": "Landline",
+        "number": "+49 171 55 66 77",
+        "iconSource": "/contact/landline.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+49 171 55 66 77",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@paula_pinguin",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "paula_pinguin@yahoo.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "paula_pinguin",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@pinguin_paula",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Paula Pinguin",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "4",
@@ -73,15 +190,50 @@
     "friendship_status": "Friend",
     "hobbies": ["football", "music", "cooking"],
     "city": "Vienna",
-    "contactOptions": {
-      "phoneNumber": "+43 676 77 88 99",
-      "signal": "+43 676 77 88 99",
-      "telegram": "@franz_fuchs",
-      "mail": "franz_fuchs@hotmail.com",
-      "instagram": "franz_fuchs",
-      "twitter": "@fuchs_franz",
-      "linkedIn": "Franz Fuchs"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+43 676 77 88 99",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+43 676 77 88 99",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@franz_fuchs",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "franz_fuchs@hotmail.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "franz_fuchs",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@fuchs_franz",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Franz Fuchs",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "5",
@@ -94,15 +246,56 @@
     "friendship_status": "Friend",
     "hobbies": ["moderation", "music", "cooking"],
     "city": "Vienna",
-    "contactOptions": {
-      "phoneNumber": "+43 676 77 54 99",
-      "signal": "+43 676 77 54 99",
-      "telegram": "@gundel_gausemaus",
-      "mail": "gundelgause@hotmail.com",
-      "instagram": "gundel_gausemaus",
-      "twitter": "@gundel_gausemaus",
-      "linkedIn": "Gundula Gause"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+43 676 77 54 99",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "landline",
+        "name": "Landline",
+        "number": "+43 676 77 54 99",
+        "iconSource": "/contact/landline.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+43 676 77 54 99",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@gundel_gausemaus",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "gundelgause@hotmail.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "gundel_gausemaus",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@gundel_gausemaus",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Gundula Gause",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "6",
@@ -115,15 +308,50 @@
     "friendship_status": "Friend",
     "hobbies": ["golf", "fishing", "cooking"],
     "city": "London",
-    "contactOptions": {
-      "phoneNumber": "+44 7555 444 333",
-      "signal": "+44 7555 444 333",
-      "telegram": "@tom_tiger",
-      "mail": "tomtiger@gmail.com",
-      "instagram": "tom_tiger",
-      "twitter": "@tiger_tom",
-      "linkedIn": "Tom Tiger"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+44 7555 444 333",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+44 7555 444 333",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@tom_tiger",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "tomtiger@gmail.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "tom_tiger",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@tiger_tom",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Tom Tiger",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "7",
@@ -136,15 +364,50 @@
     "friendship_status": "Friend",
     "hobbies": ["dancing", "piano", "reading"],
     "city": "Berlin",
-    "contactOptions": {
-      "phoneNumber": "+49 151 11 22 33",
-      "signal": "+49 151 11 22 33",
-      "telegram": "@sophie_schlange",
-      "mail": "sophie.schlange@yahoo.com",
-      "instagram": "sophie_schlange",
-      "twitter": "@schlange_sophie",
-      "linkedIn": "Sophie Schlange"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+49 151 11 22 33",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+49 151 11 22 33",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@sophie_schlange",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "sophie.schlange@yahoo.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "sophie_schlange",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@schlange_sophie",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Sophie Schlange",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "8",
@@ -157,15 +420,50 @@
     "friendship_status": "Friend",
     "hobbies": ["running", "guitar", "cooking"],
     "city": "Frankfurt",
-    "contactOptions": {
-      "phoneNumber": "+49 171 99 88 77",
-      "signal": "+49 171 99 88 77",
-      "telegram": "@max_mustermann",
-      "mail": "max.mustermann@gmail.com",
-      "instagram": "max_mustermann",
-      "twitter": "@mustermann_max",
-      "linkedIn": "Max Mustermann"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+49 171 99 88 77",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+49 171 99 88 77",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@max_mustermann",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "max.mustermann@gmail.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "max_mustermann",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@mustermann_max",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Max Mustermann",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "9",
@@ -178,15 +476,50 @@
     "friendship_status": "Friend",
     "hobbies": ["football", "gaming", "music"],
     "city": "Munich",
-    "contactOptions": {
-      "phoneNumber": "+49 176 12 34 56 78",
-      "signal": "+49 176 12 34 56 78",
-      "telegram": "@franzgans",
-      "mail": "franz.gans@gmail.com",
-      "instagram": "franzi_gans",
-      "twitter": "@gans_franz",
-      "linkedIn": "Franz Gans"
-    }
+    "contactOptions": [
+      {
+        "type": "mobile",
+        "name": "Mobile",
+        "number": "+49 176 12 34 56 78",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+49 176 12 34 56 78",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@franzgans",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "franz.gans@gmail.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "franzi_gans",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@gans_franz",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Franz Gans",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   },
   {
     "id": "10",
@@ -199,14 +532,49 @@
     "friendship_status": "Acquaintance",
     "hobbies": ["cooking", "gardening", "yoga"],
     "city": "Berlin",
-    "contactOptions": {
-      "phoneNumber": "+49 160 12 34 56 78",
-      "signal": "+49 160 12 34 56 78",
-      "telegram": "@bigzahnschmelz",
-      "mail": "biggi.zahnschmelz@yahoo.com",
-      "instagram": "bigzahnschmelz",
-      "twitter": "@bigz_95",
-      "linkedIn": "Biggi Zahnschmelz"
-    }
+    "contactOptions": [
+      {
+        "type": "Mobile",
+        "name": "Mobile",
+        "number": "+49 160 12 34 56 78",
+        "iconSource": "/contact/mobile.png"
+      },
+      {
+        "type": "signal",
+        "name": "Signal",
+        "number": "+49 160 12 34 56 78",
+        "iconSource": "/contact/signal.png"
+      },
+      {
+        "type": "telegram",
+        "name": "Telegram",
+        "address": "@bigzahnschmelz",
+        "iconSource": "/contact/telegram.png"
+      },
+      {
+        "type": "mail",
+        "name": "Mail",
+        "address": "biggi.zahnschmelz@yahoo.com",
+        "iconSource": "/contact/mail.png"
+      },
+      {
+        "type": "instagram",
+        "name": "Instagram",
+        "address": "bigzahnschmelz",
+        "iconSource": "/contact/instagram.png"
+      },
+      {
+        "type": "twitter",
+        "name": "Twitter",
+        "address": "@bigz_95",
+        "iconSource": "/contact/twitter.png"
+      },
+      {
+        "type": "linkedIn",
+        "name": "linkedIn",
+        "address": "Biggi Zahnschmelz",
+        "iconSource": "/contact/linkedIn.png"
+      }
+    ]
   }
 ]

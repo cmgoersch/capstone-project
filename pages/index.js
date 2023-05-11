@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
 
 import styled from "styled-components";
+import FriendsCounter from "@/components/FriendsCounter";
 
 const StyledTitleText = styled.h1`
   color: white;
@@ -30,7 +31,11 @@ export default function HomePage() {
         </StyledTitleText>
         <RandomFunction data={data} />
       </StyledIndex>
-      <StyledLink href={`/contacts`}> Contacts</StyledLink>
+      <FriendsCounter data={data} />
+      <StyledLink href={`/contacts`}>
+        {" "}
+        All <br /> friends
+      </StyledLink>
     </div>
   );
 }

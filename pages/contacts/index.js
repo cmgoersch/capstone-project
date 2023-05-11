@@ -1,6 +1,6 @@
 import FriendPages from "@/components/FriendPages";
 import Header from "@/components/Header";
-import FriendPagePreview from "@/components/FriendPagePreview";
+
 import Link from "next/link";
 import styled from "styled-components";
 import { StyledLink } from "@/components/Link/Link.Styled";
@@ -19,6 +19,7 @@ export default function Contacts() {
       <StyledTitleText>Your circle of friends</StyledTitleText>
       <FriendPages />
       <StyledLink href={`/`}>back</StyledLink>
+      <StyledLink href={`/addContact`}>Add new Contact</StyledLink>
     </>
   );
 }
