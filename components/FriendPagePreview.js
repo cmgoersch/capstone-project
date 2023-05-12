@@ -135,11 +135,8 @@ export default function FriendPagePreview({ friend }) {
                 <list key={options.name}>
                   <li href={options.number}>
                     {options.name}
-                    <p></p>
+                    <p> : </p>
                     {options.number || options.address}
-
-                    {/* : <br />
-            {value} */}
                   </li>
                 </list>
               ))}
