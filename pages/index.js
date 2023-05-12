@@ -2,7 +2,7 @@ import data from "@/data.json";
 import RandomFunction from "@/components/RandomFunction";
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
-
+import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import FriendsCounter from "@/components/FriendsCounter";
 
@@ -31,11 +31,14 @@ export default function HomePage() {
         </StyledTitleText>
         <RandomFunction data={data} />
       </StyledIndex>
+
       <FriendsCounter data={data} />
-      <StyledLink href={`/contacts`}>
-        {" "}
-        All <br /> friends
-      </StyledLink>
+      <StyledFooter>
+        <StyledLink href={`/contacts`}>
+          {" "}
+          All <br /> friends
+        </StyledLink>
+      </StyledFooter>
     </>
   );
 }

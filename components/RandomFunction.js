@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { StyledRandomButton } from "./Button/RandomButton.styled";
 import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.styled";
-import Image from "next/image";
 import { StyledCleanLink } from "@/components/Link/CleanLink.Styled";
+import Image from "next/image";
 
 function RandomFunction({ data }) {
   const [friendIndex, setFriendIndex] = useState(null);
@@ -60,7 +60,7 @@ function RandomFunction({ data }) {
         <StyledRandomButton onClick={handleRandomFriendClick}>
           <div>
             <h1> Be a friend! </h1>
-            <p>Push the Button!</p>
+            <p>Push the button!</p>
           </div>
         </StyledRandomButton>
       )}

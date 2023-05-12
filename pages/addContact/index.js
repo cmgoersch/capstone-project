@@ -1,4 +1,6 @@
 import Header from "@/components/Header";
+import { StyledLink } from "@/components/Link/Link.Styled";
+import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import NewContactForm from "@/components/Form/NewContactForm";
 
@@ -21,11 +23,11 @@ export default function AddContact() {
   return (
     <StyledAddContent>
       <Header />
-      <StyledTitleText>
-        Friendships want to be cultivated! Everyone is happy if you just get in
-        touch. Who may be happy to hear you today?
-      </StyledTitleText>
+      <StyledTitleText>Add new friend</StyledTitleText>
       <NewContactForm />
+      <StyledFooter>
+        <StyledLink href={`/contacts`}>back</StyledLink>
+      </StyledFooter>
     </StyledAddContent>
   );
 }
