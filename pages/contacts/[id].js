@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import FriendsPagePreview from "@/components/FriendPagePreview";
-import Link from "next/link";
-import data from "@/data.json";
+import useLocalStorageState from "use-local-storage-state";
 import styled from "styled-components";
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
@@ -15,6 +14,7 @@ const StyledTitleText = styled.h1`
 `;
 
 export default function Details() {
+  const [data, setData] = useLocalStorageState("friendsApp");
   const router = useRouter();
   const { id } = router.query;
   console.log("ID:", id);
@@ -23,7 +23,8 @@ export default function Details() {
     return null;
   }
   const idPath = id.split("-");
-  const friend = data.find((element) => element.id === idPath[0]);
+  const friend = data.find((element) => element.id == idPath[0]);
+  console.log(friend, data);
   return (
     <>
       <Header />

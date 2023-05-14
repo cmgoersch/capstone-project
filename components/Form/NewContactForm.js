@@ -1,7 +1,10 @@
+import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
 import styled from "styled-components";
 import ProfilePictureSelect from "../Picture/ProfilePictureSelect";
 import { StyledButton } from "../Button/Button.styled";
+import { useRouter } from "next/router";
+
 const StyledNewContactForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -26,7 +29,12 @@ const StyledSelect = styled.select`
 `;
 
 function NewContactForm() {
+  const [data, setData] = useLocalStorageState("friendsApp");
+
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
+    id: Math.floor(Math.random() * 1000000),
     profilePicture: "",
     nickname: "",
     first_name: "",
@@ -35,23 +43,13 @@ function NewContactForm() {
     friendship_status: "",
     hobbies: "",
     city: "",
-    contactOptions: {
-      Mobile: "",
-      Landline: "",
-      Signal: "",
-      Telegram: "",
-      Mail: "",
-      Instagram: "",
-      Twitter: "",
-      LinkedIn: "",
-    },
   });
 
   const handleInputChange = (e, data) => {
     console.log(e);
     const { name, value } = e.currentTarget;
 
-    if (name === "profilePicture") {
+    if (name === "profileIconSource") {
       setFormData((prevFormData) => ({
         ...prevFormData,
         [name]: data,
@@ -77,13 +75,15 @@ function NewContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setData((prevData) => [...prevData, formData]);
+    router.push("/contacts");
   };
 
   return (
     <StyledNewContactForm onSubmit={handleSubmit}>
-      <label htmlFor="profilePicture">Profile Picture:</label>
+      <label htmlFor="profileIconSource">Profile Picture:</label>
       <ProfilePictureSelect
-        selectedPicture={formData.profilePicture}
+        selectedPicture={formData.profileIconSource}
         handlePictureSelect={handleInputChange}
       />
       <h3>Personal Information</h3>
@@ -164,7 +164,7 @@ function NewContactForm() {
         value={formData.city}
         onChange={handleInputChange}
       />
-
+      {/* 
       <h3>Contact Options:</h3>
       <label htmlFor="Mobile">Mobile:</label>
       <StyledInput
@@ -244,7 +244,7 @@ function NewContactForm() {
         placeholder="Insert LinkedIn"
         value={formData.contactOptions.LinkedIn}
         onChange={handleContactOptionChange}
-      />
+      /> */}
       <div>
         <StyledButton type="submit">Save new Conact</StyledButton>
       </div>

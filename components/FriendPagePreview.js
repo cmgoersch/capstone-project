@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { StyledButton } from "./Button/Button.styled";
+import { StyledButton } from "@/components/Button/Button.styled";
 import { StyledList } from "./List/List.styled";
 import { useState } from "react";
 
@@ -91,16 +91,17 @@ export default function FriendPagePreview({ friend }) {
       {/* <p>Contact:</p> */}
 
       <StyledContactList>
-        {friend.contactOptions.map((options) => (
-          <StyledList key={options.name}>
-            <StyledButton href={options.number}>
-              {options.name}
+        {friend.contactOptions &&
+          friend.contactOptions.map((options) => (
+            <StyledList key={options.name}>
+              <StyledButton href={options.number}>
+                {options.name}
 
-              {/* : <br />
+                {/* : <br />
               {value} */}
-            </StyledButton>
-          </StyledList>
-        ))}
+              </StyledButton>
+            </StyledList>
+          ))}
       </StyledContactList>
       <StyledInfoList>
         <p>
@@ -114,11 +115,12 @@ export default function FriendPagePreview({ friend }) {
         </p>
         <p>Hobbies:</p>
         <ul>
-          {friend.hobbies.map((hobbie, index) => (
-            <li key={index}>
-              <b>{hobbie}</b>
-            </li>
-          ))}
+          {friend.hobbies &&
+            friend.hobbies.map((hobbie, index) => (
+              <li key={index}>
+                <b>{hobbie}</b>
+              </li>
+            ))}
         </ul>
       </StyledInfoList>
       <StyledNotice>

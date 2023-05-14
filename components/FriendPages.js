@@ -1,4 +1,5 @@
-import data from "@/data.json";
+import useLocalStorageState from "use-local-storage-state";
+import defaultData from "@/data.json";
 import Image from "next/image";
 import styled from "styled-components";
 import { StyledCleanLink } from "./Link/CleanLink.Styled";
@@ -27,6 +28,9 @@ const StyledName = styled.p`
 `;
 
 export default function FriendPages() {
+  const [data, setData] = useLocalStorageState("friendsApp", {
+    defaultValue: defaultData,
+  });
   return (
     <StyledFriendBox>
       {data.map((friend) => (

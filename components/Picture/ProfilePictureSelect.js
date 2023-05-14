@@ -80,7 +80,7 @@ const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
             width={200}
             height={200}
           />
-          <button name="profilePicture" onClick={handlePictureSelect}>
+          <button name="profileIconSource" onClick={handlePictureSelect}>
             Remove
           </button>
         </>
@@ -92,8 +92,8 @@ const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
               <button
                 key={picture.src}
                 type="button"
-                name="profilePicture"
-                onClick={(e) => handlePictureSelect(e, picture)}
+                name="profileIconSource"
+                onClick={(e) => handlePictureSelect(e, picture.src)}
               >
                 <Image
                   src={picture}

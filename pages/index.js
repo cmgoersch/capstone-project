@@ -1,4 +1,5 @@
-import data from "@/data.json";
+import useLocalStorageState from "use-local-storage-state";
+import defaultData from "@/data.json";
 import RandomFunction from "@/components/RandomFunction";
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
@@ -21,6 +22,9 @@ const StyledIndex = styled.div`
   text-align: center;
 `;
 export default function HomePage() {
+  const [data, setData] = useLocalStorageState("friendsApp", {
+    defaultValue: defaultData,
+  });
   return (
     <>
       <StyledIndex>
