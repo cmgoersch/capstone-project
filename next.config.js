@@ -10,7 +10,12 @@ const nextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
-
+    module.exports = {
+      images: {
+        loader: "imgix",
+        path: "",
+      },
+    };
     return config;
   },
 };

@@ -1,6 +1,5 @@
 import data from "@/data.json";
 import Image from "next/image";
-import Link from "next/link";
 import styled from "styled-components";
 import { StyledCleanLink } from "./Link/CleanLink.Styled";
 

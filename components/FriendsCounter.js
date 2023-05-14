@@ -25,7 +25,6 @@ const StyledCountertext = styled.p`
 `;
 
 export default function FriendsCounter({ data }) {
-  const myFriends = [1];
   const friendsLength = getFriendIndex(data);
   return (
     <StyledfriendsCounter>

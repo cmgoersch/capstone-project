@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-
+import ProfilePictureSelect from "../Picture/ProfilePictureSelect";
+import { StyledButton } from "../Button/Button.styled";
 const StyledNewContactForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -26,9 +27,10 @@ const StyledSelect = styled.select`
 
 function NewContactForm() {
   const [formData, setFormData] = useState({
+    profilePicture: "",
+    nickname: "",
     first_name: "",
     last_name: "",
-    nickname: "",
     birthday: "",
     friendship_status: "",
     hobbies: "",
@@ -41,16 +43,25 @@ function NewContactForm() {
       Mail: "",
       Instagram: "",
       Twitter: "",
-      linkedIn: "",
+      LinkedIn: "",
     },
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+  const handleInputChange = (e, data) => {
+    console.log(e);
+    const { name, value } = e.currentTarget;
+
+    if (name === "profilePicture") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: data,
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleContactOptionChange = (e) => {
@@ -66,12 +77,15 @@ function NewContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your logic here to save the new entry to your data array
-    console.log(formData);
   };
 
   return (
     <StyledNewContactForm onSubmit={handleSubmit}>
+      <label htmlFor="profilePicture">Profile Picture:</label>
+      <ProfilePictureSelect
+        selectedPicture={formData.profilePicture}
+        handlePictureSelect={handleInputChange}
+      />
       <h3>Personal Information</h3>
       <label htmlFor="nickname">Nickname:</label>
       <StyledInput
@@ -122,6 +136,9 @@ function NewContactForm() {
         <option value="Gold Friend">Gold Friend</option>
         <option value="Family">Family</option>
         <option value="Sister">Sister</option>
+        <option value="Sister from another mister">
+          Sister from another mister
+        </option>
         <option value="Brother">Brother</option>
         <option value="Brother from an other mother">
           Brother from an other mother
@@ -228,8 +245,9 @@ function NewContactForm() {
         value={formData.contactOptions.LinkedIn}
         onChange={handleContactOptionChange}
       />
-
-      <button type="submit">Submit</button>
+      <div>
+        <StyledButton type="submit">Save new Conact</StyledButton>
+      </div>
     </StyledNewContactForm>
   );
 }
