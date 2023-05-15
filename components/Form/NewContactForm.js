@@ -32,7 +32,7 @@ function NewContactForm() {
   const [data, setData] = useLocalStorageState("friendsApp");
 
   const router = useRouter();
-
+  const numberTypes = ["mobile", "landline", "signal"];
   const [formData, setFormData] = useState({
     id: Math.floor(Math.random() * 1000000),
     profilePicture: "",
@@ -43,6 +43,56 @@ function NewContactForm() {
     friendship_status: "",
     hobbies: "",
     city: "",
+    contactOptions: [
+      {
+        type: "mobile",
+        name: "Mobile",
+        number: "",
+        iconSource: "/contact/mobile.png",
+      },
+      {
+        type: "Landline",
+        name: "Landline",
+        number: "",
+        iconSource: "/contact/landline.png",
+      },
+      {
+        type: "signal",
+        name: "Signal",
+        number: "",
+        iconSource: "/contact/signal.png",
+      },
+      {
+        type: "telegram",
+        name: "Telegram",
+        address: "",
+        iconSource: "/contact/telegram.png",
+      },
+      {
+        type: "mail",
+        name: "Mail",
+        address: "",
+        iconSource: "/contact/mail.png",
+      },
+      {
+        type: "instagram",
+        name: "Instagram",
+        address: "",
+        iconSource: "/contact/instagram.png",
+      },
+      {
+        type: "twitter",
+        name: "Twitter",
+        address: "",
+        iconSource: "/contact/twitter.png",
+      },
+      {
+        type: "linkedIn",
+        name: "linkedIn",
+        address: "",
+        iconSource: "/contact/linkedIn.png",
+      },
+    ],
   });
 
   const handleInputChange = (e, data) => {
@@ -54,6 +104,11 @@ function NewContactForm() {
         ...prevFormData,
         [name]: data,
       }));
+    } else if (name === "hobbies") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value.split(","),
+      }));
     } else {
       setFormData((prevFormData) => ({
         ...prevFormData,
@@ -63,13 +118,20 @@ function NewContactForm() {
   };
 
   const handleContactOptionChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.currentTarget;
+    const { contactOptions } = formData;
+    const index = contactOptions.findIndex(
+      (contactOption) => contactOption.type === name
+    );
+
+    if (numberTypes.includes(contactOptions[index].type)) {
+      contactOptions[index].number = value;
+    } else {
+      contactOptions[index].address = value;
+    }
     setFormData((prevFormData) => ({
       ...prevFormData,
-      contactOptions: {
-        ...prevFormData.contactOptions,
-        [name]: value,
-      },
+      contactOptions,
     }));
   };
 
@@ -151,7 +213,7 @@ function NewContactForm() {
       <StyledInput
         type="text"
         id="hobbies"
-        name="Hobbies"
+        name="hobbies"
         value={formData.hobbies}
         onChange={handleInputChange}
       />
@@ -164,87 +226,32 @@ function NewContactForm() {
         value={formData.city}
         onChange={handleInputChange}
       />
-      {/* 
+
       <h3>Contact Options:</h3>
-      <label htmlFor="Mobile">Mobile:</label>
-      <StyledInput
-        type="number"
-        id="Mobile"
-        name="Mobile"
-        placeholder="Insert Mobile Number"
-        value={formData.contactOptions.Mobile}
-        onChange={handleContactOptionChange}
-      />
-
-      <label htmlFor="Landline">Landline:</label>
-      <StyledInput
-        type="text"
-        id="Landline"
-        name="Landline"
-        placeholder="Insert Landline Number"
-        value={formData.contactOptions.Landline}
-        onChange={handleContactOptionChange}
-      />
-
-      <label htmlFor="Signal">Signal:</label>
-      <StyledInput
-        type="text"
-        id="Signal"
-        name="Signal"
-        placeholder="Insert Signal Number"
-        value={formData.contactOptions.Signal}
-        onChange={handleContactOptionChange}
-      />
-
-      <label htmlFor="Telegram">Telegram:</label>
-      <StyledInput
-        type="text"
-        id="Telegram"
-        name="Telegram"
-        placeholder="Insert Telegram Number or Username"
-        value={formData.contactOptions.Telegram}
-        onChange={handleContactOptionChange}
-      />
-
-      <label htmlFor="Mail">Mail:</label>
-      <StyledInput
-        type="Mail"
-        id="Mail"
-        name="Mail"
-        placeholder="Insert Email Address"
-        value={formData.contactOptions.Mail}
-        onChange={handleContactOptionChange}
-      />
-
-      <label htmlFor="Instagram">Instagram:</label>
-      <StyledInput
-        type="Instagram"
-        id="Instagram"
-        name="Instagram"
-        placeholder="Insert Instagram"
-        value={formData.contactOptions.Instagram}
-        onChange={handleContactOptionChange}
-      />
-
-      <label htmlFor="Twitter">Twitter:</label>
-      <StyledInput
-        type="Twitter"
-        id="Twitter"
-        name="Twitter"
-        placeholder="Insert Twitter"
-        value={formData.contactOptions.Twitter}
-        onChange={handleContactOptionChange}
-      />
-
-      <label htmlFor="LinkedIn">LinkedIn:</label>
-      <StyledInput
-        type="LinkedIn"
-        id="LinkedIn"
-        name="LinkedIn"
-        placeholder="Insert LinkedIn"
-        value={formData.contactOptions.LinkedIn}
-        onChange={handleContactOptionChange}
-      /> */}
+      {formData.contactOptions.map((contactOption) => (
+        <>
+          <label htmlFor={contactOption.type}>{contactOption.name}</label>
+          {numberTypes.includes(contactOption.type) ? (
+            <StyledInput
+              type={contactOption.type}
+              id={contactOption.type}
+              name={contactOption.type}
+              placeholder="Insert ${contactOption.name} Number"
+              value={contactOption.number}
+              onChange={handleContactOptionChange}
+            />
+          ) : (
+            <StyledInput
+              type={contactOption.type}
+              id={contactOption.type}
+              name={contactOption.type}
+              placeholder="Insert {contactOption.name} Address"
+              value={contactOption.address}
+              onChange={handleContactOptionChange}
+            />
+          )}
+        </>
+      ))}
       <div>
         <StyledButton type="submit">Save new Conact</StyledButton>
       </div>
