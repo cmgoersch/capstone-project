@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
 import styled from "styled-components";
@@ -96,7 +97,6 @@ function NewContactForm() {
   });
 
   const handleInputChange = (e, data) => {
-    console.log(e);
     const { name, value } = e.currentTarget;
 
     if (name === "profileIconSource") {
@@ -137,6 +137,10 @@ function NewContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.profileIconSource) {
+      alert("Please select a profile picture");
+      return;
+    }
     setData((prevData) => [...prevData, formData]);
     router.push("/contacts");
   };
@@ -156,6 +160,7 @@ function NewContactForm() {
         name="nickname"
         value={formData.nickname}
         onChange={handleInputChange}
+        required
       />
 
       <label htmlFor="first_name">First Name:</label>
@@ -165,6 +170,7 @@ function NewContactForm() {
         name="first_name"
         value={formData.first_name}
         onChange={handleInputChange}
+        required
       />
 
       <label htmlFor="last_name">Last Name:</label>
@@ -229,14 +235,14 @@ function NewContactForm() {
 
       <h3>Contact Options:</h3>
       {formData.contactOptions.map((contactOption) => (
-        <>
+        <Fragment key={contactOption.type}>
           <label htmlFor={contactOption.type}>{contactOption.name}</label>
           {numberTypes.includes(contactOption.type) ? (
             <StyledInput
               type={contactOption.type}
               id={contactOption.type}
               name={contactOption.type}
-              placeholder="Insert ${contactOption.name} Number"
+              placeholder={`Insert ${contactOption.name} Number`}
               value={contactOption.number}
               onChange={handleContactOptionChange}
             />
@@ -245,12 +251,12 @@ function NewContactForm() {
               type={contactOption.type}
               id={contactOption.type}
               name={contactOption.type}
-              placeholder="Insert {contactOption.name} Address"
+              placeholder={`Insert ${contactOption.name} Address`}
               value={contactOption.address}
               onChange={handleContactOptionChange}
             />
           )}
-        </>
+        </Fragment>
       ))}
       <div>
         <StyledButton type="submit">Save new Conact</StyledButton>
