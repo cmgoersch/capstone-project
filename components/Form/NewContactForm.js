@@ -3,7 +3,7 @@ import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
 import styled from "styled-components";
 import ProfilePictureSelect from "../Picture/ProfilePictureSelect";
-import { StyledButton } from "../Button/Button.styled";
+import { StyledButton } from "../Button/Button.Styled";
 import { useRouter } from "next/router";
 
 const StyledNewContactForm = styled.form`
@@ -15,6 +15,7 @@ const StyledNewContactForm = styled.form`
   padding: 1rem;
   text-align: left;
   color: white;
+
   width: 375px;
 `;
 
