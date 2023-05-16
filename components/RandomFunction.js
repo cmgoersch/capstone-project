@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { StyledRandomButton } from "./Button/1RandomButton.Styled";
-import { StyledRandomButtonClicked } from "./Button/1RandomButtonClicked.Styled";
-import { StyledCleanLink } from "./Link/1CleanLink.Styled";
+import { StyledRandomButton } from "./Button/RandomButton.Styled";
+import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.Styled";
+import { StyledCleanLink } from "./Link/CleanLink.Styled";
 import Image from "next/image";
 
 function RandomFunction({ data }) {

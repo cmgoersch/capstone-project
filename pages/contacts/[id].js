@@ -3,7 +3,7 @@ import FriendsPagePreview from "@/components/FriendPagePreview";
 import useLocalStorageState from "use-local-storage-state";
 import styled from "styled-components";
 import Header from "@/components/Header";
-import { StyledLink } from "@/components/Link/1Link.Styled";
+import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 
 const StyledTitleText = styled.h1`
