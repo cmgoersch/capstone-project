@@ -17,14 +17,11 @@ export default function Details() {
   const [data, setData] = useLocalStorageState("friendsApp");
   const router = useRouter();
   const { id } = router.query;
-  console.log("ID:", id);
-
   if (!id) {
     return null;
   }
   const idPath = id.split("-");
   const friend = data.find((element) => element.id == idPath[0]);
-  console.log(friend, data);
   return (
     <>
       <Header />

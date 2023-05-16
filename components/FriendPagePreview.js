@@ -1,8 +1,18 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { StyledButton } from "@/components/Button/Button.styled";
+import { StyledButton } from "./Button/Button.styled";
 import { StyledList } from "./List/List.styled";
 import { useState } from "react";
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledWidth = styled.div`
+  max-width: 375px;
+`;
 
 const StyledFriend = styled.div`
   display: flex;
@@ -75,75 +85,81 @@ export default function FriendPagePreview({ friend }) {
   };
 
   return (
-    <StyledFriend>
-      <StyledNickname>{friend.nickname}</StyledNickname>
-      <StyledName>
-        {friend.first_name} {friend.last_name}
-      </StyledName>
-      <div>
-        <Image
-          src={friend.profileIconSource}
-          alt={friend.nickname}
-          width={180}
-          height={180}
-        />
-      </div>
-      {/* <p>Contact:</p> */}
+    <>
+      <StyledDiv>
+        <StyledWidth>
+          <StyledFriend>
+            <StyledNickname>{friend.nickname}</StyledNickname>
+            <StyledName>
+              {friend.first_name} {friend.last_name}
+            </StyledName>
+            <div>
+              <Image
+                src={friend.profileIconSource}
+                alt={friend.nickname}
+                width={180}
+                height={180}
+              />
+            </div>
 
-      <StyledContactList>
-        {friend.contactOptions &&
-          friend.contactOptions.map((options) => (
-            <StyledList key={options.name}>
-              <StyledButton href={options.number}>
-                {options.name}
+            <StyledContactList>
+              {friend.contactOptions &&
+                friend.contactOptions.map((options) => (
+                  <StyledList key={options.name}>
+                    <StyledButton href={options.number}>
+                      {options.name}
 
-                {/* : <br />
+                      {/* : <br />
               {value} */}
-              </StyledButton>
-            </StyledList>
-          ))}
-      </StyledContactList>
-      <StyledInfoList>
-        <p>
-          Birthday: <b>{friend.birthday}</b>
-        </p>
-        <p>
-          Status: <b>{friend.friendship_status}</b>
-        </p>
-        <p>
-          City: <b>{friend.city}</b>
-        </p>
-        <p>Hobbies:</p>
-        <ul>
-          {friend.hobbies &&
-            friend.hobbies.map((hobbie, index) => (
-              <li key={index}>
-                <b>{hobbie}</b>
-              </li>
-            ))}
-        </ul>
-      </StyledInfoList>
-      <StyledNotice>
-        <p>Your Notice:</p>
-      </StyledNotice>
-      <StyledButtonContact onClick={handleClick}>
-        <div>
-          <p>Contact Options </p>
-        </div>
-        {value && (
-          <div>
-            <ul>
-              {friend.contactOptions.map((options) => (
-                <list key={options.name}>
-                  <li href={options.number}>
-                    {options.name} : <b>{options.number || options.address}</b>
-                  </li>
-                </list>
-              ))}
-            </ul>
-          </div>
-        )}
-      </StyledButtonContact>
-    </StyledFriend>
+                    </StyledButton>
+                  </StyledList>
+                ))}
+            </StyledContactList>
+            <StyledInfoList>
+              <p>
+                Birthday: <b>{friend.birthday}</b>
+              </p>
+              <p>
+                Status: <b>{friend.friendship_status}</b>
+              </p>
+              <p>
+                City: <b>{friend.city}</b>
+              </p>
+              <p>Hobbies:</p>
+              <ul>
+                {friend.hobbies &&
+                  friend.hobbies.map((hobbie, index) => (
+                    <li key={index}>
+                      <b>{hobbie}</b>
+                    </li>
+                  ))}
+              </ul>
+            </StyledInfoList>
+            <StyledNotice>
+              <p>Your Notice:</p>
+            </StyledNotice>
+            <StyledButtonContact onClick={handleClick}>
+              <div>
+                <p>Contact Options </p>
+              </div>
+              {value && (
+                <div>
+                  <ul>
+                    {friend.contactOptions.map((options) => (
+                      <list key={options.name}>
+                        <li href={options.number}>
+                          {options.name} :{" "}
+                          <b>{options.number || options.address}</b>
+                        </li>
+                      </list>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </StyledButtonContact>
+          </StyledFriend>
+        </StyledWidth>
+      </StyledDiv>
+    </>
   );
 }

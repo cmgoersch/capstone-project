@@ -87,7 +87,6 @@ const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
     <profilePictureSelect>
       {selectedPicture ? (
         <ProfilePictureSelectContainer>
-          {" "}
           <h4>Chosen profile picture:</h4>
           <Image
             src={selectedPicture}
@@ -96,7 +95,7 @@ const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
             height={200}
           />
           <StyledButton name="profileIconSource" onClick={handlePictureSelect}>
-            Remove
+            Change <br /> Icon
           </StyledButton>
         </ProfilePictureSelectContainer>
       ) : (
