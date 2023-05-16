@@ -136,9 +136,7 @@ export default function FriendPagePreview({ friend }) {
               {friend.contactOptions.map((options) => (
                 <list key={options.name}>
                   <li href={options.number}>
-                    {options.name}
-                    <p> : </p>
-                    {options.number || options.address}
+                    {options.name} : <b>{options.number || options.address}</b>
                   </li>
                 </list>
               ))}

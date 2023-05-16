@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { StyledButton } from "../Button/Button.styled";
 
 import Image from "next/image";
 
@@ -37,6 +38,20 @@ const ProfilePictureContainer = styled.div`
   margin-bottom: 10px;
 `;
 
+const ProfilePictureSelectContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const IconButtonStyled = styled.button`
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+`;
+
 const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
   const profilePictures = [
     m1,
@@ -71,7 +86,7 @@ const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
   return (
     <profilePictureSelect>
       {selectedPicture ? (
-        <>
+        <ProfilePictureSelectContainer>
           {" "}
           <h4>Chosen profile picture:</h4>
           <Image
@@ -80,16 +95,16 @@ const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
             width={200}
             height={200}
           />
-          <button name="profileIconSource" onClick={handlePictureSelect}>
+          <StyledButton name="profileIconSource" onClick={handlePictureSelect}>
             Remove
-          </button>
-        </>
+          </StyledButton>
+        </ProfilePictureSelectContainer>
       ) : (
         <>
           <h3>Set profile picture:</h3>
           <ProfilePictureContainer>
             {profilePictures.map((picture) => (
-              <button
+              <IconButtonStyled
                 key={picture.src}
                 type="button"
                 name="profileIconSource"
@@ -98,10 +113,10 @@ const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
                 <Image
                   src={picture}
                   alt="Profile picture"
-                  width={30}
-                  height={30}
+                  width={40}
+                  height={40}
                 />
-              </button>
+              </IconButtonStyled>
             ))}
           </ProfilePictureContainer>
         </>
