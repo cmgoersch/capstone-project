@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import Link from "next/link";
 import styled from "styled-components";
-import { StyledLink } from "@/components/Link/Link.Styled";
+import { StyledLink } from "@/components/Link/1Link.Styled";
 
 const StyledTitleText = styled.h1`
   color: white;

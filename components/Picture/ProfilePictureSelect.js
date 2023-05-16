@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledButton } from "../Button/Button.Styled";
+import { StyledButton } from "../Button/1Button.Styled";
 
 import Image from "next/image";
 

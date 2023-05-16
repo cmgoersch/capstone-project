@@ -2,7 +2,7 @@ import useLocalStorageState from "use-local-storage-state";
 import defaultData from "@/data.json";
 import Image from "next/image";
 import styled from "styled-components";
-import { StyledCleanLink } from "./Link/CleanLink.Styled";
+import { StyledCleanLink } from "./Link/1CleanLink.Styled";
 
 const StyledDiv = styled.div`
   display: flex;
