@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { StyledButton } from "./Button/Button.Styled";
-import { StyledList } from "./List/1List.Styled";
+import { StyledList } from "./List/List.Styled";
 import { useState } from "react";
 
 const StyledDiv = styled.div`
