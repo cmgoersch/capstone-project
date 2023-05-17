@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import useLocalStorageState from "use-local-storage-state";
 import { useState } from "react";
 import styled from "styled-components";
 import ProfilePictureSelect from "../Picture/ProfilePictureSelect";
@@ -211,7 +210,9 @@ function NewContactForm({ addContact }) {
           value={formData.friendship_status}
           onChange={handleInputChange}
         >
-          <option value="set Status">Set status</option>
+          <option value="set Status" disabled>
+            Set status
+          </option>
           <option value="Friend">Friend</option>
           <option value="Best Friend">Best Friend</option>
           <option value="Gold Friend">Gold Friend</option>

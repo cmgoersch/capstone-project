@@ -113,9 +113,7 @@ export default function FriendPagePreview({ friend }) {
                         {options.name}
                       </StyledButton>
                     </StyledList>
-                  ) : (
-                    <></>
-                  )
+                  ) : null
                 )}
             </StyledContactList>
 
@@ -159,9 +157,7 @@ export default function FriendPagePreview({ friend }) {
                             <b> {options.number || options.address}</b>
                           </li>
                         </list>
-                      ) : (
-                        <></>
-                      )
+                      ) : null
                     )}
                   </ul>
                 </div>
