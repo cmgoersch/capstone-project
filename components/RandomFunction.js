@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { StyledRandomButton } from "./Button/RandomButton.styled";
-import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.styled";
+import { StyledRandomButton } from "./Button/RandomButton.Styled";
+import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.Styled";
+import { StyledCleanLink } from "./Link/CleanLink.Styled";
 import Image from "next/image";
-import { StyledCleanLink } from "@/components/Link/CleanLink.Styled";
 
 function RandomFunction({ data }) {
   const [friendIndex, setFriendIndex] = useState(null);
@@ -22,7 +22,6 @@ function RandomFunction({ data }) {
   const handleRandomFriendClick = () => {
     clearInterval(intervalId.current);
     setIntervalStopped(true);
-    const link = `/contacts/${data[friendIndex].id}-${data[friendIndex].nickname}`;
   };
 
   return (
@@ -35,8 +34,8 @@ function RandomFunction({ data }) {
             <Image
               src={data[friendIndex].profileIconSource}
               alt={data[friendIndex].nickname}
-              width={100}
-              height={100}
+              width={95}
+              height={95}
             />
           </div>
           {intervalStopped ? (
@@ -61,7 +60,7 @@ function RandomFunction({ data }) {
         <StyledRandomButton onClick={handleRandomFriendClick}>
           <div>
             <h1> Be a friend! </h1>
-            <p>Push the Button!</p>
+            <p>Push the button!</p>
           </div>
         </StyledRandomButton>
       )}

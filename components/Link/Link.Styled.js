@@ -5,6 +5,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  text-align: center;
   color: white;
   border: 0.2rem solid green;
   background: linear-gradient(
@@ -18,7 +19,7 @@ export const StyledLink = styled(Link)`
   aspect-ratio: 1;
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;
-  margin: 1rem;
+  margin: 0.5rem 1rem 1rem 1rem;
 
   &:hover {
     cursor: pointer;
