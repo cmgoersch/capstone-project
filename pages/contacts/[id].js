@@ -28,6 +28,7 @@ export default function Details({ data }) {
       <FriendsPagePreview friend={friend} />
       <StyledFooter>
         <StyledLink href={`/contacts`}>back</StyledLink>
+        <StyledLink href={`/updateContent`}>change data</StyledLink>
       </StyledFooter>
     </>
   );
