@@ -1,12 +1,9 @@
-import useLocalStorageState from "use-local-storage-state";
-import defaultData from "@/data.json";
 import RandomFunction from "@/components/RandomFunction";
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import FriendsCounter from "@/components/FriendsCounter";
-import { Fragment } from "react";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -32,10 +29,10 @@ const StyledIndex = styled.div`
   flex-wrap: wrap;
   text-align: center;
 `;
-export default function HomePage() {
-  const [data, setData] = useLocalStorageState("friendsApp", {
-    defaultValue: defaultData,
-  });
+export default function HomePage({ data }) {
+  if (!data) {
+    return null;
+  }
   return (
     <>
       <Header />

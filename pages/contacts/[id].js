@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import FriendsPagePreview from "@/components/FriendPagePreview";
-import useLocalStorageState from "use-local-storage-state";
 import styled from "styled-components";
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
@@ -13,8 +12,7 @@ const StyledTitleText = styled.h1`
   margin: 1.4rem;
 `;
 
-export default function Details() {
-  const [data, setData] = useLocalStorageState("friendsApp");
+export default function Details({ data }) {
   const router = useRouter();
   const { id } = router.query;
   if (!id) {

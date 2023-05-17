@@ -21,7 +21,7 @@ const StyledTitleText = styled.h1`
   margin: 1.4rem;
 `;
 
-const StyledAddContent = styled.div`
+const StyledAddContact = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,16 +37,16 @@ const StyledNewContactForm = styled.div`
   align-items: center;
 `;
 
-export default function AddContact() {
+export default function AddContact({ addContact }) {
   return (
-    <StyledAddContent>
+    <StyledAddContact>
       <Header />
       <>
         <StyledDiv>
           <StyledWidth>
             <StyledTitleText>Add new friend</StyledTitleText>
             <StyledNewContactForm>
-              <NewContactForm />
+              <NewContactForm addContact={addContact} />
             </StyledNewContactForm>
           </StyledWidth>
         </StyledDiv>
@@ -55,6 +55,6 @@ export default function AddContact() {
       <StyledFooter>
         <StyledLink href={`/contacts`}>back</StyledLink>
       </StyledFooter>
-    </StyledAddContent>
+    </StyledAddContact>
   );
 }

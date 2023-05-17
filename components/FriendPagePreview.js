@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { StyledButton } from "./Button/Button.Styled";
 import { StyledList } from "./List/List.Styled";
 import { useState } from "react";
+import { hasContactOption } from "../lib/helpers";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -12,6 +13,7 @@ const StyledDiv = styled.div`
 
 const StyledWidth = styled.div`
   max-width: 375px;
+  width: 375px;
 `;
 
 const StyledFriend = styled.div`
@@ -104,17 +106,19 @@ export default function FriendPagePreview({ friend }) {
 
             <StyledContactList>
               {friend.contactOptions &&
-                friend.contactOptions.map((options) => (
-                  <StyledList key={options.name}>
-                    <StyledButton href={options.number}>
-                      {options.name}
-
-                      {/* : <br />
-              {value} */}
-                    </StyledButton>
-                  </StyledList>
-                ))}
+                friend.contactOptions.map((options) =>
+                  hasContactOption(options) ? (
+                    <StyledList key={options.name}>
+                      <StyledButton href={options.number}>
+                        {options.name}
+                      </StyledButton>
+                    </StyledList>
+                  ) : (
+                    <></>
+                  )
+                )}
             </StyledContactList>
+
             <StyledInfoList>
               <p>
                 Birthday: <b>{friend.birthday}</b>
@@ -145,14 +149,20 @@ export default function FriendPagePreview({ friend }) {
               {value && (
                 <div>
                   <ul>
-                    {friend.contactOptions.map((options) => (
-                      <list key={options.name}>
-                        <li href={options.number}>
-                          {options.name} :{" "}
-                          <b>{options.number || options.address}</b>
-                        </li>
-                      </list>
-                    ))}
+                    {friend.contactOptions.map((options) =>
+                      hasContactOption(options) ? (
+                        <list key={options.name}>
+                          {" "}
+                          <li href={options.number || options.address}>
+                            {" "}
+                            {options.name}:{" "}
+                            <b> {options.number || options.address}</b>
+                          </li>
+                        </list>
+                      ) : (
+                        <></>
+                      )
+                    )}
                   </ul>
                 </div>
               )}

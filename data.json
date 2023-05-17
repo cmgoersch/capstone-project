@@ -18,7 +18,7 @@
         "iconSource": "/contact/mobile.png"
       },
       {
-        "type": "Landline",
+        "type": "landline",
         "name": "Landline",
         "number": "+49 171 13 12 12",
         "iconSource": "/contact/landline.png"

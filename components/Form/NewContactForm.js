@@ -4,7 +4,18 @@ import { useState } from "react";
 import styled from "styled-components";
 import ProfilePictureSelect from "../Picture/ProfilePictureSelect";
 import { StyledButton } from "../Button/Button.Styled";
+import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
+import {
+  CONTACT_TYPE_LANDLINE,
+  CONTACT_TYPE_MOBILE,
+  CONTACT_TYPE_SIGNAL,
+  CONTACT_TYPE_TELEGRAM,
+  CONTACT_TYPE_MAIL,
+  CONTACT_TYPE_INSTAGRAM,
+  CONTACT_TYPE_TWITTER,
+  CONTACT_TYPE_LINKEDIN,
+} from "@/lib/constants";
 
 const StyledNewContactForm = styled.form`
   display: flex;
@@ -36,13 +47,15 @@ const StyledButtonPosition = styled.div`
   justify-content: center;
 `;
 
-function NewContactForm() {
-  const [data, setData] = useLocalStorageState("friendsApp");
-
+function NewContactForm({ addContact }) {
   const router = useRouter();
-  const numberTypes = ["mobile", "landline", "signal"];
+  const numberTypes = [
+    CONTACT_TYPE_MOBILE,
+    CONTACT_TYPE_LANDLINE,
+    CONTACT_TYPE_SIGNAL,
+  ];
   const [formData, setFormData] = useState({
-    id: Math.floor(Math.random() * 1000000),
+    id: uuidv4().replaceAll("-", ""),
     profilePicture: "",
     nickname: "",
     first_name: "",
@@ -53,58 +66,50 @@ function NewContactForm() {
     city: "",
     contactOptions: [
       {
-        type: "mobile",
-        name: "Mobile:",
+        type: CONTACT_TYPE_MOBILE,
+        name: "Mobile",
         number: "",
-        iconSource: "/contact/mobile.png",
       },
       {
-        type: "Landline",
-        name: "Landline:",
+        type: CONTACT_TYPE_LANDLINE,
+        name: "Landline",
         number: "",
-        iconSource: "/contact/landline.png",
       },
       {
-        type: "signal",
-        name: "Signal:",
+        type: CONTACT_TYPE_SIGNAL,
+        name: "Signal",
         number: "",
-        iconSource: "/contact/signal.png",
       },
       {
-        type: "telegram",
-        name: "Telegram:",
+        type: CONTACT_TYPE_TELEGRAM,
+        name: "Telegram",
         address: "",
-        iconSource: "/contact/telegram.png",
       },
       {
-        type: "mail",
-        name: "Mail:",
+        type: CONTACT_TYPE_MAIL,
+        name: "Mail",
         address: "",
-        iconSource: "/contact/mail.png",
       },
       {
-        type: "instagram",
-        name: "Instagram:",
+        type: CONTACT_TYPE_INSTAGRAM,
+        name: "Instagram",
         address: "",
-        iconSource: "/contact/instagram.png",
       },
       {
-        type: "twitter",
-        name: "Twitter:",
+        type: CONTACT_TYPE_TWITTER,
+        name: "Twitter",
         address: "",
-        iconSource: "/contact/twitter.png",
       },
       {
-        type: "linkedIn",
-        name: "linkedIn:",
+        type: CONTACT_TYPE_LINKEDIN,
+        name: "linkedIn",
         address: "",
-        iconSource: "/contact/linkedIn.png",
       },
     ],
   });
 
-  const handleInputChange = (e, data) => {
-    const { name, value } = e.currentTarget;
+  const handleInputChange = (event, data) => {
+    const { name, value } = event.currentTarget;
 
     if (name === "profileIconSource") {
       setFormData((prevFormData) => ({
@@ -148,7 +153,7 @@ function NewContactForm() {
       alert("Please select a profile picture");
       return;
     }
-    setData((prevData) => [...prevData, formData]);
+    addContact(formData);
     router.push("/contacts");
   };
 
