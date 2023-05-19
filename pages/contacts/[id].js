@@ -25,7 +25,6 @@ export default function Details({ state }) {
 
   // get friend data in object from id
   const friend = state[idPath[0]];
-  console.log("Details", { state, idPath, friend });
 
   return (
     <>

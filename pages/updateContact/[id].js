@@ -47,7 +47,6 @@ export default function UpdateContact({ state, updateContact }) {
 
   const friendId = idPath[0];
   const friend = state[friendId];
-  console.log("friendtest:", friend);
 
   return (
     <StyledContact>

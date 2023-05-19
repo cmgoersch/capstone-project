@@ -12,13 +12,11 @@ export default function App({ Component, pageProps }) {
 
   function addContact(contactId, contactData) {
     setState({ ...state, [contactId]: contactData });
-    console.log("newContact:", { state, [contactId]: contactData });
     router.push("/contacts");
   }
 
   function updateContact(contactId, contactData) {
     setState({ ...state, [contactId]: contactData });
-    console.log("updateContact:", { state, [contactId]: contactData });
     router.push("/contacts");
   }
 
