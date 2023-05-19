@@ -45,7 +45,7 @@ const StyledButtonPosition = styled.div`
   justify-content: center;
 `;
 
-function ContactForm({ onSubmit, friend }) {
+function ContactForm({ onSubmit, friendId, friend }) {
   const numberTypes = [
     CONTACT_TYPE_MOBILE,
     CONTACT_TYPE_LANDLINE,
@@ -98,7 +98,7 @@ function ContactForm({ onSubmit, friend }) {
       alert("Please select a profile picture");
       return;
     }
-    onSubmit(formData);
+    onSubmit(friendId, formData);
   };
 
   return (

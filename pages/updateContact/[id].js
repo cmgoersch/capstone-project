@@ -44,7 +44,9 @@ export default function UpdateContact({ state, updateContact }) {
     return null;
   }
   const idPath = id.split("-");
-  const friend = state[idPath[0]];
+
+  const friendId = idPath[0];
+  const friend = state[friendId];
   console.log("friendtest:", friend);
 
   return (
@@ -55,7 +57,11 @@ export default function UpdateContact({ state, updateContact }) {
           <StyledWidth>
             <StyledTitleText>Update friend data</StyledTitleText>
             <StyledContactForm>
-              <ContactForm onSubmit={updateContact} friend={friend} />
+              <ContactForm
+                onSubmit={updateContact}
+                friendId={friendId}
+                friend={friend}
+              />
             </StyledContactForm>
           </StyledWidth>
         </StyledDiv>

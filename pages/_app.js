@@ -10,13 +10,15 @@ export default function App({ Component, pageProps }) {
   });
   const router = useRouter();
 
-  function addContact(newContact) {
-    setState({ ...state, newContact });
+  function addContact(contactId, contactData) {
+    setState({ ...state, [contactId]: contactData });
+    console.log("newContact:", { state, [contactId]: contactData });
     router.push("/contacts");
   }
 
-  function updateContact(changeContact) {
-    setState({ ...state, changeContact });
+  function updateContact(contactId, contactData) {
+    setState({ ...state, [contactId]: contactData });
+    console.log("updateContact:", { state, [contactId]: contactData });
     router.push("/contacts");
   }
 

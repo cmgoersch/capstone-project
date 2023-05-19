@@ -18,7 +18,6 @@ import UpdateContactForm from "@/components/Form/ContactForm";
 
 function newFriend() {
   return {
-    id: uuidv4().replaceAll("-", ""),
     profilePicture: "",
     nickname: "",
     first_name: "",
@@ -106,6 +105,7 @@ const StyledNewContactForm = styled.div`
 `;
 
 export default function AddContact({ addContact }) {
+  const friendId = uuidv4().replaceAll("-", "");
   return (
     <StyledAddContact>
       <Header />
@@ -114,7 +114,11 @@ export default function AddContact({ addContact }) {
           <StyledWidth>
             <StyledTitleText>Add new friend</StyledTitleText>
             <StyledNewContactForm>
-              <ContactForm onSubmit={addContact} friend={newFriend()} />
+              <ContactForm
+                onSubmit={addContact}
+                friendId={friendId}
+                friend={newFriend()}
+              />
             </StyledNewContactForm>
           </StyledWidth>
         </StyledDiv>
