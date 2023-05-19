@@ -37,20 +37,15 @@ const StyledName = styled.p`
   margin: 6px;
 `;
 
-export default function FriendPages() {
-  const [data, setData] = useLocalStorageState("friendsApp", {
-    defaultValue: defaultData,
-  });
+export default function FriendPages({ friendList }) {
   return (
     <>
       <StyledDiv>
         <StyledWidth>
           <StyledFriendBox>
-            {data.map((friend) => (
-              <div key={friend.id}>
-                <StyledCleanLink
-                  href={`contacts/${friend.id}-${friend.nickname}`}
-                >
+            {Object.entries(friendList).map(([id, friend]) => (
+              <div key={id}>
+                <StyledCleanLink href={`contacts/${id}-${friend.nickname}`}>
                   <div>
                     <Image
                       src={friend.profileIconSource}

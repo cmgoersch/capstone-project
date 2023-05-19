@@ -11,12 +11,12 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   function addContact(newContact) {
-    setState([...state, newContact]);
+    setState({ ...state, newContact });
     router.push("/contacts");
   }
 
   function updateContact(changeContact) {
-    setState([...state, changeContact]);
+    setState({ ...state, changeContact });
     router.push("/contacts");
   }
 

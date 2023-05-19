@@ -19,7 +19,14 @@ export default function Details({ state }) {
     return null;
   }
   const idPath = id.split("-");
-  const friend = state.find((element) => element.id == idPath[0]);
+
+  // find id in list
+  // const friend = state.find((element) => element.id == idPath[0]);
+
+  // get friend data in object from id
+  const friend = state[idPath[0]];
+  console.log("Details", { state, idPath, friend });
+
   return (
     <>
       <Header />

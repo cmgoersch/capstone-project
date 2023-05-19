@@ -44,7 +44,7 @@ export default function UpdateContact({ state, updateContact }) {
     return null;
   }
   const idPath = id.split("-");
-  const friend = state.find((element) => element.id == idPath[0]);
+  const friend = state[idPath[0]];
   console.log("friendtest:", friend);
 
   return (

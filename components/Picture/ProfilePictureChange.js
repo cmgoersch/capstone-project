@@ -84,7 +84,7 @@ const profilePictures = [
 
 const ProfilePictureChange = ({ selectedPicture, handlePictureSelect }) => {
   return (
-    <profilePictureSelect>
+    <>
       {selectedPicture ? (
         <ProfilePictureSelectContainer>
           <h4>Chosen profile picture:</h4>
@@ -120,7 +120,7 @@ const ProfilePictureChange = ({ selectedPicture, handlePictureSelect }) => {
           </ProfilePictureContainer>
         </>
       )}
-    </profilePictureSelect>
+    </>
   );
 };
 
