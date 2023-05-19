@@ -4,7 +4,10 @@ import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.Styled";
 import { StyledCleanLink } from "./Link/CleanLink.Styled";
 import Image from "next/image";
 
-function RandomFunction({ data }) {
+function RandomFunction({ state }) {
+  // TODO: Need to change the component to work with `state`
+  const data = state;
+
   const [friendIndex, setFriendIndex] = useState(null);
   const intervalId = useRef(null);
   const [intervalStopped, setIntervalStopped] = useState(false);

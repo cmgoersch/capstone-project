@@ -12,14 +12,14 @@ const StyledTitleText = styled.h1`
   margin: 1.4rem;
 `;
 
-export default function Details({ data }) {
+export default function Details({ state }) {
   const router = useRouter();
   const { id } = router.query;
   if (!id) {
     return null;
   }
   const idPath = id.split("-");
-  const friend = data.find((element) => element.id == idPath[0]);
+  const friend = state.find((element) => element.id == idPath[0]);
   return (
     <>
       <Header />
@@ -28,7 +28,7 @@ export default function Details({ data }) {
       <FriendsPagePreview friend={friend} />
       <StyledFooter>
         <StyledLink href={`/contacts`}>back</StyledLink>
-        <StyledLink href={`/updateContent`}>change data</StyledLink>
+        <StyledLink href={`/updateContact/${id}`}>change data</StyledLink>
       </StyledFooter>
     </>
   );

@@ -1,7 +1,6 @@
 import FriendPages from "@/components/FriendPages";
 import Header from "@/components/Header";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
-import Link from "next/link";
 import styled from "styled-components";
 import { StyledLink } from "@/components/Link/Link.Styled";
 

@@ -2,7 +2,75 @@ import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
-import NewContactForm from "@/components/Form/NewContactForm";
+import ContactForm from "@/components/Form/ContactForm";
+import { v4 as uuidv4 } from "uuid";
+import {
+  CONTACT_TYPE_LANDLINE,
+  CONTACT_TYPE_MOBILE,
+  CONTACT_TYPE_SIGNAL,
+  CONTACT_TYPE_TELEGRAM,
+  CONTACT_TYPE_MAIL,
+  CONTACT_TYPE_INSTAGRAM,
+  CONTACT_TYPE_TWITTER,
+  CONTACT_TYPE_LINKEDIN,
+} from "@/lib/constants";
+import UpdateContactForm from "@/components/Form/ContactForm";
+
+function newFriend() {
+  return {
+    id: uuidv4().replaceAll("-", ""),
+    profilePicture: "",
+    nickname: "",
+    first_name: "",
+    last_name: "",
+    birthday: "",
+    friendship_status: "",
+    hobbies: "",
+    city: "",
+    contactOptions: [
+      {
+        type: CONTACT_TYPE_MOBILE,
+        name: "Mobile",
+        number: "",
+      },
+      {
+        type: CONTACT_TYPE_LANDLINE,
+        name: "Landline",
+        number: "",
+      },
+      {
+        type: CONTACT_TYPE_SIGNAL,
+        name: "Signal",
+        number: "",
+      },
+      {
+        type: CONTACT_TYPE_TELEGRAM,
+        name: "Telegram",
+        address: "",
+      },
+      {
+        type: CONTACT_TYPE_MAIL,
+        name: "Mail",
+        address: "",
+      },
+      {
+        type: CONTACT_TYPE_INSTAGRAM,
+        name: "Instagram",
+        address: "",
+      },
+      {
+        type: CONTACT_TYPE_TWITTER,
+        name: "Twitter",
+        address: "",
+      },
+      {
+        type: CONTACT_TYPE_LINKEDIN,
+        name: "linkedIn",
+        address: "",
+      },
+    ],
+  };
+}
 
 const StyledDiv = styled.div`
   display: flex;
@@ -46,7 +114,7 @@ export default function AddContact({ addContact }) {
           <StyledWidth>
             <StyledTitleText>Add new friend</StyledTitleText>
             <StyledNewContactForm>
-              <NewContactForm addContact={addContact} />
+              <ContactForm onSubmit={addContact} friend={newFriend()} />
             </StyledNewContactForm>
           </StyledWidth>
         </StyledDiv>

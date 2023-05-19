@@ -1,10 +1,9 @@
 import { Fragment } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import ProfilePictureSelect from "../Picture/ProfilePictureSelect";
+import ProfilePictureChange from "../Picture/ProfilePictureChange";
 import { StyledButton } from "../Button/Button.Styled";
-import { v4 as uuidv4 } from "uuid";
-import { useRouter } from "next/router";
+
 import {
   CONTACT_TYPE_LANDLINE,
   CONTACT_TYPE_MOBILE,
@@ -46,66 +45,13 @@ const StyledButtonPosition = styled.div`
   justify-content: center;
 `;
 
-function UpdateContactForm({ addContact }) {
-  const router = useRouter();
+function ContactForm({ onSubmit, friend }) {
   const numberTypes = [
     CONTACT_TYPE_MOBILE,
     CONTACT_TYPE_LANDLINE,
     CONTACT_TYPE_SIGNAL,
   ];
-  const [formData, setFormData] = useState({
-    id: uuidv4().replaceAll("-", ""),
-    profilePicture: "",
-    nickname: "",
-    first_name: "",
-    last_name: "",
-    birthday: "",
-    friendship_status: "",
-    hobbies: "",
-    city: "",
-    contactOptions: [
-      {
-        type: CONTACT_TYPE_MOBILE,
-        name: "Mobile",
-        number: "",
-      },
-      {
-        type: CONTACT_TYPE_LANDLINE,
-        name: "Landline",
-        number: "",
-      },
-      {
-        type: CONTACT_TYPE_SIGNAL,
-        name: "Signal",
-        number: "",
-      },
-      {
-        type: CONTACT_TYPE_TELEGRAM,
-        name: "Telegram",
-        address: "",
-      },
-      {
-        type: CONTACT_TYPE_MAIL,
-        name: "Mail",
-        address: "",
-      },
-      {
-        type: CONTACT_TYPE_INSTAGRAM,
-        name: "Instagram",
-        address: "",
-      },
-      {
-        type: CONTACT_TYPE_TWITTER,
-        name: "Twitter",
-        address: "",
-      },
-      {
-        type: CONTACT_TYPE_LINKEDIN,
-        name: "linkedIn",
-        address: "",
-      },
-    ],
-  });
+  const [formData, setFormData] = useState(friend);
 
   const handleInputChange = (event, data) => {
     const { name, value } = event.currentTarget;
@@ -152,15 +98,14 @@ function UpdateContactForm({ addContact }) {
       alert("Please select a profile picture");
       return;
     }
-    addContact(formData);
-    router.push("/contacts");
+    onSubmit(formData);
   };
 
   return (
     <>
       <StyledNewContactForm onSubmit={handleSubmit}>
         <label htmlFor="profileIconSource"></label>
-        <ProfilePictureSelect
+        <ProfilePictureChange
           selectedPicture={formData.profileIconSource}
           handlePictureSelect={handleInputChange}
         />
@@ -275,7 +220,7 @@ function UpdateContactForm({ addContact }) {
         <StyledButtonPosition>
           <StyledButton type="submit">
             Update <br />
-            Conact
+            Contact
           </StyledButton>
         </StyledButtonPosition>
       </StyledNewContactForm>
@@ -283,4 +228,4 @@ function UpdateContactForm({ addContact }) {
   );
 }
 
-export default UpdateContactForm;
+export default ContactForm;
