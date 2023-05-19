@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 function getFriendIndex(state) {
-  return state.length;
+  const data = Object.values(state);
+  return data.length;
 }
 
 const StyledfriendsCounter = styled.div`

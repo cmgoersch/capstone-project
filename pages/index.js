@@ -45,7 +45,6 @@ export default function HomePage({ state }) {
             </StyledTitleText>
             <RandomFunction state={state} />
           </StyledIndex>
-
           <FriendsCounter state={state} />
         </StyledHomePage>
         <StyledFooter>
