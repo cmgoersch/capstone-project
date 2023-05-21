@@ -43,7 +43,7 @@ export default function HomePage({ state }) {
               Friendships want to be cultivated! Everyone is happy if you just
               get in touch. Who may be happy to hear you today?
             </StyledTitleText>
-            <RandomFunction state={state} />
+            <RandomFunction friendList={state} />
           </StyledIndex>
           <FriendsCounter state={state} />
         </StyledHomePage>

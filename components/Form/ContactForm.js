@@ -15,6 +15,12 @@ import {
   CONTACT_TYPE_LINKEDIN,
 } from "@/lib/constants";
 
+const numberTypes = [
+  CONTACT_TYPE_MOBILE,
+  CONTACT_TYPE_LANDLINE,
+  CONTACT_TYPE_SIGNAL,
+];
+
 const StyledNewContactForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -46,11 +52,6 @@ const StyledButtonPosition = styled.div`
 `;
 
 function ContactForm({ onSubmit, friendId, friend }) {
-  const numberTypes = [
-    CONTACT_TYPE_MOBILE,
-    CONTACT_TYPE_LANDLINE,
-    CONTACT_TYPE_SIGNAL,
-  ];
   const [formData, setFormData] = useState(friend);
 
   const handleInputChange = (event, data) => {

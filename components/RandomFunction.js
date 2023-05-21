@@ -4,46 +4,47 @@ import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.Styled";
 import { StyledCleanLink } from "./Link/CleanLink.Styled";
 import Image from "next/image";
 
-function RandomFunction({ state }) {
+function RandomFunction({ friendList }) {
   // TODO: Need to change the component to work with `state`
-  const friendIdList = Object.keys(state);
-  const friendList = state;
-
-  const [friendId, setFriendId] = useState(null);
-  const intervalId = useRef(null);
+  const friendIds = Object.keys(friendList);
+  const [friendId, setFriendId] = useState(friendIds[0]);
   const [intervalStopped, setIntervalStopped] = useState(false);
 
   useEffect(() => {
-    if (intervalId.current === null && !intervalStopped) {
-      intervalId.current = setInterval(() => {
-        const index = Math.floor(Math.random() * friendIdList.length);
-        setFriendId(friendIdList[index]);
-      }, 300);
+    if (intervalStopped) {
+      return;
     }
+    const intervalId = setInterval(() => {
+      const index = Math.floor(Math.random() * friendIds.length);
+      setFriendId(friendIds[index]);
+    }, 300);
+
     return () => clearInterval(intervalId);
-  }, [friendIdList, intervalId, intervalStopped]);
+  }, [friendIds, friendList, intervalStopped]);
 
   const handleRandomFriendClick = () => {
-    clearInterval(intervalId.current);
     setIntervalStopped(true);
   };
-
+  const currentFriend = friendList[friendId];
+  if (!currentFriend) {
+    return null;
+  }
   return (
     <div>
       {friendId !== null && (
         <StyledCleanLink
-          href={`/contacts/${friendId}-${friendList[friendId].nickname}`}
+          href={`/contacts/${friendId}-${currentFriend.nickname}`}
         >
           <div>
             <Image
-              src={friendList[friendId].profileIconSource}
-              alt={friendList[friendId].nickname}
+              src={currentFriend.profileIconSource}
+              alt={currentFriend.nickname}
               width={95}
               height={95}
             />
           </div>
           {intervalStopped ? (
-            <div>{friendList[friendId].nickname}</div>
+            <div>{currentFriend.nickname}</div>
           ) : (
             <div>Who is next?</div>
           )}
@@ -51,12 +52,12 @@ function RandomFunction({ state }) {
       )}
       {intervalStopped ? (
         <StyledCleanLink
-          href={`/contacts/${friendId}-${friendList[friendId].nickname}`}
+          href={`/contacts/${friendId}-${currentFriend.nickname}`}
         >
           <StyledRandomButtonClicked>
             <div>
               <h1>Get in touch</h1>
-              <p>Your winner is {friendList[friendId].nickname}! </p>
+              <p>Your winner is {currentFriend.nickname}! </p>
             </div>
           </StyledRandomButtonClicked>
         </StyledCleanLink>
