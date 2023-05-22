@@ -51,7 +51,7 @@ function RandomFunction({ friendList }) {
       )}
       {intervalStopped ? (
         <StyledCleanLink
-          href={`/contacts/${friendId}-${currentFriend.nickname}`}
+          href={`/contacts/${friendId}-${currentFriend.nickname}?winning=true`}
         >
           <StyledRandomButtonClicked>
             <div>

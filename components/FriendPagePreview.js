@@ -163,14 +163,14 @@ export default function FriendPagePreview({ friend }) {
                   <StyledButtonContactList>
                     {friend.contactOptions.map((options) =>
                       hasContactOption(options) ? (
-                        <list key={options.name}>
+                        <ul key={options.name}>
                           {" "}
                           <li href={options.number || options.address}>
                             {" "}
                             {options.name}:{" "}
                             <b> {options.number || options.address}</b>
                           </li>
-                        </list>
+                        </ul>
                       ) : null
                     )}
                   </StyledButtonContactList>

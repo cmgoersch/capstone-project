@@ -15,7 +15,7 @@ const StyledTitleText = styled.h1`
 
 export default function Details({ state }) {
   const router = useRouter();
-  const { id } = router.query;
+  const { id, winning } = router.query;
   if (!id) {
     return null;
   }
@@ -25,6 +25,9 @@ export default function Details({ state }) {
   return (
     <>
       <Header />
+      {winning === "true" && (
+        <StyledTitleText>Your winning friend</StyledTitleText>
+      )}
 
       <FriendsPagePreview friend={friend} />
       <StyledFooter>
