@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import { StyledLink } from "@/components/Link/Link.Styled";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const StyledTitleText = styled.h1`
   color: white;
@@ -35,6 +35,7 @@ const StyledSerchBarInput = styled.input`
 export default function Contacts({ state }) {
   const [searchInput, setSearchInput] = useState("");
   const [filteredFriends, setFilteredFriends] = useState(Object.entries(state));
+  const [searchFound, setSearchFound] = useState(true);
 
   const handleSearchInputChange = (event) => {
     const input = event.target.value.toLowerCase();
@@ -46,6 +47,13 @@ export default function Contacts({ state }) {
     });
     setFilteredFriends(filteredList);
     setSearchInput(input);
+    setSearchFound(filteredList.length > 0);
+  };
+
+  const handleSearchAgainClick = () => {
+    setFilteredFriends(Object.entries(state));
+    setSearchInput("");
+    setSearchFound(true);
   };
 
   return (
@@ -60,7 +68,11 @@ export default function Contacts({ state }) {
           placeholder="Search a friend"
         />
       </StyledSerchBar>
-      <FriendPages friends={filteredFriends} />
+      <FriendPages
+        friends={filteredFriends}
+        searchFound={searchFound}
+        onSearchAgainClick={handleSearchAgainClick}
+      />
       <StyledFooter>
         <StyledLink href={`/`}>back</StyledLink>
         <StyledLink href={`/addContact`}>
