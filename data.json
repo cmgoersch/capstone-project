@@ -1,6 +1,5 @@
-[
-  {
-    "id": "1",
+{
+  "1": {
     "first_name": "Rudi",
     "last_name": "Roller",
     "nickname": "Rolli",
@@ -61,8 +60,7 @@
       }
     ]
   },
-  {
-    "id": "2",
+  "2": {
     "first_name": "Marta",
     "last_name": "Mofa",
     "nickname": "Mofi",
@@ -117,8 +115,7 @@
       }
     ]
   },
-  {
-    "id": "3",
+  "3": {
     "first_name": "Paula",
     "last_name": "Pinguin",
     "nickname": "Pinguin",
@@ -179,8 +176,7 @@
       }
     ]
   },
-  {
-    "id": "4",
+  "4": {
     "first_name": "Franz",
     "last_name": "Fuchs",
     "nickname": "Frux",
@@ -235,8 +231,7 @@
       }
     ]
   },
-  {
-    "id": "5",
+  "5": {
     "first_name": "Gundula",
     "last_name": "Gause",
     "nickname": "Gundel",
@@ -297,8 +292,7 @@
       }
     ]
   },
-  {
-    "id": "6",
+  "6": {
     "first_name": "Tom",
     "last_name": "Tiger",
     "nickname": "Tiger",
@@ -353,8 +347,7 @@
       }
     ]
   },
-  {
-    "id": "7",
+  "7": {
     "first_name": "Sophie",
     "last_name": "Schlange",
     "nickname": "Schlange",
@@ -409,8 +402,7 @@
       }
     ]
   },
-  {
-    "id": "8",
+  "8": {
     "first_name": "Max",
     "last_name": "Mustermann",
     "nickname": "Musit",
@@ -465,8 +457,7 @@
       }
     ]
   },
-  {
-    "id": "9",
+  "9": {
     "first_name": "Franz",
     "last_name": "Gans",
     "nickname": "Franzi",
@@ -521,8 +512,7 @@
       }
     ]
   },
-  {
-    "id": "10",
+  "10": {
     "first_name": "Biggi",
     "last_name": "Zahnschmelz",
     "nickname": "Bigz",
@@ -577,4 +567,4 @@
       }
     ]
   }
-]
+}

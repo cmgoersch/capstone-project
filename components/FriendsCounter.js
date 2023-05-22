@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-function getFriendIndex(data) {
+function getFriendIndex(state) {
+  const data = Object.values(state);
   return data.length;
 }
 
@@ -24,8 +25,8 @@ const StyledCountertext = styled.p`
   margin: 0;
 `;
 
-export default function FriendsCounter({ data }) {
-  const friendsLength = getFriendIndex(data);
+export default function FriendsCounter({ state }) {
+  const friendsLength = getFriendIndex(state);
   return (
     <StyledfriendsCounter>
       <StyledCountertext>you have </StyledCountertext>

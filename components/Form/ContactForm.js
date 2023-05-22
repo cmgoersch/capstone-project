@@ -1,10 +1,9 @@
 import { Fragment } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import ProfilePictureSelect from "../Picture/ProfilePictureSelect";
+import ProfilePictureChange from "../Picture/ProfilePictureChange";
 import { StyledButton } from "../Button/Button.Styled";
-import { v4 as uuidv4 } from "uuid";
-import { useRouter } from "next/router";
+
 import {
   CONTACT_TYPE_LANDLINE,
   CONTACT_TYPE_MOBILE,
@@ -15,6 +14,12 @@ import {
   CONTACT_TYPE_TWITTER,
   CONTACT_TYPE_LINKEDIN,
 } from "@/lib/constants";
+
+const numberTypes = [
+  CONTACT_TYPE_MOBILE,
+  CONTACT_TYPE_LANDLINE,
+  CONTACT_TYPE_SIGNAL,
+];
 
 const StyledNewContactForm = styled.form`
   display: flex;
@@ -46,66 +51,8 @@ const StyledButtonPosition = styled.div`
   justify-content: center;
 `;
 
-function NewContactForm({ addContact }) {
-  const router = useRouter();
-  const numberTypes = [
-    CONTACT_TYPE_MOBILE,
-    CONTACT_TYPE_LANDLINE,
-    CONTACT_TYPE_SIGNAL,
-  ];
-  const [formData, setFormData] = useState({
-    id: uuidv4().replaceAll("-", ""),
-    profilePicture: "",
-    nickname: "",
-    first_name: "",
-    last_name: "",
-    birthday: "",
-    friendship_status: "",
-    hobbies: "",
-    city: "",
-    contactOptions: [
-      {
-        type: CONTACT_TYPE_MOBILE,
-        name: "Mobile",
-        number: "",
-      },
-      {
-        type: CONTACT_TYPE_LANDLINE,
-        name: "Landline",
-        number: "",
-      },
-      {
-        type: CONTACT_TYPE_SIGNAL,
-        name: "Signal",
-        number: "",
-      },
-      {
-        type: CONTACT_TYPE_TELEGRAM,
-        name: "Telegram",
-        address: "",
-      },
-      {
-        type: CONTACT_TYPE_MAIL,
-        name: "Mail",
-        address: "",
-      },
-      {
-        type: CONTACT_TYPE_INSTAGRAM,
-        name: "Instagram",
-        address: "",
-      },
-      {
-        type: CONTACT_TYPE_TWITTER,
-        name: "Twitter",
-        address: "",
-      },
-      {
-        type: CONTACT_TYPE_LINKEDIN,
-        name: "linkedIn",
-        address: "",
-      },
-    ],
-  });
+function ContactForm({ onSubmit, friendId, friend }) {
+  const [formData, setFormData] = useState(friend);
 
   const handleInputChange = (event, data) => {
     const { name, value } = event.currentTarget;
@@ -152,15 +99,14 @@ function NewContactForm({ addContact }) {
       alert("Please select a profile picture");
       return;
     }
-    addContact(formData);
-    router.push("/contacts");
+    onSubmit(friendId, formData);
   };
 
   return (
     <>
       <StyledNewContactForm onSubmit={handleSubmit}>
         <label htmlFor="profileIconSource"></label>
-        <ProfilePictureSelect
+        <ProfilePictureChange
           selectedPicture={formData.profileIconSource}
           handlePictureSelect={handleInputChange}
         />
@@ -274,8 +220,8 @@ function NewContactForm({ addContact }) {
         ))}
         <StyledButtonPosition>
           <StyledButton type="submit">
-            Save new <br />
-            Conact
+            Update <br />
+            Contact
           </StyledButton>
         </StyledButtonPosition>
       </StyledNewContactForm>
@@ -283,4 +229,4 @@ function NewContactForm({ addContact }) {
   );
 }
 
-export default NewContactForm;
+export default ContactForm;

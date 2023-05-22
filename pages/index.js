@@ -29,8 +29,8 @@ const StyledIndex = styled.div`
   flex-wrap: wrap;
   text-align: center;
 `;
-export default function HomePage({ data }) {
-  if (!data) {
+export default function HomePage({ state }) {
+  if (!state) {
     return null;
   }
   return (
@@ -43,10 +43,9 @@ export default function HomePage({ data }) {
               Friendships want to be cultivated! Everyone is happy if you just
               get in touch. Who may be happy to hear you today?
             </StyledTitleText>
-            <RandomFunction data={data} />
+            <RandomFunction friendList={state} />
           </StyledIndex>
-
-          <FriendsCounter data={data} />
+          <FriendsCounter state={state} />
         </StyledHomePage>
         <StyledFooter>
           <StyledLink href={`/contacts`}>

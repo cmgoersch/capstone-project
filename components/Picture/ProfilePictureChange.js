@@ -82,7 +82,7 @@ const profilePictures = [
   m27,
 ];
 
-const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
+const ProfilePictureChange = ({ selectedPicture, handlePictureSelect }) => {
   return (
     <>
       {selectedPicture ? (
@@ -124,4 +124,4 @@ const ProfilePictureSelect = ({ selectedPicture, handlePictureSelect }) => {
   );
 };
 
-export default ProfilePictureSelect;
+export default ProfilePictureChange;

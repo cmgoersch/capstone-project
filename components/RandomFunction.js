@@ -4,42 +4,46 @@ import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.Styled";
 import { StyledCleanLink } from "./Link/CleanLink.Styled";
 import Image from "next/image";
 
-function RandomFunction({ data }) {
-  const [friendIndex, setFriendIndex] = useState(null);
-  const intervalId = useRef(null);
+function RandomFunction({ friendList }) {
+  const friendIds = Object.keys(friendList);
+  const [friendId, setFriendId] = useState(friendIds[0]);
   const [intervalStopped, setIntervalStopped] = useState(false);
 
   useEffect(() => {
-    if (intervalId.current === null && !intervalStopped) {
-      intervalId.current = setInterval(() => {
-        const index = Math.floor(Math.random() * data.length);
-        setFriendIndex(index);
-      }, 300);
+    if (intervalStopped) {
+      return;
     }
+    const intervalId = setInterval(() => {
+      const index = Math.floor(Math.random() * friendIds.length);
+      setFriendId(friendIds[index]);
+    }, 300);
+
     return () => clearInterval(intervalId);
-  }, [data, intervalId, intervalStopped]);
+  }, [friendIds, friendList, intervalStopped]);
 
   const handleRandomFriendClick = () => {
-    clearInterval(intervalId.current);
     setIntervalStopped(true);
   };
-
+  const currentFriend = friendList[friendId];
+  if (!currentFriend) {
+    return null;
+  }
   return (
     <div>
-      {friendIndex !== null && (
+      {friendId !== null && (
         <StyledCleanLink
-          href={`/contacts/${data[friendIndex].id}-${data[friendIndex].nickname}`}
+          href={`/contacts/${friendId}-${currentFriend.nickname}`}
         >
           <div>
             <Image
-              src={data[friendIndex].profileIconSource}
-              alt={data[friendIndex].nickname}
+              src={currentFriend.profileIconSource}
+              alt={currentFriend.nickname}
               width={95}
               height={95}
             />
           </div>
           {intervalStopped ? (
-            <div>{data[friendIndex].nickname}</div>
+            <div>{currentFriend.nickname}</div>
           ) : (
             <div>Who is next?</div>
           )}
@@ -47,12 +51,12 @@ function RandomFunction({ data }) {
       )}
       {intervalStopped ? (
         <StyledCleanLink
-          href={`/contacts/${data[friendIndex].id}-${data[friendIndex].nickname}`}
+          href={`/contacts/${friendId}-${currentFriend.nickname}`}
         >
           <StyledRandomButtonClicked>
             <div>
               <h1>Get in touch</h1>
-              <p>Your winner is {data[friendIndex].nickname}! </p>
+              <p>Your winner is {currentFriend.nickname}! </p>
             </div>
           </StyledRandomButtonClicked>
         </StyledCleanLink>
