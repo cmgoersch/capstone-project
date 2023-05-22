@@ -104,6 +104,7 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
 
   const handleDelete = () => {
     onDelete(friendId);
+    alert("Are you sure you want to delete this friend?");
   };
 
   return (
