@@ -14,14 +14,12 @@ const StyledWidth = styled.div`
 `;
 
 const StyledFriendBox = styled.div`
-  padding: 0rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1.5rem;
   flex-wrap: wrap;
   text-align: center;
-  width: ;
 `;
 
 const StyledNickname = styled.h2`

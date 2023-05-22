@@ -59,7 +59,26 @@ const StyledInfoList = styled.div`
 
 const StyledButtonContact = styled.button`
   background-color: white;
+  border-style: none;
   margin: 0rem 1rem 0rem 1rem;
+  padding: 0rem 1rem 0rem 1rem;
+  border-radius: 1rem;
+  color: #2d2e83;
+  text-align: left;
+  font-size: 1rem;
+`;
+
+const StyledButtonContactList = styled.ul`
+  list-style-type: none;
+  justify-content: left;
+  line-height: 190%;
+  padding: 0rem 1rem 1rem 1rem;
+`;
+
+const StyledNotice = styled.div`
+  background-color: white;
+  border-style: none;
+  margin: 1rem 1rem 1rem 1rem;
   padding: 0rem 1rem 0rem 1rem;
   border-radius: 1rem;
   color: #2d2e83;
@@ -68,15 +87,11 @@ const StyledButtonContact = styled.button`
   font-size: 1rem;
 `;
 
-const StyledNotice = styled.div`
-  background-color: white;
-  margin: 1rem 1rem 1rem 1rem;
-  padding: 0rem 1rem 0rem 1rem;
-  border-radius: 1rem;
-  color: #2d2e83;
-  text-align: left;
-  text-decoration: none;
-  font-size: 1rem;
+const StyledHobbyList = styled.ul`
+  list-style-type: none;
+  justify-content: left;
+  line-height: 190%;
+  padding: 0rem 1rem 1rem 1rem;
 `;
 
 export default function FriendPagePreview({ friend }) {
@@ -128,25 +143,25 @@ export default function FriendPagePreview({ friend }) {
                 City: <b>{friend.city}</b>
               </p>
               <p>Hobbies:</p>
-              <ul>
+              <StyledHobbyList>
                 {friend.hobbies &&
                   friend.hobbies.map((hobbie, index) => (
                     <li key={index}>
                       <b>{hobbie}</b>
                     </li>
                   ))}
-              </ul>
+              </StyledHobbyList>
             </StyledInfoList>
             <StyledNotice>
               <p>Your Notice:</p>
             </StyledNotice>
             <StyledButtonContact onClick={handleClick}>
               <div>
-                <p>Contact Options </p>
+                <p>Contact Options ↓</p>
               </div>
               {value && (
                 <div>
-                  <ul>
+                  <StyledButtonContactList>
                     {friend.contactOptions.map((options) =>
                       hasContactOption(options) ? (
                         <list key={options.name}>
@@ -159,7 +174,7 @@ export default function FriendPagePreview({ friend }) {
                         </list>
                       ) : null
                     )}
-                  </ul>
+                  </StyledButtonContactList>
                 </div>
               )}
             </StyledButtonContact>
