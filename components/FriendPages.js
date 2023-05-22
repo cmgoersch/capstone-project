@@ -34,6 +34,14 @@ const StyledName = styled.p`
   font-size: 0.6rem;
   margin: 6px;
 `;
+
+const StyledNoMachingFriend = styled.div`
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  margin: 6px;
+`;
+
 export default function FriendPages({ friends }) {
   return (
     <>
@@ -60,7 +68,9 @@ export default function FriendPages({ friends }) {
                 </div>
               ))
             ) : (
-              <div>No matching friends found.</div>
+              <StyledNoMachingFriend>
+                No matching friends found. <br /> Try a different search.
+              </StyledNoMachingFriend>
             )}
           </StyledFriendBox>
         </StyledWidth>

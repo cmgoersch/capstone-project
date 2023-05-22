@@ -19,10 +19,17 @@ const StyledSerchBar = styled.div`
 `;
 
 const StyledSerchBarInput = styled.input`
+  display: flex;
+  align-items: center;
   padding: 0.5rem;
   border-radius: 0.5rem;
   width: 17rem;
   border-style: none;
+  background-image: url(/magnifier.png);
+  padding-left: 2rem;
+  background-repeat: no-repeat;
+  background-position: 0.5rem;
+  background-size: 1rem;
 `;
 
 export default function Contacts({ state }) {
@@ -50,7 +57,7 @@ export default function Contacts({ state }) {
           type="text"
           value={searchInput}
           onChange={handleSearchInputChange}
-          placeholder="Search by Name or Nickname"
+          placeholder="Search a friend"
         />
       </StyledSerchBar>
       <FriendPages friends={filteredFriends} />
