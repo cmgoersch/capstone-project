@@ -5,7 +5,6 @@ import { StyledCleanLink } from "./Link/CleanLink.Styled";
 import Image from "next/image";
 
 function RandomFunction({ friendList }) {
-  // TODO: Need to change the component to work with `state`
   const friendIds = Object.keys(friendList);
   const [friendId, setFriendId] = useState(friendIds[0]);
   const [intervalStopped, setIntervalStopped] = useState(false);
