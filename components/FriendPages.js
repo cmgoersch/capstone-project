@@ -21,6 +21,7 @@ const StyledFriendBox = styled.div`
   gap: 1.5rem;
   flex-wrap: wrap;
   text-align: center;
+  width: ;
 `;
 
 const StyledNickname = styled.h2`

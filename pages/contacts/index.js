@@ -24,6 +24,7 @@ const StyledSerchBarInput = styled.input`
   padding: 0.5rem;
   border-radius: 0.5rem;
   width: 17rem;
+  min-width: 3rem;
   border-style: none;
   background-image: url(/magnifier.png);
   padding-left: 2rem;
