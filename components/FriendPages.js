@@ -42,6 +42,10 @@ const StyledNoMachingFriend = styled.div`
   margin: 6px;
 `;
 
+const StyledSadSmyle = styled.div`
+  font-size: 3rem;
+`;
+
 const StyledNoMachingFriendInfo = styled.p`
   color: white;
   font-size: 1rem;
@@ -75,8 +79,10 @@ export default function FriendPages({ friends }) {
             ) : (
               <StyledNoMachingFriend>
                 <StyledNoMachingFriendInfo>
-                  No matching friend found 😓
+                  No matching friend found
                 </StyledNoMachingFriendInfo>{" "}
+                <StyledSadSmyle>😓</StyledSadSmyle>
+                <br />
                 Maybe you want to create <br />a new friend contact?
                 <StyledNoMachingFriendInfo>
                   Please use the{" "}
