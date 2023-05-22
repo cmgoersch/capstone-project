@@ -101,7 +101,7 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
       alert("Please select a profile picture");
       return;
     }
-    onSubmit(friendId, formData);
+    onSubmit(friendId, formData, friend);
   };
 
   const handleDelete = () => {

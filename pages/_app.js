@@ -10,14 +10,14 @@ export default function App({ Component, pageProps }) {
   });
   const router = useRouter();
 
-  function addContact(contactId, contactData) {
+  function addContact(contactId, contactData, friend) {
     setState({ ...state, [contactId]: contactData });
-    router.push("/contacts");
+    router.push(`../contacts/${contactId}-${friend.nickname}`);
   }
 
-  function updateContact(contactId, contactData) {
+  function updateContact(contactId, contactData, friend) {
     setState({ ...state, [contactId]: contactData });
-    router.push("/contacts");
+    router.push(`../contacts/${contactId}-${friend.nickname}`);
   }
   const deleteContact = (friendId) => {
     const updatedState = { ...state };
