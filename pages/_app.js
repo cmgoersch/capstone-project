@@ -19,6 +19,12 @@ export default function App({ Component, pageProps }) {
     setState({ ...state, [contactId]: contactData });
     router.push("/contacts");
   }
+  const deleteContact = (friendId) => {
+    const updatedState = { ...state };
+    delete updatedState[friendId];
+    setState(updatedState);
+    router.push("/contacts");
+  };
 
   return (
     <>
@@ -28,6 +34,7 @@ export default function App({ Component, pageProps }) {
         state={state}
         addContact={addContact}
         updateContact={updateContact}
+        onDelete={deleteContact}
       />
     </>
   );

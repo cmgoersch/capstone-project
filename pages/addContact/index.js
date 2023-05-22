@@ -116,6 +116,7 @@ export default function AddContact({ addContact }) {
             <StyledNewContactForm>
               <ContactForm
                 onSubmit={addContact}
+                modus="create"
                 friendId={friendId}
                 friend={newFriend()}
               />

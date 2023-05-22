@@ -51,7 +51,7 @@ const StyledButtonPosition = styled.div`
   justify-content: center;
 `;
 
-function ContactForm({ onSubmit, friendId, friend }) {
+function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
   const [formData, setFormData] = useState(friend);
 
   const handleInputChange = (event, data) => {
@@ -100,6 +100,11 @@ function ContactForm({ onSubmit, friendId, friend }) {
       return;
     }
     onSubmit(friendId, formData);
+  };
+
+  const handleDelete = () => {
+    onDelete(friendId);
+    alert("Are you sure you want to delete this friend?");
   };
 
   return (
@@ -219,8 +224,19 @@ function ContactForm({ onSubmit, friendId, friend }) {
           </Fragment>
         ))}
         <StyledButtonPosition>
-          <StyledButton type="submit">
-            Update <br />
+          {modus === "update" ? (
+            <StyledButton type="submit">
+              Update <br />
+              Contact
+            </StyledButton>
+          ) : (
+            <StyledButton type="submit">
+              Save <br />
+              Contact
+            </StyledButton>
+          )}
+          <StyledButton type="button" onClick={handleDelete}>
+            Delete <br />
             Contact
           </StyledButton>
         </StyledButtonPosition>
