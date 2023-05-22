@@ -26,4 +26,8 @@ export const StyledRandomLink = styled(Link)`
   &:visited {
     color: white;
   }
+  &:active {
+    transform: scale(0.95);
+    transition: transform 1s ease;
+  }
 `;

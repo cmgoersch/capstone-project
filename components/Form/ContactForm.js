@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import ProfilePictureChange from "../Picture/ProfilePictureChange";
 import { StyledButton } from "../Button/Button.Styled";
+import { StyledButtonRed } from "../Button/ButtonRed.Styled";
 
 import {
   CONTACT_TYPE_LANDLINE,
@@ -48,6 +49,7 @@ const StyledSelect = styled.select`
 
 const StyledButtonPosition = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: center;
 `;
 
@@ -223,6 +225,7 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
             )}
           </Fragment>
         ))}
+
         <StyledButtonPosition>
           {modus === "update" ? (
             <StyledButton type="submit">
@@ -235,11 +238,17 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
               Contact
             </StyledButton>
           )}
-          <StyledButton type="button" onClick={handleDelete}>
-            Delete <br />
-            Contact
-          </StyledButton>
         </StyledButtonPosition>
+        {modus === "update" ? (
+          <StyledButtonPosition>
+            <StyledButtonRed type="button" onClick={handleDelete}>
+              Delete <br />
+              Contact
+            </StyledButtonRed>
+          </StyledButtonPosition>
+        ) : (
+          <></>
+        )}
       </StyledNewContactForm>
     </>
   );

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import { StyledLink } from "@/components/Link/Link.Styled";
+import { StyledLinkBlack } from "@/components/Link/LinkBlack.Styled";
 import { useState, useRef } from "react";
 
 const StyledTitleText = styled.h1`
@@ -75,7 +76,7 @@ export default function Contacts({ state }) {
         onSearchAgainClick={handleSearchAgainClick}
       />
       <StyledFooter>
-        <StyledLink href={`/`}>back</StyledLink>
+        <StyledLinkBlack href={`/`}>back</StyledLinkBlack>
         <StyledLink href={`/addContact`}>
           Add new <br />
           contact

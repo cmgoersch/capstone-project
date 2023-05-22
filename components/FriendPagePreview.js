@@ -20,7 +20,6 @@ const StyledFriend = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   flex-wrap: wrap;
   text-align: center;
 `;
@@ -29,14 +28,14 @@ const StyledNickname = styled.h2`
   color: white;
   text-decoration: none;
   font-size: 2.5rem;
-  margin: 2px;
+  margin: 12px 0px 4px 0px;
 `;
 
 const StyledName = styled.p`
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
-  margin: 6px;
+  margin: 0px 0px 9px 0px;
 `;
 
 const StyledContactList = styled.ul`
