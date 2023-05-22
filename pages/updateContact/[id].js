@@ -37,7 +37,7 @@ const StyledContactForm = styled.div`
   align-items: center;
 `;
 
-export default function UpdateContact({ state, updateContact }) {
+export default function UpdateContact({ onDelete, state, updateContact }) {
   const router = useRouter();
   const { id } = router.query;
   if (!id) {
@@ -58,6 +58,8 @@ export default function UpdateContact({ state, updateContact }) {
             <StyledContactForm>
               <ContactForm
                 onSubmit={updateContact}
+                modus="update"
+                onDelete={onDelete}
                 friendId={friendId}
                 friend={friend}
               />
