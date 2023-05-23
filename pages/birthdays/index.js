@@ -1,11 +1,14 @@
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import styled from "styled-components";
+import Image from "next/image";
+import { StyledButton } from "@/components/Button/Button.Styled";
+import { StyledButtonBlack } from "@/components/Button/ButtonBlack.Styled";
+
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
-import styled from "styled-components";
-import { useRouter } from "next/router";
-import { useState } from "react";
 import { StyledCleanLink } from "@/components/Link/CleanLink.Styled";
-import Image from "next/image";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -13,7 +16,7 @@ const StyledDiv = styled.div`
   align-items: center;
 `;
 
-const StyledHomePage = styled.div`
+const StyledBirthdayList = styled.div`
   max-width: 375px;
 `;
 
@@ -35,6 +38,7 @@ const StyledIndex = styled.div`
 const StyledBirthdayBox = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0rem;
 `;
 
 const StyledSingleFriend = styled.div`
@@ -43,11 +47,10 @@ const StyledSingleFriend = styled.div`
   background-color: white;
   border-radius: 10px;
   justify-content: center;
-  width: 375px;
-  max-width: 375px;
+  width: 20rem;
   min-width: 0;
   margin: 0.5rem;
-  padding: 0.3rem;
+  padding: 0rem;
 `;
 
 const StyledFriendBox = styled.div`
@@ -91,60 +94,103 @@ const StyledProfilePicture = styled.p`
 `;
 
 export default function BirthdayList({ state }) {
-  const [friends, setFriends] = useState(Object.entries(state));
-  const [visibleFriends, setVisibleFriends] = useState(6); // Anfangsanzahl der sichtbaren Freunde
+  const [friends, setFriends] = useState(
+    Object.entries(state).sort(([, a], [, b]) => {
+      const dateA = new Date(a.birthday);
+      const dateB = new Date(b.birthday);
+      return dateA - dateB;
+    })
+  );
+
+  const calculateDaysUntilBirthday = (birthday) => {
+    const today = new Date();
+    const nextBirthday = new Date(
+      today.getFullYear(),
+      birthday.getMonth(),
+      birthday.getDate()
+    );
+    if (nextBirthday < today) {
+      nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+    }
+    const diffTime = Math.abs(nextBirthday - today);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  };
+
+  const [visibleFriends, setVisibleFriends] = useState(4);
 
   const showMoreFriends = () => {
-    setVisibleFriends((prevVisibleFriends) => prevVisibleFriends + 6); // Erhöhe die Anzahl der sichtbaren Freunde um 6
+    setVisibleFriends((prevVisibleFriends) => prevVisibleFriends + 4);
   };
 
   const showLessFriends = () => {
-    setVisibleFriends((prevVisibleFriends) => prevVisibleFriends - 6); // Verringere die Anzahl der sichtbaren Freunde um 6
+    setVisibleFriends((prevVisibleFriends) => prevVisibleFriends - 8);
   };
 
   return (
     <>
       <Header />
       <StyledDiv>
-        <StyledHomePage>
-          <StyledIndex>
+        <StyledIndex>
+          <StyledBirthdayList>
             <StyledTitleText>Birthdays</StyledTitleText>
+
             <StyledBirthdayBox>
-              {friends.slice(0, visibleFriends).map(([id, friend]) => (
-                <div key={id}>
-                  <StyledSingleFriend>
-                    <StyledCleanLink href={`contacts/${id}-${friend.nickname}`}>
-                      <StyledFriendBox>
-                        <StyledProfilePicture>
-                          <Image
-                            src={friend.profileIconSource}
-                            alt={friend.nickname}
-                            width={80}
-                            height={80}
-                          />
-                        </StyledProfilePicture>
-                        <StyledFriendTextBox>
-                          <StyledBirthday>{friend.birthday}</StyledBirthday>
-                          <StyledNickname>{friend.nickname}</StyledNickname>
-                          {/* <StyledName>
-                            {friend.first_name} {friend.last_name}
-                          </StyledName> */}
-                        </StyledFriendTextBox>
-                      </StyledFriendBox>
-                    </StyledCleanLink>
-                  </StyledSingleFriend>
-                </div>
-              ))}
+              {friends.slice(0, visibleFriends).map(([id, friend]) => {
+                const daysUntilBirthday = calculateDaysUntilBirthday(
+                  new Date(friend.birthday)
+                );
+                return (
+                  <div key={id}>
+                    <StyledSingleFriend>
+                      <StyledCleanLink
+                        href={`contacts/${id}-${friend.nickname}`}
+                      >
+                        <StyledFriendBox>
+                          <StyledProfilePicture>
+                            <Image
+                              src={friend.profileIconSource}
+                              alt={friend.nickname}
+                              width={80}
+                              height={80}
+                            />
+                          </StyledProfilePicture>
+                          <StyledFriendTextBox>
+                            <StyledBirthday>{friend.birthday}</StyledBirthday>
+                            <StyledNickname>{friend.nickname}</StyledNickname>
+                            <StyledBirthday>
+                              {friend.nickname}'s next birthday <br />
+                              is in {daysUntilBirthday} days
+                            </StyledBirthday>
+                          </StyledFriendTextBox>
+                        </StyledFriendBox>
+                      </StyledCleanLink>
+                    </StyledSingleFriend>
+                  </div>
+                );
+              })}
             </StyledBirthdayBox>
             <div>
               {visibleFriends < friends.length ? (
-                <button onClick={showMoreFriends}>Mehr anzeigen</button>
+                <div>
+                  <StyledButton onClick={showMoreFriends}>
+                    Show
+                    <br />
+                    more
+                  </StyledButton>
+                </div>
               ) : (
-                <button onClick={showLessFriends}>Weniger anzeigen</button>
+                <div>
+                  <StyledButtonBlack onClick={showLessFriends}>
+                    Show
+                    <br />
+                    less
+                  </StyledButtonBlack>
+                </div>
               )}
             </div>
-          </StyledIndex>
-        </StyledHomePage>
+          </StyledBirthdayList>
+        </StyledIndex>
         <StyledFooter>
           <StyledLink href={`/`}>Back</StyledLink>
           <StyledLink href={`/contacts`}>All friends</StyledLink>
