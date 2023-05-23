@@ -44,7 +44,6 @@ export default function UpdateContact({ onDelete, state, updateContact }) {
     return null;
   }
   const idPath = id.split("-");
-
   const friendId = idPath[0];
   const friend = state[friendId];
 
