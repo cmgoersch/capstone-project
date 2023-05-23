@@ -31,7 +31,7 @@ export default function Details({ state }) {
 
       <FriendsPagePreview friend={friend} />
       <StyledFooter>
-        <StyledLinkBlack href={`/contacts`}>back</StyledLinkBlack>
+        <StyledLinkBlack href={`/contacts`}>Back</StyledLinkBlack>
         <StyledLink href={`/updateContact/${id}`}>
           Change <br /> data
         </StyledLink>

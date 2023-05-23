@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
+import { StyledLinkBlack } from "@/components/Link/LinkBlack.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import ContactForm from "@/components/Form/ContactForm";
@@ -68,7 +69,7 @@ export default function UpdateContact({ onDelete, state, updateContact }) {
       </>
 
       <StyledFooter>
-        <StyledLink href={`/contacts`}>back</StyledLink>
+        <StyledLinkBlack href={`/contacts`}>Back</StyledLinkBlack>
       </StyledFooter>
     </StyledContact>
   );

@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledLinkBlack } from "@/components/Link/LinkBlack.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
@@ -127,7 +126,7 @@ export default function AddContact({ addContact }) {
       </>
 
       <StyledFooter>
-        <StyledLinkBlack href={`/contacts`}>back</StyledLinkBlack>
+        <StyledLinkBlack href={`/contacts`}>Back</StyledLinkBlack>
       </StyledFooter>
     </StyledAddContact>
   );
