@@ -4,6 +4,7 @@ import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import FriendsCounter from "@/components/FriendsCounter";
+import { StyledBirthdayLink } from "@/components/Link/BirthdayLink.Styled";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -49,7 +50,10 @@ export default function HomePage({ state }) {
         </StyledHomePage>
         <StyledFooter>
           <StyledLink href={`/contacts`}> All friends</StyledLink>
-          <StyledLink href={`/birthdays`}> Birthdays</StyledLink>
+          <StyledBirthdayLink href={`/birthdays`}>
+            {" "}
+            Birthdays
+          </StyledBirthdayLink>
         </StyledFooter>
       </StyledDiv>
     </>

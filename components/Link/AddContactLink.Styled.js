@@ -1,21 +1,22 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-export const StyledLink = styled(Link)`
+export const StyledAddContactLink = styled(Link)`
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   text-align: center;
-  color: white;
+  color: black;
+  font-weight: bold;
   border: 0.2rem solid green;
+  background: rgb(214, 214, 214);
   background: linear-gradient(
-    270deg,
-    rgba(0, 150, 64, 1) 13%,
-    rgba(47, 172, 102, 1) 29%,
-    rgba(0, 102, 51, 1) 58%
+    273deg,
+    rgba(214, 214, 214, 1) 21%,
+    rgba(144, 144, 144, 1) 67%
   );
   font-size: 1rem;
-  padding: 0.7rem 0.7rem;
+  padding: 1.1rem 1.1rem;
   aspect-ratio: 1;
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;
@@ -26,7 +27,8 @@ export const StyledLink = styled(Link)`
   }
 
   &:visited {
-    color: white;
+    color: black;
+    font-weight: bold;
   }
 
   &:active {

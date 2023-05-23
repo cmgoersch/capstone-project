@@ -7,7 +7,9 @@ import { StyledButtonBlack } from "@/components/Button/ButtonBlack.Styled";
 import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import { StyledCleanLink } from "@/components/Link/CleanLink.Styled";
-import { StyledLinkBlack } from "@/components/Link/LinkBlack.Styled";
+import { StyledLinkBlack } from "@/components/Link/BlackLink.Styled";
+import { StyledAddContactLink } from "@/components/Link/AddContactLink.Styled";
+import { StyledBirthdayLink } from "@/components/Link/BirthdayLink.Styled";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -83,6 +85,11 @@ const StyledBirthday = styled.p`
   text-decoration: none;
   font-size: 0.8rem;
   margin: 5px 05px 0px 5px;
+`;
+
+const StyledShowMoreButton = styled.div`
+  display: flex;
+  justify-content: right;
 `;
 
 const StyledProfilePicture = styled.p`
@@ -184,32 +191,34 @@ export default function BirthdayList({ state }) {
             </StyledBirthdayBox>
             <div>
               {visibleFriends < friends.length ? (
-                <div>
+                <StyledShowMoreButton>
                   <StyledButton onClick={showMoreFriends}>
                     Show
                     <br />
                     more
                   </StyledButton>
-                </div>
+                </StyledShowMoreButton>
               ) : (
-                <div>
+                <StyledShowMoreButton>
                   <StyledButtonBlack onClick={showLessFriends}>
                     Show
                     <br />
                     less
                   </StyledButtonBlack>
-                </div>
+                </StyledShowMoreButton>
               )}
             </div>
           </StyledBirthdayList>
         </StyledIndex>
         <StyledFooter>
           <StyledLinkBlack href={`/`}>Back</StyledLinkBlack>
-          <StyledLink href={`/contacts`}>All friends</StyledLink>
-          <StyledLink href={`/addContact`}>
+          <StyledAddContactLink href={`/addContact`}>
             Add new <br />
             contact
-          </StyledLink>
+          </StyledAddContactLink>
+          <StyledBirthdayLink href={`/contacts`}>
+            All friends
+          </StyledBirthdayLink>
         </StyledFooter>
       </StyledDiv>
     </>

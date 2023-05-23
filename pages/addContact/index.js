@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { StyledLinkBlack } from "@/components/Link/LinkBlack.Styled";
+import { StyledLinkBlack } from "@/components/Link/BlackLink.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import ContactForm from "@/components/Form/ContactForm";

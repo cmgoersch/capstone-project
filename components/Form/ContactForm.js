@@ -16,7 +16,7 @@ import {
   CONTACT_TYPE_LINKEDIN,
 } from "@/lib/constants";
 import { StyledFooter } from "../GeneralStyle/Footer.Styled";
-import { StyledLinkBlack } from "../Link/LinkBlack.Styled";
+import { StyledLinkBlack } from "../Link/BlackLink.Styled";
 
 const numberTypes = [
   CONTACT_TYPE_MOBILE,

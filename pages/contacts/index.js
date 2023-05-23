@@ -3,8 +3,10 @@ import Header from "@/components/Header";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import { StyledLink } from "@/components/Link/Link.Styled";
-import { StyledLinkBlack } from "@/components/Link/LinkBlack.Styled";
+import { StyledLinkBlack } from "@/components/Link/BlackLink.Styled";
 import { useState } from "react";
+import { StyledBirthdayLink } from "@/components/Link/BirthdayLink.Styled";
+import { StyledAddContactLink } from "@/components/Link/AddContactLink.Styled";
 
 const StyledTitleText = styled.h1`
   color: white;
@@ -77,11 +79,11 @@ export default function Contacts({ state }) {
       />
       <StyledFooter>
         <StyledLinkBlack href={`/`}>Back</StyledLinkBlack>
-        <StyledLink href={`/addContact`}>
+        <StyledAddContactLink href={`/addContact`}>
           Add new <br />
           contact
-        </StyledLink>
-        <StyledLink href={`/birthdays`}>Birthdays</StyledLink>
+        </StyledAddContactLink>
+        <StyledBirthdayLink href={`/birthdays`}>Birthdays</StyledBirthdayLink>
       </StyledFooter>
     </>
   );
