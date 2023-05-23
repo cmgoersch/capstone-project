@@ -83,7 +83,7 @@ const StyledBirthday = styled.p`
   color: black;
   text-decoration: none;
   font-size: 0.8rem;
-  margin: 5px;
+  margin: 5px 05px 0px 5px;
 `;
 
 const StyledProfilePicture = styled.p`
@@ -93,15 +93,15 @@ const StyledProfilePicture = styled.p`
   margin: 5px;
 `;
 
-export default function BirthdayList({ state }) {
-  const [friends, setFriends] = useState(
-    Object.entries(state).sort(([, a], [, b]) => {
-      const dateA = new Date(a.birthday);
-      const dateB = new Date(b.birthday);
-      return dateA - dateB;
-    })
-  );
+function formatDate(date) {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
 
+  return `${day}.${month}.${year}`;
+}
+
+export default function BirthdayList({ state }) {
   const calculateDaysUntilBirthday = (birthday) => {
     const today = new Date();
     const nextBirthday = new Date(
@@ -116,6 +116,19 @@ export default function BirthdayList({ state }) {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   };
+
+  const [friends, setFriends] = useState(
+    Object.entries(state)
+      .filter(([id, friend]) => friend.birthday) // filter out friends without a birthday
+      .map(([id, friend]) => ({
+        id,
+        friend,
+        daysUntilBirthday: calculateDaysUntilBirthday(
+          new Date(friend.birthday)
+        ),
+      }))
+      .sort((a, b) => a.daysUntilBirthday - b.daysUntilBirthday)
+  );
 
   const [visibleFriends, setVisibleFriends] = useState(4);
 
@@ -136,39 +149,42 @@ export default function BirthdayList({ state }) {
             <StyledTitleText>Birthdays</StyledTitleText>
 
             <StyledBirthdayBox>
-              {friends.slice(0, visibleFriends).map(([id, friend]) => {
-                const daysUntilBirthday = calculateDaysUntilBirthday(
-                  new Date(friend.birthday)
-                );
-                return (
-                  <div key={id}>
-                    <StyledSingleFriend>
-                      <StyledCleanLink
-                        href={`contacts/${id}-${friend.nickname}`}
-                      >
-                        <StyledFriendBox>
-                          <StyledProfilePicture>
-                            <Image
-                              src={friend.profileIconSource}
-                              alt={friend.nickname}
-                              width={80}
-                              height={80}
-                            />
-                          </StyledProfilePicture>
-                          <StyledFriendTextBox>
-                            <StyledBirthday>{friend.birthday}</StyledBirthday>
-                            <StyledNickname>{friend.nickname}</StyledNickname>
-                            <StyledBirthday>
-                              {friend.nickname}'s next birthday <br />
-                              is in {daysUntilBirthday} days
-                            </StyledBirthday>
-                          </StyledFriendTextBox>
-                        </StyledFriendBox>
-                      </StyledCleanLink>
-                    </StyledSingleFriend>
-                  </div>
-                );
-              })}
+              {friends
+                .slice(0, visibleFriends)
+                .map(({ id, friend, daysUntilBirthday }) => {
+                  const birthdayDate = new Date(friend.birthday);
+                  const formattedBirthday = formatDate(birthdayDate);
+                  return (
+                    <div key={id}>
+                      <StyledSingleFriend>
+                        <StyledCleanLink
+                          href={`contacts/${id}-${friend.nickname}`}
+                        >
+                          <StyledFriendBox>
+                            <StyledProfilePicture>
+                              <Image
+                                src={friend.profileIconSource}
+                                alt={friend.nickname}
+                                width={80}
+                                height={80}
+                              />
+                            </StyledProfilePicture>
+                            <StyledFriendTextBox>
+                              <StyledNickname>{friend.nickname}</StyledNickname>
+                              <StyledBirthday>
+                                {formattedBirthday}
+                              </StyledBirthday>
+                              <StyledBirthday>
+                                {friend.nickname}`s next birthday <br />
+                                is in <b>{daysUntilBirthday}</b> days!
+                              </StyledBirthday>
+                            </StyledFriendTextBox>
+                          </StyledFriendBox>
+                        </StyledCleanLink>
+                      </StyledSingleFriend>
+                    </div>
+                  );
+                })}
             </StyledBirthdayBox>
             <div>
               {visibleFriends < friends.length ? (

@@ -81,6 +81,7 @@ export default function Contacts({ state }) {
           Add new <br />
           contact
         </StyledLink>
+        <StyledLink href={`/birthdays`}> Birthdays</StyledLink>
       </StyledFooter>
     </>
   );
