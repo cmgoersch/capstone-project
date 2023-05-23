@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Image from "next/image";
 import { StyledButton } from "@/components/Button/Button.Styled";
 import { StyledButtonBlack } from "@/components/Button/ButtonBlack.Styled";
-
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
@@ -87,9 +86,6 @@ const StyledBirthday = styled.p`
 `;
 
 const StyledProfilePicture = styled.p`
-  color: black;
-  text-decoration: none;
-  font-size: 0.8rem;
   margin: 5px;
 `;
 
@@ -137,7 +133,7 @@ export default function BirthdayList({ state }) {
   };
 
   const showLessFriends = () => {
-    setVisibleFriends((prevVisibleFriends) => prevVisibleFriends - 8);
+    setVisibleFriends((prevVisibleFriends) => prevVisibleFriends - 4);
   };
 
   return (

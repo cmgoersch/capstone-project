@@ -13,8 +13,8 @@ export const StyledButtonRed = styled.button`
     rgba(255, 111, 111, 1) 27%,
     rgba(255, 0, 0, 1) 70%
   );
-  font-size: small;
-  padding: 0.5rem 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   aspect-ratio: 1;
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;

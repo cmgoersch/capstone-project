@@ -124,10 +124,6 @@ export default function AddContact({ addContact }) {
           </StyledWidth>
         </StyledDiv>
       </>
-
-      <StyledFooter>
-        <StyledLinkBlack href={`/contacts`}>Back</StyledLinkBlack>
-      </StyledFooter>
     </StyledAddContact>
   );
 }

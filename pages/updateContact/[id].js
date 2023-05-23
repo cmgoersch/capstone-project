@@ -67,10 +67,6 @@ export default function UpdateContact({ onDelete, state, updateContact }) {
           </StyledWidth>
         </StyledDiv>
       </>
-
-      <StyledFooter>
-        <StyledLinkBlack href={`/contacts`}>Back</StyledLinkBlack>
-      </StyledFooter>
     </StyledContact>
   );
 }
