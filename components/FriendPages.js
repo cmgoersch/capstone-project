@@ -1,8 +1,7 @@
-import useLocalStorageState from "use-local-storage-state";
-import defaultData from "@/data.json";
 import Image from "next/image";
 import styled from "styled-components";
 import { StyledCleanLink } from "./Link/CleanLink.Styled";
+import { StyledButton } from "./Button/Button.Styled";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -37,13 +36,29 @@ const StyledName = styled.p`
   margin: 6px;
 `;
 
-export default function FriendPages({ friendList }) {
+const StyledNoMachingFriend = styled.div`
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  margin: 6px 0px 6px 0px;
+`;
+
+const StyledNoMachingFriendInfo = styled.p`
+  color: white;
+  font-size: 1rem;
+`;
+
+export default function FriendPages({
+  friends,
+  searchFound,
+  onSearchAgainClick,
+}) {
   return (
-    <>
-      <StyledDiv>
-        <StyledWidth>
-          <StyledFriendBox>
-            {Object.entries(friendList).map(([id, friend]) => (
+    <StyledDiv>
+      <StyledWidth>
+        <StyledFriendBox>
+          {friends.length > 0 ? (
+            friends.map(([id, friend]) => (
               <div key={id}>
                 <StyledCleanLink href={`contacts/${id}-${friend.nickname}`}>
                   <div>
@@ -60,10 +75,31 @@ export default function FriendPages({ friendList }) {
                   </StyledName>
                 </StyledCleanLink>
               </div>
-            ))}
-          </StyledFriendBox>
-        </StyledWidth>
-      </StyledDiv>
-    </>
+            ))
+          ) : (
+            <>
+              <StyledButton onClick={onSearchAgainClick}>
+                Search <br />
+                Again
+              </StyledButton>
+              <StyledNoMachingFriend>
+                <StyledNoMachingFriendInfo>
+                  No matching friend found 😓
+                </StyledNoMachingFriendInfo>
+                <br />
+                Maybe you want to create <br />a new friend contact?
+                <StyledNoMachingFriendInfo>
+                  Please use the{" "}
+                  <em>
+                    Add new <br /> contact
+                  </em>{" "}
+                  button below :)
+                </StyledNoMachingFriendInfo>
+              </StyledNoMachingFriend>
+            </>
+          )}
+        </StyledFriendBox>
+      </StyledWidth>
+    </StyledDiv>
   );
 }
