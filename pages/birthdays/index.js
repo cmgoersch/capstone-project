@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import { StyledCleanLink } from "@/components/Link/CleanLink.Styled";
+import { StyledLinkBlack } from "@/components/Link/LinkBlack.Styled";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -146,7 +147,7 @@ export default function BirthdayList({ state }) {
       <StyledDiv>
         <StyledIndex>
           <StyledBirthdayList>
-            <StyledTitleText>Birthdays</StyledTitleText>
+            <StyledTitleText>Upcoming birthdays</StyledTitleText>
 
             <StyledBirthdayBox>
               {friends
@@ -208,7 +209,7 @@ export default function BirthdayList({ state }) {
           </StyledBirthdayList>
         </StyledIndex>
         <StyledFooter>
-          <StyledLink href={`/`}>Back</StyledLink>
+          <StyledLinkBlack href={`/`}>Back</StyledLinkBlack>
           <StyledLink href={`/contacts`}>All friends</StyledLink>
           <StyledLink href={`/addContact`}>
             Add new <br />
