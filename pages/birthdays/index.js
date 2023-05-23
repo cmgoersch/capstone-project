@@ -43,9 +43,11 @@ const StyledSingleFriend = styled.div`
   background-color: white;
   border-radius: 10px;
   justify-content: center;
-
   width: 375px;
+  max-width: 375px;
+  min-width: 0;
   margin: 0.5rem;
+  padding: 0.3rem;
 `;
 
 const StyledFriendBox = styled.div`
@@ -57,7 +59,7 @@ const StyledFriendBox = styled.div`
 const StyledFriendTextBox = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0rem 1rem 0rem 1rem;
 `;
 
 const StyledNickname = styled.h2`
@@ -81,8 +83,24 @@ const StyledBirthday = styled.p`
   margin: 5px;
 `;
 
+const StyledProfilePicture = styled.p`
+  color: black;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin: 5px;
+`;
+
 export default function BirthdayList({ state }) {
-  const [friends] = useState(Object.entries(state));
+  const [friends, setFriends] = useState(Object.entries(state));
+  const [visibleFriends, setVisibleFriends] = useState(6); // Anfangsanzahl der sichtbaren Freunde
+
+  const showMoreFriends = () => {
+    setVisibleFriends((prevVisibleFriends) => prevVisibleFriends + 6); // Erhöhe die Anzahl der sichtbaren Freunde um 6
+  };
+
+  const showLessFriends = () => {
+    setVisibleFriends((prevVisibleFriends) => prevVisibleFriends - 6); // Verringere die Anzahl der sichtbaren Freunde um 6
+  };
 
   return (
     <>
@@ -92,21 +110,21 @@ export default function BirthdayList({ state }) {
           <StyledIndex>
             <StyledTitleText>Birthdays</StyledTitleText>
             <StyledBirthdayBox>
-              {friends.map(([id, friend]) => (
+              {friends.slice(0, visibleFriends).map(([id, friend]) => (
                 <div key={id}>
                   <StyledSingleFriend>
-                    {" "}
                     <StyledCleanLink href={`contacts/${id}-${friend.nickname}`}>
                       <StyledFriendBox>
-                        <Image
-                          src={friend.profileIconSource}
-                          alt={friend.nickname}
-                          width={80}
-                          height={80}
-                        />
+                        <StyledProfilePicture>
+                          <Image
+                            src={friend.profileIconSource}
+                            alt={friend.nickname}
+                            width={80}
+                            height={80}
+                          />
+                        </StyledProfilePicture>
                         <StyledFriendTextBox>
                           <StyledBirthday>{friend.birthday}</StyledBirthday>
-
                           <StyledNickname>{friend.nickname}</StyledNickname>
                           {/* <StyledName>
                             {friend.first_name} {friend.last_name}
@@ -118,6 +136,13 @@ export default function BirthdayList({ state }) {
                 </div>
               ))}
             </StyledBirthdayBox>
+            <div>
+              {visibleFriends < friends.length ? (
+                <button onClick={showMoreFriends}>Mehr anzeigen</button>
+              ) : (
+                <button onClick={showLessFriends}>Weniger anzeigen</button>
+              )}
+            </div>
           </StyledIndex>
         </StyledHomePage>
         <StyledFooter>
