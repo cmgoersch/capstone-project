@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import styled from "styled-components";
 import Image from "next/image";
 import { StyledButton } from "@/components/Button/Button.Styled";
@@ -120,7 +119,7 @@ export default function BirthdayList({ state }) {
 
   const [friends, setFriends] = useState(
     Object.entries(state)
-      .filter(([id, friend]) => friend.birthday) // filter out friends without a birthday
+      .filter(([id, friend]) => friend.birthday)
       .map(([id, friend]) => ({
         id,
         friend,
