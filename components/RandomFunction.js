@@ -63,8 +63,8 @@ function RandomFunction({ friendList }) {
       ) : (
         <StyledRandomButton onClick={handleRandomFriendClick}>
           <div>
-            <h1> Be a friend! </h1>
-            <p>Push the button!</p>
+            <h1>Be a friend!</h1>
+            <p>Push the Button</p>
           </div>
         </StyledRandomButton>
       )}

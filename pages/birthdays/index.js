@@ -1,9 +1,9 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import Header from "@/components/Header";
+import React, { useState } from "react";
 import { StyledButton } from "@/components/Button/Button.Styled";
 import { StyledButtonBlack } from "@/components/Button/ButtonBlack.Styled";
-import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import { StyledCleanLink } from "@/components/Link/CleanLink.Styled";
