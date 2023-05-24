@@ -17,7 +17,7 @@ const StyledDiv = styled.div`
   align-items: center;
 `;
 
-const StyledBirthdayList = styled.div`
+const StyledBirthdayList = styled.article`
   max-width: 375px;
 `;
 
@@ -28,7 +28,7 @@ const StyledTitleText = styled.h1`
   margin: 1.4rem;
 `;
 
-const StyledIndex = styled.div`
+const StyledIndex = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,13 +36,13 @@ const StyledIndex = styled.div`
   text-align: center;
 `;
 
-const StyledBirthdayBox = styled.div`
+const StyledBirthdayBox = styled.article`
   display: flex;
   flex-direction: column;
   padding: 0rem;
 `;
 
-const StyledSingleFriend = styled.div`
+const StyledSingleFriend = styled.article`
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -54,13 +54,13 @@ const StyledSingleFriend = styled.div`
   padding: 0rem;
 `;
 
-const StyledFriendBox = styled.div`
+const StyledFriend = styled.article`
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
 
-const StyledFriendTextBox = styled.div`
+const StyledFriendTextBox = styled.article`
   display: flex;
   flex-direction: column;
   padding: 0rem 1rem 0rem 1rem;
@@ -73,26 +73,22 @@ const StyledNickname = styled.h2`
   margin: 0px;
 `;
 
-const StyledName = styled.p`
-  color: black;
-  text-decoration: none;
-  font-size: 0.8rem;
-  margin: 5px;
-`;
-
 const StyledBirthday = styled.p`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: black;
   text-decoration: none;
   font-size: 0.8rem;
   margin: 5px 05px 0px 5px;
 `;
 
-const StyledShowMoreButton = styled.div`
+const StyledButtonWrapper = styled.article`
   display: flex;
   justify-content: right;
 `;
 
-const StyledProfilePicture = styled.p`
+const StyledProfilePicture = styled.article`
   margin: 5px;
 `;
 
@@ -163,7 +159,7 @@ export default function BirthdayList({ state }) {
                         <StyledCleanLink
                           href={`contacts/${id}-${friend.nickname}`}
                         >
-                          <StyledFriendBox>
+                          <StyledFriend>
                             <StyledProfilePicture>
                               <Image
                                 src={friend.profileIconSource}
@@ -178,11 +174,13 @@ export default function BirthdayList({ state }) {
                                 {formattedBirthday}
                               </StyledBirthday>
                               <StyledBirthday>
-                                {friend.nickname}`s next birthday <br />
-                                is in <b>{daysUntilBirthday}</b> days!
+                                {friend.nickname}`s next birthday{" "}
+                                <span>
+                                  is in <b>{daysUntilBirthday}</b> days!
+                                </span>
                               </StyledBirthday>
                             </StyledFriendTextBox>
-                          </StyledFriendBox>
+                          </StyledFriend>
                         </StyledCleanLink>
                       </StyledSingleFriend>
                     </div>
@@ -191,21 +189,21 @@ export default function BirthdayList({ state }) {
             </StyledBirthdayBox>
             <div>
               {visibleFriends < friends.length ? (
-                <StyledShowMoreButton>
+                <StyledButtonWrapper>
                   <StyledButton onClick={showMoreFriends}>
                     Show
                     <br />
                     more
                   </StyledButton>
-                </StyledShowMoreButton>
+                </StyledButtonWrapper>
               ) : (
-                <StyledShowMoreButton>
+                <StyledButtonWrapper>
                   <StyledButtonBlack onClick={showLessFriends}>
                     Show
                     <br />
                     less
                   </StyledButtonBlack>
-                </StyledShowMoreButton>
+                </StyledButtonWrapper>
               )}
             </div>
           </StyledBirthdayList>

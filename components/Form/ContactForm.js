@@ -231,12 +231,12 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
           <StyledFooter>
             {modus === "update" ? (
               <StyledLinkBlack
-                href={`../contacts/${friendId}-${formData.nickname}`}
+                href={`/contacts/${friendId}-${formData.nickname}`}
               >
                 Back
               </StyledLinkBlack>
             ) : (
-              <StyledLinkBlack href={`../contacts/`}>Back</StyledLinkBlack>
+              <StyledLinkBlack href={`/contacts/`}>Back</StyledLinkBlack>
             )}
           </StyledFooter>
           {modus === "update" ? (
