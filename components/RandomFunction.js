@@ -6,7 +6,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const StyledTitelText = styled.p`
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
   margin: 0;
 `;
