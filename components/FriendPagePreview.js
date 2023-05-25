@@ -93,12 +93,34 @@ const StyledHobbyList = styled.ul`
   padding: 0rem 1rem 1rem 1rem;
 `;
 
+const StyledButtonContainer = styled.div`
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+`;
+
+const StyledCircleButton = styled(StyledButton)`
+  position: absolute;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  line-height: 60px;
+  transform: rotate(${(props) => props.rotate - 90}deg) translate(140px)
+    rotate(-${(props) => props.rotate - 90}deg);
+`;
+
 export default function FriendPagePreview({ friend }) {
   const [value, setValue] = useState(false);
 
   const handleClick = () => {
     setValue(!value);
   };
+
+  const openContactLink = () => {};
 
   return (
     <>
@@ -109,27 +131,33 @@ export default function FriendPagePreview({ friend }) {
             <StyledName>
               {friend.first_name} {friend.last_name}
             </StyledName>
-            <div>
+
+            <StyledButtonContainer>
               <Image
                 src={friend.profileIconSource}
                 alt={friend.nickname}
                 width={180}
                 height={180}
               />
-            </div>
-
-            <StyledContactList>
               {friend.contactOptions &&
-                friend.contactOptions.map((options) =>
-                  hasContactOption(options) ? (
-                    <StyledList key={options.name}>
-                      <StyledButton href={options.number}>
-                        {options.name}
-                      </StyledButton>
-                    </StyledList>
-                  ) : null
-                )}
-            </StyledContactList>
+                friend.contactOptions
+                  .filter((opts) => hasContactOption(opts))
+                  .map((options, index) => (
+                    <StyledCircleButton
+                      onClick={openContactLink}
+                      key={options.name}
+                      rotate={
+                        friend.contactOptions.length === 1
+                          ? 0
+                          : (index + 4) *
+                            (180 /
+                              Math.max(1, friend.contactOptions.length - 1.4))
+                      }
+                    >
+                      {options.name}
+                    </StyledCircleButton>
+                  ))}
+            </StyledButtonContainer>
 
             <StyledInfoList>
               <p>
