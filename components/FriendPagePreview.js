@@ -107,10 +107,10 @@ const StyledCircleButton = styled(StyledButton)`
   position: absolute;
   width: 4.5rem;
   height: 4.5rem;
-  border-radius: 50%;
-  line-height: 60px;
-  transform: rotate(${(props) => props.rotate - 90}deg) translate(140px)
-    rotate(-${(props) => props.rotate - 90}deg);
+  //border-radius: 50%;
+  //line-height: 60px;
+  transform: rotate(${(props) => props.rotate - 150}deg) translate(140px)
+    rotate(-${(props) => props.rotate - 150}deg);
 `;
 
 export default function FriendPagePreview({ friend }) {
@@ -120,7 +120,18 @@ export default function FriendPagePreview({ friend }) {
     setValue(!value);
   };
 
-  const openContactLink = () => {};
+  const openContactLink = (contactOptions) => {
+    switch (contactOptions.type) {
+      case "mobile":
+        return `tel${contactOptions.value}`;
+
+      case "linkedin":
+        return `https://www.linkedin.com/in/${contactOptions.value}`;
+
+      case "email":
+        return `mailto${contactOptions.value}`;
+    }
+  };
 
   return (
     <>
@@ -149,9 +160,9 @@ export default function FriendPagePreview({ friend }) {
                       rotate={
                         friend.contactOptions.length === 1
                           ? 0
-                          : (index + 4) *
-                            (180 /
-                              Math.max(1, friend.contactOptions.length - 1.4))
+                          : (index + 5) *
+                            (220 /
+                              Math.max(1, friend.contactOptions.length - 1.1))
                       }
                     >
                       {options.name}

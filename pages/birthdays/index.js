@@ -42,7 +42,7 @@ const StyledBirthdayBox = styled.article`
   padding: 0rem;
 `;
 
-const StyledSingleFriend = styled.article`
+const StyledSingleFriend = styled.section`
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -54,7 +54,7 @@ const StyledSingleFriend = styled.article`
   padding: 0rem;
 `;
 
-const StyledFriend = styled.article`
+const StyledFriend = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -88,7 +88,7 @@ const StyledButtonWrapper = styled.article`
   justify-content: right;
 `;
 
-const StyledProfilePicture = styled.article`
+const StyledProfilePicture = styled.section`
   margin: 5px;
 `;
 
