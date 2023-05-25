@@ -3,8 +3,9 @@ import FriendsPagePreview from "@/components/FriendPagePreview";
 import styled from "styled-components";
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
-import { StyledLinkBlack } from "@/components/Link/LinkBlack.Styled";
+import { StyledLinkBlack } from "@/components/Link/BlackLink.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
+import { StyledBirthdayLink } from "@/components/Link/BirthdayLink.Styled";
 
 const StyledTitleText = styled.h1`
   color: white;
@@ -31,10 +32,10 @@ export default function Details({ state }) {
 
       <FriendsPagePreview friend={friend} />
       <StyledFooter>
-        <StyledLinkBlack href={`/contacts`}>back</StyledLinkBlack>
-        <StyledLink href={`/updateContact/${id}`}>
+        <StyledLinkBlack href={`/contacts`}>Back</StyledLinkBlack>
+        <StyledBirthdayLink href={`/updateContact/${id}`}>
           Change <br /> data
-        </StyledLink>
+        </StyledBirthdayLink>
       </StyledFooter>
     </>
   );

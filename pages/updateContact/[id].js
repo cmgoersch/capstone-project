@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import { StyledLink } from "@/components/Link/Link.Styled";
+import { StyledLinkBlack } from "@/components/Link/BlackLink.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import ContactForm from "@/components/Form/ContactForm";
@@ -44,7 +45,6 @@ export default function UpdateContact({ onDelete, state, updateContact }) {
     return null;
   }
   const idPath = id.split("-");
-
   const friendId = idPath[0];
   const friend = state[friendId];
 
@@ -67,10 +67,6 @@ export default function UpdateContact({ onDelete, state, updateContact }) {
           </StyledWidth>
         </StyledDiv>
       </>
-
-      <StyledFooter>
-        <StyledLink href={`/contacts`}>back</StyledLink>
-      </StyledFooter>
     </StyledContact>
   );
 }

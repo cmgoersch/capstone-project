@@ -15,8 +15,8 @@ export const StyledLinkBlack = styled(Link)`
     rgba(32, 32, 32, 1) 58%
   );
 
-  font-size: 1rem;
-  padding: 0.5rem 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.7rem 0.7rem;
   aspect-ratio: 1;
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;

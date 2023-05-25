@@ -3,6 +3,17 @@ import { StyledRandomButton } from "./Button/RandomButton.Styled";
 import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.Styled";
 import { StyledCleanLink } from "./Link/CleanLink.Styled";
 import Image from "next/image";
+import styled from "styled-components";
+
+const StyledTitelText = styled.p`
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0;
+`;
+
+const StyledSubTitleText = styled.p`
+  margin: 0.5rem 0 0 0;
+`;
 
 function RandomFunction({ friendList }) {
   const friendIds = Object.keys(friendList);
@@ -55,16 +66,18 @@ function RandomFunction({ friendList }) {
         >
           <StyledRandomButtonClicked>
             <div>
-              <h1>Get in touch</h1>
-              <p>Your winner is {currentFriend.nickname}! </p>
+              <StyledTitelText>Get in touch</StyledTitelText>
+              <StyledSubTitleText>
+                Your winner is {currentFriend.nickname}!{" "}
+              </StyledSubTitleText>
             </div>
           </StyledRandomButtonClicked>
         </StyledCleanLink>
       ) : (
         <StyledRandomButton onClick={handleRandomFriendClick}>
           <div>
-            <h1> Be a friend! </h1>
-            <p>Push the button!</p>
+            <StyledTitelText>Be a friend!</StyledTitelText>
+            <StyledSubTitleText>Push the Button</StyledSubTitleText>
           </div>
         </StyledRandomButton>
       )}

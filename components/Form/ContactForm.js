@@ -15,6 +15,8 @@ import {
   CONTACT_TYPE_TWITTER,
   CONTACT_TYPE_LINKEDIN,
 } from "@/lib/constants";
+import { StyledFooter } from "../GeneralStyle/Footer.Styled";
+import { StyledLinkBlack } from "../Link/BlackLink.Styled";
 
 const numberTypes = [
   CONTACT_TYPE_MOBILE,
@@ -225,8 +227,18 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
             )}
           </Fragment>
         ))}
-
         <StyledButtonPosition>
+          <StyledFooter>
+            {modus === "update" ? (
+              <StyledLinkBlack
+                href={`/contacts/${friendId}-${formData.nickname}`}
+              >
+                Back
+              </StyledLinkBlack>
+            ) : (
+              <StyledLinkBlack href={`/contacts/`}>Back</StyledLinkBlack>
+            )}
+          </StyledFooter>
           {modus === "update" ? (
             <StyledButton type="submit">
               Update <br />
@@ -238,17 +250,16 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
               Contact
             </StyledButton>
           )}
-        </StyledButtonPosition>
-        {modus === "update" ? (
-          <StyledButtonPosition>
+
+          {modus === "update" ? (
             <StyledButtonRed type="button" onClick={handleDelete}>
               Delete <br />
               Contact
             </StyledButtonRed>
-          </StyledButtonPosition>
-        ) : (
-          <></>
-        )}
+          ) : (
+            <></>
+          )}
+        </StyledButtonPosition>
       </StyledNewContactForm>
     </>
   );
