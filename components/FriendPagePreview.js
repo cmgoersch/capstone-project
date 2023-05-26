@@ -139,19 +139,43 @@ export default function FriendPagePreview({ friend }) {
   const handleClick = () => {
     setValue(!value);
   };
-
   const openContactLink = (contactOptions) => {
+    let url;
     switch (contactOptions.type) {
       case "mobile":
-        return `tel${contactOptions.value}`;
+        url = `tel:${contactOptions.value}`;
         break;
 
-      case "linkedin":
-        return `https://www.linkedin.com/in/${contactOptions.value}`;
+      case "landline":
+        url = `tel:${contactOptions.value}`;
         break;
-      case "email":
-        return `mailto${contactOptions.value}`;
+
+      case "signal":
+        url = `tel:${contactOptions.value}`;
         break;
+
+      case "telegram":
+        url = `tel:${contactOptions.value}`;
+        break;
+
+      case "twitter":
+        url = `https://twitter.com/home`;
+        break;
+
+      case "linkedIn":
+        url = `https://www.linkedin.com/`;
+        break;
+
+      case "mail":
+        url = `mailto:${contactOptions.value}`;
+        break;
+
+      case "instagram":
+        url = `https://www.instagram.com/`;
+        break;
+    }
+    if (url) {
+      window.open(url, "_blank");
     }
   };
 
@@ -177,7 +201,7 @@ export default function FriendPagePreview({ friend }) {
                   .filter((opts) => hasContactOption(opts))
                   .map((options, index) => (
                     <StyledContactButton
-                      onClick={openContactLink}
+                      onClick={() => openContactLink(options)}
                       key={options.name}
                       isLandline={options.type === "landline"}
                       isMail={options.type === "mail"}
@@ -229,7 +253,11 @@ export default function FriendPagePreview({ friend }) {
             </StyledInfoList>
             <StyledNotice>
               <p>Your Notice:</p>
+              <StyledSpexText>
+                <textarea />
+              </StyledSpexText>
             </StyledNotice>
+
             <StyledButtonContact onClick={handleClick}>
               <div>
                 <p>Contact Options ↓</p>
