@@ -5,6 +5,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const StyledHeaderBox = styled.div`
+  z-index: 300;
   display: flex;
   position: sticky;
   top: 0;

@@ -47,7 +47,7 @@ const StyledContactList = styled.ul`
 
 const StyledInfoList = styled.div`
   background-color: white;
-  margin: 0rem 1rem 0rem 1rem;
+  margin: 3rem 1rem 0rem 1rem;
   padding: 0rem 1rem 0rem 1rem;
   border-radius: 1rem;
   color: #2d2e83;
@@ -103,16 +103,6 @@ const StyledButtonContainer = styled.div`
   margin: auto;
 `;
 
-const StyledCircleButton = styled(StyledContactButton)`
-  position: absolute;
-  width: 4.5rem;
-  height: 4.5rem;
-  //border-radius: 50%;
-  //line-height: 60px;
-  transform: rotate(${(props) => props.rotate + 180}deg) translate(140px)
-    rotate(-${(props) => props.rotate + 180}deg);
-`;
-
 export default function FriendPagePreview({ friend }) {
   const [value, setValue] = useState(false);
 
@@ -124,12 +114,14 @@ export default function FriendPagePreview({ friend }) {
     switch (contactOptions.type) {
       case "mobile":
         return `tel${contactOptions.value}`;
+        break;
 
       case "linkedin":
         return `https://www.linkedin.com/in/${contactOptions.value}`;
-
+        break;
       case "email":
         return `mailto${contactOptions.value}`;
+        break;
     }
   };
 
@@ -154,9 +146,17 @@ export default function FriendPagePreview({ friend }) {
                 friend.contactOptions
                   .filter((opts) => hasContactOption(opts))
                   .map((options, index) => (
-                    <StyledCircleButton
+                    <StyledContactButton
                       onClick={openContactLink}
                       key={options.name}
+                      isLandline={options.type === "landline"}
+                      isMail={options.type === "mail"}
+                      isMobile={options.type === "mobile"}
+                      isLinkedIn={options.type === "linkedIn"}
+                      isTwitter={options.type === "twitter"}
+                      isInstagram={options.type === "instagram"}
+                      isTelegram={options.type === "telegram"}
+                      isSiganl={options.type === "signal"}
                       rotate={
                         friend.contactOptions.length === 1
                           ? 0
@@ -166,7 +166,7 @@ export default function FriendPagePreview({ friend }) {
                       }
                     >
                       {options.name}
-                    </StyledCircleButton>
+                    </StyledContactButton>
                   ))}
             </StyledButtonContainer>
 
