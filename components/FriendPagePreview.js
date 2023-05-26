@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { StyledContactButton } from "./Button/ContactButton.Styled";
-import { StyledList } from "./List/List.Styled";
 import { useState } from "react";
 import { hasContactOption } from "../lib/helpers";
 
@@ -47,7 +46,6 @@ const StyledContactList = styled.li`
 const StyledInfoList = styled.div`
   display: flex;
   flex-direction: row;
-
   background-color: white;
   margin: 3rem 1rem 0rem 1rem;
   padding: 0rem 1rem 0rem 1rem;
@@ -253,9 +251,6 @@ export default function FriendPagePreview({ friend }) {
             </StyledInfoList>
             <StyledNotice>
               <p>Your Notice:</p>
-              <StyledSpexText>
-                <textarea />
-              </StyledSpexText>
             </StyledNotice>
 
             <StyledButtonContact onClick={handleClick}>

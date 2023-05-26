@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import Link from "next/link";
+import styled, { css } from "styled-components";
 
 export const StyledReasonsLink = styled(Link)`
   text-decoration: none;
@@ -21,6 +21,7 @@ export const StyledReasonsLink = styled(Link)`
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;
   margin: 0.5rem 1rem 1rem 1rem;
+  z-index: 200;
 
   &:hover {
     cursor: pointer;
@@ -35,4 +36,14 @@ export const StyledReasonsLink = styled(Link)`
     transform: scale(0.95);
     transition: transform 1s ease;
   }
+
+  ${(isStatic) =>
+    isStatic &&
+    css`
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      top: 27.5rem;
+      left: 1rem;
+    `}
 `;
