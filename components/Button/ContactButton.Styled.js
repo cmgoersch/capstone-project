@@ -16,11 +16,11 @@ export const StyledContactButton = styled.button`
   //aspect-ratio: 1;
   border-radius: 8rem;
   position: absolute;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 4.2rem;
+  height: 4.2rem;
 
-  transform: rotate(${(props) => props.rotate + 180}deg) translate(140px)
-    rotate(-${(props) => props.rotate + 180}deg);
+  transform: rotate(${(props) => props.rotate + 190}deg) translate(140px)
+    rotate(-${(props) => props.rotate + 190}deg);
   &:hover {
     cursor: pointer;
   }
@@ -28,14 +28,8 @@ export const StyledContactButton = styled.button`
   ${({ isLandline }) =>
     isLandline &&
     css`
-      background: linear-gradient(
-        270deg,
-        rgba(0, 150, 64, 1) 13%,
-        rgba(47, 172, 102, 1) 29%,
-        rgba(0, 102, 51, 1) 58%
-      );
+      background: #62b036;
       border: 0.2rem solid #657786;
-      // Add any other styles specific to the isMail condition
     `}
 
   ${({ isMail }) =>
@@ -54,12 +48,7 @@ export const StyledContactButton = styled.button`
  ${({ isMobile }) =>
     isMobile &&
     css`
-      background: rgb(98, 176, 54);
-      background: linear-gradient(
-        273deg,
-        rgba(98, 176, 54, 1) 39%,
-        rgba(4, 189, 68, 1) 62%
-      );
+      background: #62b036;
       border: 0.2rem solid #657786;
     `} 
 
@@ -68,7 +57,6 @@ ${({ isLinkedIn }) =>
     css`
       background: #0a66c2;
       border: 0.2rem solid #657786;
-      // Add any other styles specific to the isMail condition
     `}
 
 ${({ isTwitter }) =>
@@ -76,7 +64,6 @@ ${({ isTwitter }) =>
     css`
       background: #1da1f2;
       border: 0.2rem solid #657786;
-      // Add any other styles specific to the isMail condition
     `}
 
 ${({ isInstagram }) =>
