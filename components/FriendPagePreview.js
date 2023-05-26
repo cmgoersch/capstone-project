@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { StyledButton } from "./Button/Button.Styled";
+import { StyledContactButton } from "./Button/ContactButton.Styled";
 import { StyledList } from "./List/List.Styled";
 import { useState } from "react";
 import { hasContactOption } from "../lib/helpers";
@@ -103,14 +103,14 @@ const StyledButtonContainer = styled.div`
   margin: auto;
 `;
 
-const StyledCircleButton = styled(StyledButton)`
+const StyledCircleButton = styled(StyledContactButton)`
   position: absolute;
   width: 4.5rem;
   height: 4.5rem;
   //border-radius: 50%;
   //line-height: 60px;
-  transform: rotate(${(props) => props.rotate - 150}deg) translate(140px)
-    rotate(-${(props) => props.rotate - 150}deg);
+  transform: rotate(${(props) => props.rotate + 180}deg) translate(140px)
+    rotate(-${(props) => props.rotate + 180}deg);
 `;
 
 export default function FriendPagePreview({ friend }) {
