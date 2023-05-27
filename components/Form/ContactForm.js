@@ -256,9 +256,7 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
               Delete <br />
               Contact
             </StyledButtonRed>
-          ) : (
-            <></>
-          )}
+          ) : null}
         </StyledButtonPosition>
       </StyledNewContactForm>
     </>

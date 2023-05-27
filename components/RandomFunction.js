@@ -4,15 +4,23 @@ import { StyledRandomButtonClicked } from "./Button/RandomButtonClicked.Styled";
 import { StyledCleanLink } from "./Link/CleanLink.Styled";
 import Image from "next/image";
 import styled from "styled-components";
+import { StyledReasonsLink } from "./Link/ReasonsLink";
+import { StyledTitleFriendLink } from "./Link/TitleFriendLink.Styled";
 
 const StyledTitelText = styled.p`
   font-size: 1.4rem;
   font-weight: bold;
   margin: 0;
+  width: 100%;
+  text-align: center;
 `;
 
 const StyledSubTitleText = styled.p`
   margin: 0.5rem 0 0 0;
+`;
+
+const StyledPositionRelative = styled.div`
+  position: relative;
 `;
 
 function RandomFunction({ friendList }) {
@@ -64,22 +72,38 @@ function RandomFunction({ friendList }) {
         <StyledCleanLink
           href={`/contacts/${friendId}-${currentFriend.nickname}?winning=true`}
         >
-          <StyledRandomButtonClicked>
-            <div>
+          <div style={{ position: "relative", width: "100%" }}>
+            <StyledRandomButtonClicked>
               <StyledTitelText>Get in touch</StyledTitelText>
               <StyledSubTitleText>
                 Your winner is {currentFriend.nickname}!{" "}
               </StyledSubTitleText>
-            </div>
-          </StyledRandomButtonClicked>
+            </StyledRandomButtonClicked>
+            <StyledPositionRelative>
+              <StyledReasonsLink href={`/reasons`} isStatic={"static"}>
+                10 resons <br /> to get in <br /> touch
+              </StyledReasonsLink>
+              <StyledTitleFriendLink href={`/addContact`}>
+                add new <br /> friend
+              </StyledTitleFriendLink>
+            </StyledPositionRelative>
+          </div>
         </StyledCleanLink>
       ) : (
-        <StyledRandomButton onClick={handleRandomFriendClick}>
-          <div>
+        <div style={{ position: "relative", width: "100%" }}>
+          <StyledRandomButton onClick={handleRandomFriendClick}>
             <StyledTitelText>Be a friend!</StyledTitelText>
             <StyledSubTitleText>Push the Button</StyledSubTitleText>
-          </div>
-        </StyledRandomButton>
+          </StyledRandomButton>
+          <StyledPositionRelative>
+            <StyledReasonsLink href={`/reasons`} isStatic={"static"}>
+              10 resons <br /> to get in <br /> touch
+            </StyledReasonsLink>
+            <StyledTitleFriendLink href={`/addContact`}>
+              add new <br /> friend
+            </StyledTitleFriendLink>
+          </StyledPositionRelative>
+        </div>
       )}
     </div>
   );

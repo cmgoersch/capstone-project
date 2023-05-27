@@ -36,10 +36,12 @@ const StyledIndex = styled.div`
 const StyledCircle = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 const StyledReasons = styled.div`
   display: flex;
+  position: absolute;
 `;
 
 export default function HomePage({ state }) {
@@ -58,14 +60,6 @@ export default function HomePage({ state }) {
             </StyledTitleText>
             <StyledCircle>
               <RandomFunction friendList={state} />
-              <StyledReasons>
-                <StyledReasonsLink href={`/reasons`} isStatic={"static"}>
-                  10 resons <br /> to get in <br /> touch
-                </StyledReasonsLink>
-                <StyledTitleFriendLink href={`/addContact`}>
-                  add new <br /> friend
-                </StyledTitleFriendLink>
-              </StyledReasons>
             </StyledCircle>
           </StyledIndex>
           <FriendsCounter state={state} />

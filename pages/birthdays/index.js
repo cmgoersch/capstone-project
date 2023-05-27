@@ -86,6 +86,10 @@ const StyledBirthday = styled.p`
 const StyledButtonWrapper = styled.article`
   display: flex;
   justify-content: right;
+  width: 100%;
+  height: 90px;
+  padding: 1rem 0rem 1rem 0rem;
+  gap: 0.7rem;
 `;
 
 const StyledProfilePicture = styled.section`
@@ -190,6 +194,13 @@ export default function BirthdayList({ state }) {
             <div>
               {visibleFriends < friends.length ? (
                 <StyledButtonWrapper>
+                  {visibleFriends > 4 && (
+                    <StyledButtonBlack onClick={showLessFriends}>
+                      Show
+                      <br />
+                      less
+                    </StyledButtonBlack>
+                  )}
                   <StyledButton onClick={showMoreFriends}>
                     Show
                     <br />

@@ -41,9 +41,9 @@ export const StyledReasonsLink = styled(Link)`
     isStatic &&
     css`
       position: absolute;
-      width: 5rem;
-      height: 5rem;
-      top: 27.5rem;
-      left: 1rem;
+
+      top: 0rem;
+      margin-top: -4rem;
+      left: 0rem;
     `}
 `;
