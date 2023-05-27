@@ -86,10 +86,8 @@ const StyledBirthday = styled.p`
 const StyledButtonWrapper = styled.article`
   display: flex;
   justify-content: right;
-  width: 100%;
-  height: 90px;
+
   padding: 1rem 0rem 1rem 0rem;
-  gap: 0.7rem;
 `;
 
 const StyledProfilePicture = styled.section`

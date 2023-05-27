@@ -84,7 +84,7 @@ function RandomFunction({ friendList }) {
                 10 resons <br /> to get in <br /> touch
               </StyledReasonsLink>
               <StyledTitleFriendLink href={`/addContact`}>
-                add new <br /> friend
+                Add new <br /> friend
               </StyledTitleFriendLink>
             </StyledPositionRelative>
           </div>
@@ -100,7 +100,7 @@ function RandomFunction({ friendList }) {
               10 resons <br /> to get in <br /> touch
             </StyledReasonsLink>
             <StyledTitleFriendLink href={`/addContact`}>
-              add new <br /> friend
+              Add new <br /> friend
             </StyledTitleFriendLink>
           </StyledPositionRelative>
         </div>

@@ -245,10 +245,12 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
               Contact
             </StyledButton>
           ) : (
-            <StyledButton type="submit">
-              Save <br />
-              Contact
-            </StyledButton>
+            <div>
+              <StyledButton type="submit">
+                Save <br />
+                Contact
+              </StyledButton>
+            </div>
           )}
 
           {modus === "update" ? (
