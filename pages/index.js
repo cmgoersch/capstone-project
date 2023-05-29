@@ -6,6 +6,7 @@ import styled from "styled-components";
 import FriendsCounter from "@/components/FriendsCounter";
 import { StyledBirthdayLink } from "@/components/Link/BirthdayLink.Styled";
 import { StyledReasonsLink } from "@/components/Link/ReasonsLink";
+import { StyledTitleFriendLink } from "@/components/Link/TitleFriendLink.Styled";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const StyledHomePage = styled.div`
 const StyledTitleText = styled.h1`
   color: white;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin: 1.4rem;
 `;
 
@@ -35,10 +36,12 @@ const StyledIndex = styled.div`
 const StyledCircle = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 const StyledReasons = styled.div`
   display: flex;
+  position: absolute;
 `;
 
 export default function HomePage({ state }) {
@@ -57,22 +60,13 @@ export default function HomePage({ state }) {
             </StyledTitleText>
             <StyledCircle>
               <RandomFunction friendList={state} />
-              <StyledReasons>
-                <StyledReasonsLink href={`/reasons`}>
-                  {" "}
-                  10 resons <br /> to get in <br /> touch
-                </StyledReasonsLink>
-              </StyledReasons>
             </StyledCircle>
           </StyledIndex>
           <FriendsCounter state={state} />
         </StyledHomePage>
         <StyledFooter>
           <StyledLink href={`/contacts`}> All friends</StyledLink>
-          <StyledBirthdayLink href={`/birthdays`}>
-            {" "}
-            Birthdays
-          </StyledBirthdayLink>
+          <StyledBirthdayLink href={`/birthdays`}>Birthdays</StyledBirthdayLink>
         </StyledFooter>
       </StyledDiv>
     </>

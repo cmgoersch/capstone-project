@@ -14,8 +14,9 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-
-    
+min-height: 100vh;
 background: linear-gradient(10deg, rgba(29,113,184,1) 14%, rgba(45,46,131,1) 66%);
+
+
   }
 `;

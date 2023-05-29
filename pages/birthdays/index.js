@@ -42,7 +42,7 @@ const StyledBirthdayBox = styled.article`
   padding: 0rem;
 `;
 
-const StyledSingleFriend = styled.article`
+const StyledSingleFriend = styled.section`
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -54,7 +54,7 @@ const StyledSingleFriend = styled.article`
   padding: 0rem;
 `;
 
-const StyledFriend = styled.article`
+const StyledFriend = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -86,9 +86,11 @@ const StyledBirthday = styled.p`
 const StyledButtonWrapper = styled.article`
   display: flex;
   justify-content: right;
+
+  padding: 1rem 0rem 1rem 0rem;
 `;
 
-const StyledProfilePicture = styled.article`
+const StyledProfilePicture = styled.section`
   margin: 5px;
 `;
 
@@ -190,6 +192,13 @@ export default function BirthdayList({ state }) {
             <div>
               {visibleFriends < friends.length ? (
                 <StyledButtonWrapper>
+                  {visibleFriends > 4 && (
+                    <StyledButtonBlack onClick={showLessFriends}>
+                      Show
+                      <br />
+                      less
+                    </StyledButtonBlack>
+                  )}
                   <StyledButton onClick={showMoreFriends}>
                     Show
                     <br />

@@ -11,7 +11,7 @@ const StyledfriendsCounter = styled.div`
   justify-content: right;
   align-items: baseline;
   gap: 0.2rem;
-  margin: 0rem 1rem 0rem 0rem;
+  margin: -1.5rem 1rem 0rem 0rem;
   color: white;
 `;
 

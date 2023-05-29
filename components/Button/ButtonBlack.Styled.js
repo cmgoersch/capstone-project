@@ -15,10 +15,11 @@ export const StyledButtonBlack = styled.button`
   );
   font-size: 0.8rem;
   padding: 0.7rem 0.7rem;
+  justify-content: center;
   aspect-ratio: 1;
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;
-  margin: 1rem;
+  margin: 1rem 1rem 0.5rem 1rem;
 
   &:hover {
     cursor: pointer;

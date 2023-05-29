@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { StyledButton } from "./Button/Button.Styled";
-import { StyledList } from "./List/List.Styled";
+import { StyledContactButton } from "./Button/ContactButton.Styled";
 import { useState } from "react";
 import { hasContactOption } from "../lib/helpers";
 
@@ -38,16 +37,17 @@ const StyledName = styled.p`
   margin: 0px 0px 9px 0px;
 `;
 
-const StyledContactList = styled.ul`
-  color: white;
+const StyledContactList = styled.li`
   text-align: left;
   text-decoration: none;
   font-size: 1rem;
 `;
 
 const StyledInfoList = styled.div`
+  display: flex;
+  flex-direction: row;
   background-color: white;
-  margin: 0rem 1rem 0rem 1rem;
+  margin: 3rem 1rem 0rem 1rem;
   padding: 0rem 1rem 0rem 1rem;
   border-radius: 1rem;
   color: #2d2e83;
@@ -86,18 +86,95 @@ const StyledNotice = styled.div`
   font-size: 1rem;
 `;
 
+const StyledSpexBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 0rem 1rem;
+`;
+
+const StyledSpexTextTitle = styled.div`
+  padding: 0rem 0rem 0.5rem 0rem;
+  text-align: left;
+`;
+
+const StyledSpexText = styled.div`
+  padding: 0rem 0rem 2rem 0rem;
+  text-align: left;
+`;
+
+const StyledSpexListItems = styled.li`
+  display: flex;
+`;
+
 const StyledHobbyList = styled.ul`
   list-style-type: none;
   justify-content: left;
-  line-height: 190%;
-  padding: 0rem 1rem 1rem 1rem;
+  line-height: 130%;
+  padding: 0rem 1rem 1rem 0rem;
+  margin: 0;
+`;
+
+const StyledButtonContainer = styled.div`
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 `;
 
 export default function FriendPagePreview({ friend }) {
+  const birthday = new Date(friend.birthday);
+  const day = String(birthday.getDate()).padStart(2, "0");
+  const month = String(birthday.getMonth() + 1).padStart(2, "0");
+  const year = birthday.getFullYear();
+
+  const formattedDate = `${day}.${month}.${year}`;
+
   const [value, setValue] = useState(false);
 
   const handleClick = () => {
     setValue(!value);
+  };
+  const openContactLink = (contactOptions) => {
+    let url;
+    switch (contactOptions.type) {
+      case "mobile":
+        url = `tel:${contactOptions.value}`;
+        break;
+
+      case "landline":
+        url = `tel:${contactOptions.value}`;
+        break;
+
+      case "signal":
+        url = `tel:${contactOptions.value}`;
+        break;
+
+      case "telegram":
+        url = `tel:${contactOptions.value}`;
+        break;
+
+      case "twitter":
+        url = `https://twitter.com/home`;
+        break;
+
+      case "linkedIn":
+        url = `https://www.linkedin.com/`;
+        break;
+
+      case "mail":
+        url = `mailto:${contactOptions.value}`;
+        break;
+
+      case "instagram":
+        url = `https://www.instagram.com/`;
+        break;
+    }
+    if (url) {
+      window.open(url, "_blank");
+    }
   };
 
   return (
@@ -109,51 +186,73 @@ export default function FriendPagePreview({ friend }) {
             <StyledName>
               {friend.first_name} {friend.last_name}
             </StyledName>
-            <div>
+
+            <StyledButtonContainer>
               <Image
                 src={friend.profileIconSource}
                 alt={friend.nickname}
                 width={180}
                 height={180}
               />
-            </div>
-
-            <StyledContactList>
               {friend.contactOptions &&
-                friend.contactOptions.map((options) =>
-                  hasContactOption(options) ? (
-                    <StyledList key={options.name}>
-                      <StyledButton href={options.number}>
-                        {options.name}
-                      </StyledButton>
-                    </StyledList>
-                  ) : null
-                )}
-            </StyledContactList>
+                friend.contactOptions
+                  .filter((opts) => hasContactOption(opts))
+                  .map((options, index) => (
+                    <StyledContactButton
+                      onClick={() => openContactLink(options)}
+                      key={options.name}
+                      isLandline={options.type === "landline"}
+                      isMail={options.type === "mail"}
+                      isMobile={options.type === "mobile"}
+                      isLinkedIn={options.type === "linkedIn"}
+                      isTwitter={options.type === "twitter"}
+                      isInstagram={options.type === "instagram"}
+                      isTelegram={options.type === "telegram"}
+                      isSiganl={options.type === "signal"}
+                      rotate={
+                        friend.contactOptions.length === 1
+                          ? 0
+                          : (index + 5) *
+                            (200 /
+                              Math.max(1, friend.contactOptions.length - 1.2))
+                      }
+                    >
+                      {options.name}
+                    </StyledContactButton>
+                  ))}
+            </StyledButtonContainer>
 
             <StyledInfoList>
-              <p>
-                Birthday: <b>{friend.birthday}</b>
-              </p>
-              <p>
-                Status: <b>{friend.friendship_status}</b>
-              </p>
-              <p>
-                City: <b>{friend.city}</b>
-              </p>
-              <p>Hobbies:</p>
-              <StyledHobbyList>
-                {friend.hobbies &&
-                  friend.hobbies.map((hobbie, index) => (
-                    <li key={index}>
-                      <b>{hobbie}</b>
-                    </li>
-                  ))}
-              </StyledHobbyList>
+              <StyledSpexBox>
+                <StyledSpexTextTitle>Birthday:</StyledSpexTextTitle>
+                <StyledSpexText>
+                  <b>{formattedDate}</b>
+                </StyledSpexText>
+                <StyledSpexTextTitle>Status:</StyledSpexTextTitle>
+                <StyledSpexText>
+                  <b>{friend.friendship_status}</b>
+                </StyledSpexText>
+              </StyledSpexBox>
+              <StyledSpexBox>
+                <StyledSpexTextTitle>City:</StyledSpexTextTitle>
+                <StyledSpexText>
+                  <b>{friend.city}</b>
+                </StyledSpexText>
+                <StyledSpexTextTitle>Hobbies:</StyledSpexTextTitle>
+                <StyledHobbyList>
+                  {friend.hobbies &&
+                    friend.hobbies.map((hobbie, index) => (
+                      <StyledSpexListItems key={index}>
+                        <b>{hobbie}</b>
+                      </StyledSpexListItems>
+                    ))}
+                </StyledHobbyList>
+              </StyledSpexBox>
             </StyledInfoList>
             <StyledNotice>
               <p>Your Notice:</p>
             </StyledNotice>
+
             <StyledButtonContact onClick={handleClick}>
               <div>
                 <p>Contact Options ↓</p>
@@ -163,14 +262,14 @@ export default function FriendPagePreview({ friend }) {
                   <StyledButtonContactList>
                     {friend.contactOptions.map((options) =>
                       hasContactOption(options) ? (
-                        <ul key={options.name}>
+                        <StyledContactList key={options.name}>
                           {" "}
                           <li href={options.number || options.address}>
                             {" "}
                             {options.name}:{" "}
                             <b> {options.number || options.address}</b>
                           </li>
-                        </ul>
+                        </StyledContactList>
                       ) : null
                     )}
                   </StyledButtonContactList>
