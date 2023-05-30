@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { StyledContactButton } from "./Button/ContactButton.Styled";
 import { useState } from "react";
 import { hasContactOption } from "../lib/helpers";
+import { useRouter } from "next/router";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -134,6 +135,8 @@ export default function FriendPagePreview({ friend }) {
 
   const [value, setValue] = useState(false);
 
+  const router = useRouter();
+
   const handleClick = () => {
     setValue(!value);
   };
@@ -175,6 +178,10 @@ export default function FriendPagePreview({ friend }) {
     if (url) {
       window.open(url, "_blank");
     }
+    router.push({
+      pathname: "/contactQuery",
+      query: { friend: JSON.stringify(friend) },
+    });
   };
 
   return (

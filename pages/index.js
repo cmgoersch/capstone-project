@@ -18,7 +18,7 @@ const StyledHomePage = styled.div`
   max-width: 375px;
 `;
 
-const StyledTitleText = styled.h1`
+const StyledTitleText = styled.p`
   color: white;
   text-align: center;
   font-size: 0.8rem;
@@ -55,8 +55,8 @@ export default function HomePage({ state }) {
         <StyledHomePage>
           <StyledIndex>
             <StyledTitleText>
-              Friendships want to be cultivated! Everyone is happy if you just
-              get in touch. Who may be happy to hear you today?
+              Friendships need to be cultivated! Everyone is happy if you just
+              get in touch. Who would happy to hear from you today?
             </StyledTitleText>
             <StyledCircle>
               <RandomFunction friendList={state} />

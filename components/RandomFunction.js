@@ -97,7 +97,7 @@ function RandomFunction({ friendList }) {
           </StyledRandomButton>
           <StyledPositionRelative>
             <StyledReasonsLink href={`/reasons`} isStatic={"static"}>
-              10 resons <br /> to get in <br /> touch
+              10 reasons <br /> to get in <br /> touch
             </StyledReasonsLink>
             <StyledTitleFriendLink href={`/addContact`}>
               Add new <br /> friend
