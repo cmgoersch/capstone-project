@@ -38,6 +38,13 @@ const StyledName = styled.p`
   margin: 0px 0px 9px 0px;
 `;
 
+const StyledContactDate = styled.p`
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin: 35px 0px -35px 0px;
+`;
+
 const StyledContactList = styled.li`
   text-align: left;
   text-decoration: none;
@@ -132,17 +139,35 @@ export default function FriendPagePreview({ friend, friendId }) {
   const year = birthday.getFullYear();
 
   const formattedDate = `${day}.${month}.${year}`;
-
   const [value, setValue] = useState(false);
-
   const router = useRouter();
 
-  const handleClick = () => {
-    setValue(!value);
-  };
+  const lastContactEntry = friend.contact_history
+    ? friend.contact_history.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      })[0]
+    : undefined;
+
+  let daysSinceLastContact = "New Friend";
+  if (lastContactEntry && lastContactEntry.date) {
+    const lastContact = lastContactEntry.date;
+    const lastContactDate = new Date(lastContact);
+    const day2 = String(lastContactDate.getDate()).padStart(2, "0");
+    const month2 = String(lastContactDate.getMonth() + 1).padStart(2, "0");
+    const year2 = lastContactDate.getFullYear();
+
+    const formattedLastContact = `${day2}.${month2}.${year2}`;
+
+    const today = new Date();
+
+    const differenceInMilliseconds = today - new Date(lastContact);
+    const differenceInDays = Math.round(
+      differenceInMilliseconds / (1000 * 60 * 60 * 24)
+    );
+    daysSinceLastContact = `${differenceInDays} days since last contact`;
+  }
 
   const openContactLink = (contactOptions) => {
-    console.log("Hier sollte ContactLink stehen", contactOptions);
     let url;
     switch (contactOptions.type) {
       case "mobile":
@@ -183,6 +208,10 @@ export default function FriendPagePreview({ friend, friendId }) {
     router.push({
       pathname: `/contactQuery/${friendId}`,
     });
+  };
+
+  const handleClick = () => {
+    setValue(!value);
   };
 
   return (
@@ -229,7 +258,7 @@ export default function FriendPagePreview({ friend, friendId }) {
                     </StyledContactButton>
                   ))}
             </StyledButtonContainer>
-
+            <StyledContactDate>{daysSinceLastContact}</StyledContactDate>
             <StyledInfoList>
               <StyledSpexBox>
                 <StyledSpexTextTitle>Birthday:</StyledSpexTextTitle>

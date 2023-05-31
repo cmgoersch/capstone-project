@@ -36,6 +36,13 @@ const StyledName = styled.p`
   margin: 6px;
 `;
 
+const StyledCounter = styled.p`
+  color: white;
+  text-decoration: none;
+  font-size: 0.5rem;
+  margin: 1px;
+`;
+
 const StyledNoMachingFriend = styled.div`
   color: white;
   text-decoration: none;
@@ -53,6 +60,30 @@ export default function FriendPages({
   searchFound,
   onSearchAgainClick,
 }) {
+  const daysSinceLastContact = (contact_history) => {
+    if (!contact_history || contact_history.length === 0) {
+      return "New Friend";
+    }
+
+    const lastContactEntry = contact_history
+      ? contact_history.sort((a, b) => {
+          return new Date(b.date) - new Date(a.date);
+        })[0]
+      : undefined;
+
+    let result = "No contact history";
+    if (lastContactEntry) {
+      const lastContact = lastContactEntry.date;
+      const today = new Date();
+      const differenceInMilliseconds = today - new Date(lastContact);
+      const differenceInDays = Math.round(
+        differenceInMilliseconds / (1000 * 60 * 60 * 24)
+      );
+      result = `${differenceInDays} days`;
+    }
+
+    return result;
+  };
   return (
     <StyledDiv>
       <StyledWidth>
@@ -73,6 +104,10 @@ export default function FriendPages({
                   <StyledName>
                     {friend.first_name} {friend.last_name}
                   </StyledName>
+                  <StyledCounter>Last Contact:</StyledCounter>
+                  <StyledCounter>
+                    {daysSinceLastContact(friend.contact_history)}
+                  </StyledCounter>
                 </StyledCleanLink>
               </div>
             ))

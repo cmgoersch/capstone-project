@@ -23,11 +23,6 @@ export default function App({ Component, pageProps }) {
   function updateContactAttempt(contactId, contact_success) {
     const friend = state[contactId];
     const currentContactHistory = friend.contact_history || [];
-    console.log(
-      "friend, currentContactHistory:",
-      friend,
-      currentContactHistory
-    );
     const updatedContactHistory = [
       ...currentContactHistory,
       {
