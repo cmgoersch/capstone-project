@@ -56,10 +56,14 @@ const StyledButtonContainer = styled.div`
   margin: auto;
 `;
 
-export default function ContactQuery() {
+export default function Aplause({ state }) {
   const router = useRouter();
-  const { friend } = router.query;
-  const friendObj = friend ? JSON.parse(friend) : null;
+  const { id: friendId } = router.query;
+  if (!friendId) {
+    return null;
+  }
+
+  const friend = state[friendId];
 
   return (
     <>
@@ -69,34 +73,20 @@ export default function ContactQuery() {
           <StyledFriend>
             <StyledButtonContainer>
               <Image
-                src={friendObj ? friendObj.profileIconSource : ""}
-                alt={friendObj ? friendObj.nickname : ""}
+                src={friend ? friend.profileIconSource : ""}
+                alt={friend ? friend.nickname : ""}
                 width={140}
                 height={140}
               />
             </StyledButtonContainer>
             <StyledTitleText>
-              Have you reached your friend {friendObj ? friendObj.nickname : ""}
-              ?
+              Too bad that it did not work out. I am sure your friend{" "}
+              {friend ? friend.nickname : ""} would have been very happy. It
+              will certainly work out next time.
             </StyledTitleText>
+
             <StyledFooter>
-              <StyledQueryLink
-                href={`/contactQuery/aplaus?friendObj=${JSON.stringify(
-                  friendObj
-                )}`}
-              >
-                Jes
-              </StyledQueryLink>
-              <StyledQueryLink
-                href={`/contactQuery/comfort?friendObj=${JSON.stringify(
-                  friendObj
-                )}`}
-              >
-                No
-              </StyledQueryLink>
-              <StyledQueryButton onClick={() => router.back()}>
-                Try <br /> again
-              </StyledQueryButton>
+              <StyledQueryLink href="/">Back to start</StyledQueryLink>
             </StyledFooter>
           </StyledFriend>
         </StyledWidth>

@@ -21,8 +21,8 @@ export const StyledQueryButton = styled.button`
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;
   margin: 1rem 1rem 0.5rem 1rem;
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
 
   &:hover {
     cursor: pointer;

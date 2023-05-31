@@ -56,10 +56,14 @@ const StyledButtonContainer = styled.div`
   margin: auto;
 `;
 
-export default function Aplause() {
+export default function Aplause({ state }) {
   const router = useRouter();
-  const { friendObj: friendObjString } = router.query;
-  const friendObj = friendObjString ? JSON.parse(friendObjString) : null;
+  const { id: friendId } = router.query;
+  if (!friendId) {
+    return null;
+  }
+
+  const friend = state[friendId];
 
   return (
     <>
@@ -69,16 +73,15 @@ export default function Aplause() {
           <StyledFriend>
             <StyledButtonContainer>
               <Image
-                src={friendObj ? friendObj.profileIconSource : ""}
-                alt={friendObj ? friendObj.nickname : ""}
+                src={friend ? friend.profileIconSource : ""}
+                alt={friend ? friend.nickname : ""}
                 width={140}
                 height={140}
               />
             </StyledButtonContainer>
             <StyledTitleText>
-              Too bad that it did not work out. I am sure your friend{" "}
-              {friendObj ? friendObj.nickname : ""} would have been very happy.
-              It will certainly work out next time.
+              Your friend {friend ? friend.nickname : ""} must have been very
+              happy to hear from you. You are a really great friend!
             </StyledTitleText>
 
             <StyledFooter>
