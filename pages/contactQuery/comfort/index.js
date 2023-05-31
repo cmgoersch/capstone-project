@@ -56,10 +56,10 @@ const StyledButtonContainer = styled.div`
   margin: auto;
 `;
 
-export default function ContactQuery() {
+export default function Aplause() {
   const router = useRouter();
-  const { friend } = router.query;
-  const friendObj = friend ? JSON.parse(friend) : null;
+  const { friendObj: friendObjString } = router.query;
+  const friendObj = friendObjString ? JSON.parse(friendObjString) : null;
 
   return (
     <>
@@ -76,27 +76,13 @@ export default function ContactQuery() {
               />
             </StyledButtonContainer>
             <StyledTitleText>
-              Have you reached your friend {friendObj ? friendObj.nickname : ""}
-              ?
+              Too bad that it did not work out. I am sure your friend{" "}
+              {friendObj ? friendObj.nickname : ""} would have been very happy.
+              It will certainly work out next time.
             </StyledTitleText>
+
             <StyledFooter>
-              <StyledQueryLink
-                href={`/contactQuery/aplaus?friendObj=${JSON.stringify(
-                  friendObj
-                )}`}
-              >
-                Jes
-              </StyledQueryLink>
-              <StyledQueryLink
-                href={`/contactQuery/comfort?friendObj=${JSON.stringify(
-                  friendObj
-                )}`}
-              >
-                No
-              </StyledQueryLink>
-              <StyledQueryButton onClick={() => router.back()}>
-                Try <br /> again
-              </StyledQueryButton>
+              <StyledQueryLink href="/">Back to start</StyledQueryLink>
             </StyledFooter>
           </StyledFriend>
         </StyledWidth>
