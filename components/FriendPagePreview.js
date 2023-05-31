@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { StyledContactButton } from "./Button/ContactButton.Styled";
 import { useState } from "react";
 import { hasContactOption } from "../lib/helpers";
+import { useRouter } from "next/router";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -124,7 +125,7 @@ const StyledButtonContainer = styled.div`
   margin: auto;
 `;
 
-export default function FriendPagePreview({ friend }) {
+export default function FriendPagePreview({ friend, friendId }) {
   const birthday = new Date(friend.birthday);
   const day = String(birthday.getDate()).padStart(2, "0");
   const month = String(birthday.getMonth() + 1).padStart(2, "0");
@@ -134,26 +135,30 @@ export default function FriendPagePreview({ friend }) {
 
   const [value, setValue] = useState(false);
 
+  const router = useRouter();
+
   const handleClick = () => {
     setValue(!value);
   };
+
   const openContactLink = (contactOptions) => {
+    console.log("Hier sollte ContactLink stehen", contactOptions);
     let url;
     switch (contactOptions.type) {
       case "mobile":
-        url = `tel:${contactOptions.value}`;
+        url = `tel:${contactOptions.number}`;
         break;
 
       case "landline":
-        url = `tel:${contactOptions.value}`;
+        url = `tel:${contactOptions.number}`;
         break;
 
       case "signal":
-        url = `tel:${contactOptions.value}`;
+        url = `tel:${contactOptions.number}`;
         break;
 
       case "telegram":
-        url = `tel:${contactOptions.value}`;
+        url = `tel:${contactOptions.number}`;
         break;
 
       case "twitter":
@@ -165,7 +170,7 @@ export default function FriendPagePreview({ friend }) {
         break;
 
       case "mail":
-        url = `mailto:${contactOptions.value}`;
+        url = `mailto:${contactOptions.address}`;
         break;
 
       case "instagram":
@@ -175,6 +180,9 @@ export default function FriendPagePreview({ friend }) {
     if (url) {
       window.open(url, "_blank");
     }
+    router.push({
+      pathname: `/contactQuery/${friendId}`,
+    });
   };
 
   return (

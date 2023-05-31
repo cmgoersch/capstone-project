@@ -9,6 +9,16 @@
     "friendship_status": "Friend",
     "hobbies": ["e-scooter", "skateboarding", "inline skates"],
     "city": "Hamburg",
+    "contact_history": [
+      {
+        "date": "2023-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2023-04-01",
+        "contact_success": false
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -70,6 +80,16 @@
     "friendship_status": "Friend",
     "hobbies": ["motorcycling", "painting", "reading"],
     "city": "Berlin",
+    "contact_history": [
+      {
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -125,6 +145,12 @@
     "friendship_status": "Friend",
     "hobbies": ["swimming", "hiking", "photography"],
     "city": "Munich",
+    "contact_history": [
+      {
+        "date": "2023-03-01",
+        "contact_summary": "19"
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -186,6 +212,16 @@
     "friendship_status": "Friend",
     "hobbies": ["football", "music", "cooking"],
     "city": "Vienna",
+    "contact_history": [
+      {
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2021-04-01",
+        "contact_success": false
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -241,6 +277,16 @@
     "friendship_status": "Friend",
     "hobbies": ["moderation", "music", "cooking"],
     "city": "Vienna",
+    "contact_history": [
+      {
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -302,6 +348,12 @@
     "friendship_status": "Friend",
     "hobbies": ["golf", "fishing", "cooking"],
     "city": "London",
+    "contact_history": [
+      {
+        "date": "2023-05-02",
+        "contact_summary": "3"
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -357,6 +409,16 @@
     "friendship_status": "Friend",
     "hobbies": ["dancing", "piano", "reading"],
     "city": "Berlin",
+    "contact_history": [
+      {
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -412,6 +474,16 @@
     "friendship_status": "Friend",
     "hobbies": ["running", "guitar", "cooking"],
     "city": "Frankfurt",
+    "contact_history": [
+      {
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -467,6 +539,16 @@
     "friendship_status": "Friend",
     "hobbies": ["football", "gaming", "music"],
     "city": "Munich",
+    "contact_history": [
+      {
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
+      }
+    ],
     "contactOptions": [
       {
         "type": "mobile",
@@ -522,6 +604,16 @@
     "friendship_status": "Acquaintance",
     "hobbies": ["cooking", "gardening", "yoga"],
     "city": "Berlin",
+    "contact_history": [
+      {
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
+      }
+    ],
     "contactOptions": [
       {
         "type": "Mobile",

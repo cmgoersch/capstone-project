@@ -37,8 +37,8 @@ export const StyledReasonsLink = styled(Link)`
     transition: transform 1s ease;
   }
 
-  ${(isStatic) =>
-    isStatic &&
+  ${(props) =>
+    props?.isStatic &&
     css`
       position: absolute;
 

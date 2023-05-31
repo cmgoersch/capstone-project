@@ -21,7 +21,8 @@ export default function Details({ state }) {
     return null;
   }
   const idPath = id.split("-");
-  const friend = state[idPath[0]];
+  const friendId = idPath[0];
+  const friend = state[friendId];
 
   return (
     <>
@@ -30,7 +31,7 @@ export default function Details({ state }) {
         <StyledTitleText>Your winning friend</StyledTitleText>
       )}
 
-      <FriendsPagePreview friend={friend} />
+      <FriendsPagePreview friend={friend} friendId={friendId} />
       <StyledFooter>
         <StyledLinkBlack href={`/contacts`}>Back</StyledLinkBlack>
         <StyledBirthdayLink href={`/updateContact/${id}`}>
