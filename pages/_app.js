@@ -19,6 +19,33 @@ export default function App({ Component, pageProps }) {
     setState({ ...state, [contactId]: contactData });
     router.push(`../contacts/${contactId}-${friend.nickname}`);
   }
+
+  function updateContactAttempt(contactId, contact_success) {
+    const friend = state[contactId];
+    const currentContactHistory = friend.contact_history;
+    console.log(
+      "friend, currentContactHistory:",
+      friend,
+      currentContactHistory
+    );
+    const updatedContactHistory = [
+      ...currentContactHistory,
+      {
+        date: String(new Date()),
+        contact_success,
+      },
+    ];
+    setState({
+      ...state,
+      [contactId]: { ...friend, contact_history: updatedContactHistory },
+    });
+    if (contact_success) {
+      router.push(`../contactQuery/aplaus/${contactId}`);
+    } else {
+      router.push(`../contactQuery/comfort/${contactId}`);
+    }
+  }
+
   const deleteContact = (friendId) => {
     const updatedState = { ...state };
     delete updatedState[friendId];
@@ -35,6 +62,7 @@ export default function App({ Component, pageProps }) {
         addContact={addContact}
         updateContact={updateContact}
         onDelete={deleteContact}
+        updateContactAttempt={updateContactAttempt}
       />
     </>
   );

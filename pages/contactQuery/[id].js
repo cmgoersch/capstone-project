@@ -56,13 +56,12 @@ const StyledButtonContainer = styled.div`
   margin: auto;
 `;
 
-export default function ContactQuery({ state }) {
+export default function ContactQuery({ state, updateContactAttempt }) {
   const router = useRouter();
   const { id: friendId } = router.query;
   if (!friendId) {
     return null;
   }
-
   const friend = state[friendId];
 
   return (
@@ -83,12 +82,16 @@ export default function ContactQuery({ state }) {
               Have you reached your friend {friend ? friend.nickname : ""}?
             </StyledTitleText>
             <StyledFooter>
-              <StyledQueryLink href={`/contactQuery/aplaus/${friendId}`}>
+              <StyledQueryButton
+                onClick={() => updateContactAttempt(friendId, true)}
+              >
                 Yes
-              </StyledQueryLink>
-              <StyledQueryLink href={`/contactQuery/comfort/${friendId}`}>
+              </StyledQueryButton>
+              <StyledQueryButton
+                onClick={() => updateContactAttempt(friendId, false)}
+              >
                 No
-              </StyledQueryLink>
+              </StyledQueryButton>
               <StyledQueryButton onClick={() => router.back()}>
                 Try <br /> again
               </StyledQueryButton>

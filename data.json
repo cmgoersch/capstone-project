@@ -11,8 +11,12 @@
     "city": "Hamburg",
     "contact_history": [
       {
-        "date": "2020-01-01",
-        "contact_summary": "10"
+        "date": "2023-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2023-04-01",
+        "contact_success": false
       }
     ],
     "contactOptions": [
@@ -79,7 +83,11 @@
     "contact_history": [
       {
         "date": "2022-03-01",
-        "contact_summary": "5"
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
       }
     ],
     "contactOptions": [
@@ -206,8 +214,12 @@
     "city": "Vienna",
     "contact_history": [
       {
-        "date": "2022-04-09",
-        "contact_summary": "30"
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2021-04-01",
+        "contact_success": false
       }
     ],
     "contactOptions": [
@@ -267,8 +279,12 @@
     "city": "Vienna",
     "contact_history": [
       {
-        "date": "2023-03-11",
-        "contact_summary": "10"
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
       }
     ],
     "contactOptions": [
@@ -395,8 +411,12 @@
     "city": "Berlin",
     "contact_history": [
       {
-        "date": "2023-03-05",
-        "contact_summary": "10"
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
       }
     ],
     "contactOptions": [
@@ -457,7 +477,11 @@
     "contact_history": [
       {
         "date": "2022-03-01",
-        "contact_summary": "14"
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
       }
     ],
     "contactOptions": [
@@ -517,8 +541,12 @@
     "city": "Munich",
     "contact_history": [
       {
-        "date": "2020-02-01",
-        "contact_summary": "3"
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
       }
     ],
     "contactOptions": [
@@ -578,8 +606,12 @@
     "city": "Berlin",
     "contact_history": [
       {
-        "date": "2021-04-01",
-        "contact_summary": "7"
+        "date": "2022-03-01",
+        "contact_success": true
+      },
+      {
+        "date": "2022-04-01",
+        "contact_success": false
       }
     ],
     "contactOptions": [
