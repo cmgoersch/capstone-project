@@ -43,7 +43,7 @@ export const StyledReasonsLink = styled(Link)`
       position: absolute;
 
       top: 0rem;
-      margin-top: -4rem;
-      left: 0rem;
+      margin-top: -4.8rem;
+      left: -0.2rem;
     `}
 `;

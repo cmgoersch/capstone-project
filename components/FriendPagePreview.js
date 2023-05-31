@@ -67,7 +67,7 @@ const StyledInfoList = styled.div`
 const StyledButtonContact = styled.button`
   background-color: white;
   border-style: none;
-  margin: 0rem 1rem 0rem 1rem;
+  margin: 1rem 1rem 0rem 1rem;
   padding: 0rem 1rem 0rem 1rem;
   border-radius: 1rem;
   color: #2d2e83;
@@ -286,9 +286,6 @@ export default function FriendPagePreview({ friend, friendId }) {
                 </StyledHobbyList>
               </StyledSpexBox>
             </StyledInfoList>
-            <StyledNotice>
-              <p>Your Notice:</p>
-            </StyledNotice>
 
             <StyledButtonContact onClick={handleClick}>
               <div>

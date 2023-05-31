@@ -25,7 +25,7 @@ export const StyledTitleFriendLink = styled(Link)`
   width: 4.5rem;
   height: 4.5rem;
   top: 0rem;
-  margin-top: -9rem;
+  margin-top: -10rem;
   left: 0rem;
 
   &:hover {
