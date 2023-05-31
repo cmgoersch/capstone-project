@@ -5,8 +5,6 @@ import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import styled from "styled-components";
 import FriendsCounter from "@/components/FriendsCounter";
 import { StyledBirthdayLink } from "@/components/Link/BirthdayLink.Styled";
-import { StyledReasonsLink } from "@/components/Link/ReasonsLink";
-import { StyledTitleFriendLink } from "@/components/Link/TitleFriendLink.Styled";
 
 const StyledDiv = styled.div`
   display: flex;

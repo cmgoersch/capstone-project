@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import { StyledQueryLink } from "@/components/Link/QueryLink.Styled";
-import { StyledQueryButton } from "@/components/Button/ButtonQuery.Styled";
 import Confetti from "react-confetti";
 import { useEffect } from "react";
 import { useState } from "react";

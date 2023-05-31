@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
-import { StyledQueryLink } from "@/components/Link/QueryLink.Styled";
 import { StyledQueryButton } from "@/components/Button/ButtonQuery.Styled";
 
 const StyledDiv = styled.div`

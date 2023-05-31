@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import FriendsPagePreview from "@/components/FriendPagePreview";
 import styled from "styled-components";
 import Header from "@/components/Header";
-import { StyledLink } from "@/components/Link/Link.Styled";
 import { StyledLinkBlack } from "@/components/Link/BlackLink.Styled";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import { StyledBirthdayLink } from "@/components/Link/BirthdayLink.Styled";
