@@ -38,7 +38,7 @@ export const StyledReasonsLink = styled(Link)`
   }
 
   ${(props) =>
-    props?.isStatic &&
+    props?.isstatic &&
     css`
       position: absolute;
 
