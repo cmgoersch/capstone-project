@@ -206,7 +206,7 @@ export default function BirthdayList({ state }) {
                                 </span>
                               </StyledBirthday>
                               <StyledBirthdayAge>
-                                {friend.nickname} turns <b>{age + 1}</b>
+                                {friend.nickname} turns <b>{age + 1}</b>🎈
                               </StyledBirthdayAge>
                             </StyledFriendTextBox>
                           </StyledFriend>

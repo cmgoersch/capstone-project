@@ -28,14 +28,14 @@ const StyledNickname = styled.h2`
   color: white;
   text-decoration: none;
   font-size: 2.5rem;
-  margin: -8px 0px 4px 0px;
+  margin: 1rem 0 0.3rem 0;
 `;
 
 const StyledName = styled.p`
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
-  margin: 0px 0px 9px 0px;
+  margin: 0 0 -2rem 0;
 `;
 
 const StyledContactDate = styled.p`
@@ -172,10 +172,10 @@ export default function FriendPagePreview({ friend, friendId }) {
     switch (contactOptions.type) {
       case "mobile":
         router.push(`/contactQuery/phone/${friendId}`);
-        return; // Verhindert weitere Ausführung
+        return;
       case "landline":
         router.push(`/contactQuery/phone/${friendId}`);
-        return; // Verhindert weitere Ausführung
+        return;
 
       case "signal":
         url = `tel:${contactOptions.number}`;

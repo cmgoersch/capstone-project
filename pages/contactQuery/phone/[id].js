@@ -133,7 +133,7 @@ export default function Phone({ state }) {
               />
             </StyledButtonContainer>
             <StyledTitleEmiji>📞</StyledTitleEmiji>
-            <StyledTitleText>You are Calling</StyledTitleText>
+            <StyledTitleText>You are calling</StyledTitleText>
             <StyledTitleTextFriend>
               {friend ? friend.nickname : ""}
             </StyledTitleTextFriend>
