@@ -19,7 +19,7 @@ const StyledHomePage = styled.div`
 const StyledTitleText = styled.p`
   color: white;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin: 1.4rem;
 `;
 

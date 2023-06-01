@@ -5,14 +5,16 @@ export const StyledBirthdayLink = styled(Link)`
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
   color: white;
   border: 0.2rem solid green;
-  background: linear-gradient(
-    270deg,
+  background: rgb(0, 150, 64);
+  background: radial-gradient(
+    circle at 30% 107%,
     rgba(0, 150, 64, 1) 13%,
-    rgba(47, 172, 102, 1) 29%,
-    rgba(0, 102, 51, 1) 58%
+    rgba(36, 139, 81, 1) 33%,
+    rgba(24, 102, 0, 1) 64%
   );
   font-size: 0.8rem;
   padding: 0.7rem 0.7rem;
@@ -20,6 +22,8 @@ export const StyledBirthdayLink = styled(Link)`
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;
   margin: 0.5rem 1rem 0.5rem 1rem;
+  width: 6rem;
+  height: 6rem;
 
   &:hover {
     cursor: pointer;

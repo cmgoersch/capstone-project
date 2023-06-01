@@ -8,13 +8,15 @@ export const StyledAddContactLink = styled(Link)`
   text-align: center;
   color: black;
   font-weight: bold;
-  border: 0.2rem solid green;
-  background: rgb(214, 214, 214);
-  background: linear-gradient(
-    273deg,
-    rgba(214, 214, 214, 1) 21%,
-    rgba(144, 144, 144, 1) 67%
+  border: 0.2rem solid darkgray;
+  background: rgb(190, 190, 190);
+  background: radial-gradient(
+    circle at 30% 107%,
+    rgba(190, 190, 190, 1) 13%,
+    rgba(199, 199, 199, 1) 34%,
+    rgba(227, 227, 227, 1) 58%
   );
+
   font-size: 1rem;
   padding: 1.1rem 1.1rem;
   aspect-ratio: 1;

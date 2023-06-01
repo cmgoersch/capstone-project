@@ -1,12 +1,18 @@
-import Header from "@/components/Header";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
-import { StyledQueryLink } from "@/components/Link/QueryLink.Styled";
-import Confetti from "react-confetti";
 import { useEffect } from "react";
 import { useState } from "react";
+import { StyledPhoneLink } from "@/components/Link/PhoneLink.Styled";
+import { StyledPhoneNoLink } from "@/components/Link/PhoneLinkNo.Styled";
+import { keyframes } from "styled-components";
+
+const StyledPhonePage = styled.div`
+  background-color: lightgray;
+  margin: 0;
+  min-height: 100vh;
+`;
 
 const StyledDiv = styled.div`
   display: flex;
@@ -15,18 +21,47 @@ const StyledDiv = styled.div`
 `;
 
 const StyledTitleText = styled.p`
-  color: white;
+  color: black;
   text-align: center;
   font-size: 1rem;
   margin: 1.4rem;
 `;
 
+const StyledTitleTextFriend = styled.p`
+  color: black;
+  text-align: center;
+  font-size: 2rem;
+  margin: -1rem 0 2rem 0;
+`;
+
+const swing = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
+
 const StyledTitleEmiji = styled.p`
   color: white;
   text-align: center;
-  font-size: 4rem;
+  font-size: 7rem;
   z-index: 50;
-  margin: -1rem 0 -1rem 0;
+  margin: 0rem 0px 0px 0px;
+  animation: ${swing} 2s infinite;
 `;
 
 const StyledWidth = styled.div`
@@ -63,10 +98,10 @@ const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: 4rem 0rem 0rem 5rem;
 `;
 
-export default function Aplause({ state }) {
+export default function Phone({ state }) {
   const [width, setWidth] = useState(null);
   const [height, setHeight] = useState(null);
   useEffect(() => {
@@ -83,14 +118,9 @@ export default function Aplause({ state }) {
   const friend = state[friendId];
 
   return (
-    <>
-      <Header />
-      <Confetti
-        width={width}
-        height={height}
-        numberOfPieces={12}
-        recycle={false}
-      />
+    <StyledPhonePage>
+      {/* <Header /> */}
+
       <StyledDiv>
         <StyledWidth>
           <StyledFriend>
@@ -102,19 +132,23 @@ export default function Aplause({ state }) {
                 height={140}
               />
             </StyledButtonContainer>
-            <StyledTitleEmiji>😥</StyledTitleEmiji>
-            <StyledTitleText>
-              Too bad that it did not work out. I am sure your friend{" "}
-              {friend ? friend.nickname : ""} would have been very happy. It
-              will certainly work out next time.
-            </StyledTitleText>
+            <StyledTitleEmiji>📞</StyledTitleEmiji>
+            <StyledTitleText>You are Calling</StyledTitleText>
+            <StyledTitleTextFriend>
+              {friend ? friend.nickname : ""}
+            </StyledTitleTextFriend>
 
             <StyledFooter>
-              <StyledQueryLink href="/">Back to start</StyledQueryLink>
+              <StyledPhoneLink href={`/contactQuery/${friendId}`}>
+                ✓
+              </StyledPhoneLink>
+              <StyledPhoneNoLink href={`/contactQuery/${friendId}`}>
+                ✘
+              </StyledPhoneNoLink>
             </StyledFooter>
           </StyledFriend>
         </StyledWidth>
       </StyledDiv>
-    </>
+    </StyledPhonePage>
   );
 }

@@ -21,6 +21,14 @@ const StyledTitleText = styled.p`
   margin: 1.4rem;
 `;
 
+const StyledTitleEmiji = styled.p`
+  color: white;
+  text-align: center;
+  font-size: 4rem;
+  z-index: 50;
+  margin: -1rem 0 -1rem 0;
+`;
+
 const StyledWidth = styled.div`
   max-width: 375px;
   width: 375px;
@@ -94,6 +102,7 @@ export default function Aplause({ state }) {
                 height={140}
               />
             </StyledButtonContainer>
+            <StyledTitleEmiji>😍</StyledTitleEmiji>
             <StyledTitleText>
               Your friend {friend ? friend.nickname : ""} must have been very
               happy to hear from you. You are a really great friend!

@@ -28,7 +28,7 @@ const StyledNickname = styled.h2`
   color: white;
   text-decoration: none;
   font-size: 2.5rem;
-  margin: 12px 0px 4px 0px;
+  margin: -8px 0px 4px 0px;
 `;
 
 const StyledName = styled.p`
@@ -57,7 +57,7 @@ const StyledInfoList = styled.div`
   background-color: white;
   margin: 3rem 1rem 0rem 1rem;
   padding: 0rem 1rem 0rem 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   color: #2d2e83;
   text-align: left;
   text-decoration: none;
@@ -69,7 +69,7 @@ const StyledButtonContact = styled.button`
   border-style: none;
   margin: 1rem 1rem 0rem 1rem;
   padding: 0rem 1rem 0rem 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   color: #2d2e83;
   text-align: left;
   font-size: 1rem;
@@ -171,12 +171,11 @@ export default function FriendPagePreview({ friend, friendId }) {
     let url;
     switch (contactOptions.type) {
       case "mobile":
-        url = `tel:${contactOptions.number}`;
-        break;
-
+        router.push(`/contactQuery/phone/${friendId}`);
+        return; // Verhindert weitere Ausführung
       case "landline":
-        url = `tel:${contactOptions.number}`;
-        break;
+        router.push(`/contactQuery/phone/${friendId}`);
+        return; // Verhindert weitere Ausführung
 
       case "signal":
         url = `tel:${contactOptions.number}`;
@@ -204,12 +203,12 @@ export default function FriendPagePreview({ friend, friendId }) {
     }
     if (url) {
       window.open(url, "_blank");
+    } else {
+      router.push({
+        pathname: `/contactQuery/${friendId}`,
+      });
     }
-    router.push({
-      pathname: `/contactQuery/${friendId}`,
-    });
   };
-
   const handleClick = () => {
     setValue(!value);
   };

@@ -6,11 +6,12 @@ export const StyledContactButton = styled.button`
   justify-content: center;
   color: white;
   border: 0.2rem solid green;
+  background: rgb(0, 150, 64);
   background: linear-gradient(
-    270deg,
+    273deg,
     rgba(0, 150, 64, 1) 13%,
-    rgba(47, 172, 102, 1) 29%,
-    rgba(0, 102, 51, 1) 58%
+    rgba(36, 139, 81, 1) 33%,
+    rgba(24, 102, 0, 1) 64%
   );
   font-size: 0.7rem;
   //aspect-ratio: 1;
@@ -28,42 +29,76 @@ export const StyledContactButton = styled.button`
   ${({ isLandline }) =>
     isLandline &&
     css`
-      background: #62b036;
-      border: 0.2rem solid #657786;
+      background: #61c257;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #89db76 0%,
+        #89db76 5%,
+        #61c257 45%,
+        #3e8e3b 60%,
+        #255721 90%
+      );
+      border: 0.2rem solid #4e9e41;
     `}
 
   ${({ isMail }) =>
     isMail &&
     css`
-      background: rgb(25, 100, 247);
-      background: linear-gradient(
-        273deg,
-        rgba(25, 100, 247, 1) 39%,
-        rgba(15, 88, 255, 1) 62%
+      background: #fcd037;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #ffdd6e 0%,
+        #ffdd6e 5%,
+        #fcd037 45%,
+        #a87a22 60%,
+        #63470c 90%
       );
-
-      border: 0.2rem solid #657786;
+      border: 0.2rem solid #b88b2b;
     `}
 
  ${({ isMobile }) =>
     isMobile &&
     css`
-      background: #62b036;
-      border: 0.2rem solid #657786;
+      background: #9bcc51;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #c3e180 0%,
+        #c3e180 5%,
+        #9bcc51 45%,
+        #72a52a 60%,
+        #4b7c16 90%
+      );
+      border: 0.2rem solid #769f3f;
     `} 
 
 ${({ isLinkedIn }) =>
     isLinkedIn &&
     css`
-      background: #0a66c2;
-      border: 0.2rem solid #657786;
+      background: #0e76a8;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #3d99c3 0%,
+        #3d99c3 5%,
+        #0e76a8 45%,
+        #095b84 60%,
+        #033d5c 90%
+      );
+      border: 0.2rem solid #0b597f;
     `}
 
 ${({ isTwitter }) =>
     isTwitter &&
     css`
       background: #1da1f2;
-      border: 0.2rem solid #657786;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #55c1f7 0%,
+        #55c1f7 5%,
+        #1da1f2 45%,
+        #136d97 60%,
+        #0a4461 90%
+      );
+      border: 0.2rem solid #0b597f;
     `}
 
 ${({ isInstagram }) =>
@@ -78,25 +113,36 @@ ${({ isInstagram }) =>
         #d6249f 60%,
         #285aeb 90%
       );
-      border: 0.2rem solid #657786;
+      border: 0.2rem solid #285aeb;
     `}
 
 ${({ isTelegram }) =>
     isTelegram &&
     css`
-      background: #229ed9;
-      border: 0.2rem solid #657786;
+      background: #26a5e4;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #5ac8f9 0%,
+        #5ac8f9 5%,
+        #26a5e4 45%,
+        #1d7bac 60%,
+        #134d73 90%
+      );
+      border: 0.2rem solid #0b597f;
     `}
 
 ${({ isSiganl }) =>
     isSiganl &&
     css`
-      background: rgb(25, 100, 247);
-      background: linear-gradient(
-        273deg,
-        rgba(25, 100, 247, 1) 39%,
-        rgba(15, 88, 255, 1) 62%
+      background: #1798c1;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #49b2d3 0%,
+        #49b2d3 5%,
+        #1798c1 45%,
+        #116880 60%,
+        #0a424e 90%
       );
-      border: 0.2rem solid #657786;
+      border: 0.2rem solid #0b597f;
     `}
 `;

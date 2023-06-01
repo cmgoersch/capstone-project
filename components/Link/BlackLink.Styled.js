@@ -9,8 +9,8 @@ export const StyledLinkBlack = styled(Link)`
   color: white;
   border: 0.2rem solid green;
   background: rgb(77, 77, 77);
-  background: linear-gradient(
-    273deg,
+  background: radial-gradient(
+    circle at 30% 107%,
     rgba(77, 77, 77, 1) 14%,
     rgba(32, 32, 32, 1) 58%
   );
