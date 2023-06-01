@@ -169,6 +169,8 @@ function ContactForm({ onSubmit, onDelete, friendId, friend, modus }) {
             Set status
           </option>
           <option value="Friend">Friend</option>
+          <option value="Girlfriend">Girlfriend</option>
+          <option value="Boyfriend">Boyfriend</option>
           <option value="Best Friend">Best Friend</option>
           <option value="Gold Friend">Gold Friend</option>
           <option value="Family">Family</option>
