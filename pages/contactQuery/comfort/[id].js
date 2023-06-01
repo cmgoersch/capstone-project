@@ -4,7 +4,9 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
 import { StyledQueryLink } from "@/components/Link/QueryLink.Styled";
-import { StyledQueryButton } from "@/components/Button/ButtonQuery.Styled";
+import Confetti from "react-confetti";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -57,6 +59,13 @@ const StyledButtonContainer = styled.div`
 `;
 
 export default function Aplause({ state }) {
+  const [width, setWidth] = useState(null);
+  const [height, setHeight] = useState(null);
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }, []);
+
   const router = useRouter();
   const { id: friendId } = router.query;
   if (!friendId) {
@@ -68,6 +77,12 @@ export default function Aplause({ state }) {
   return (
     <>
       <Header />
+      <Confetti
+        width={width}
+        height={height}
+        numberOfPieces={12}
+        recycle={false}
+      />
       <StyledDiv>
         <StyledWidth>
           <StyledFriend>

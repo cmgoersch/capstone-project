@@ -80,7 +80,7 @@ function RandomFunction({ friendList }) {
               </StyledSubTitleText>
             </StyledRandomButtonClicked>
             <StyledPositionRelative>
-              <StyledReasonsLink href={`/reasons`} isStatic={"static"}>
+              <StyledReasonsLink href={`/reasons`} isstatic={"static"}>
                 10 reasons <br /> to get in <br /> touch
               </StyledReasonsLink>
               <StyledTitleFriendLink href={`/addContact`}>
@@ -96,7 +96,7 @@ function RandomFunction({ friendList }) {
             <StyledSubTitleText>Push the Button</StyledSubTitleText>
           </StyledRandomButton>
           <StyledPositionRelative>
-            <StyledReasonsLink href={`/reasons`} isStatic={"static"}>
+            <StyledReasonsLink href={`/reasons`} isstatic={"static"}>
               10 reasons <br /> to get in <br /> touch
             </StyledReasonsLink>
             <StyledTitleFriendLink href={`/addContact`}>
