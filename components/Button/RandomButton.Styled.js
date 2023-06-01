@@ -7,6 +7,7 @@ export const StyledRandomButton = styled.button`
   justify-content: center;
   color: white;
   border: 0.2rem solid green;
+
   background: linear-gradient(
     270deg,
     rgba(0, 150, 64, 1) 13%,

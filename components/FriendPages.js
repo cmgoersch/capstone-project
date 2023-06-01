@@ -37,7 +37,14 @@ const StyledName = styled.p`
 `;
 
 const StyledCounter = styled.p`
-  color: white;
+  color: lightgray;
+  text-decoration: none;
+  font-size: 0.6rem;
+  margin: 1px;
+`;
+
+const StyledCounterTitle = styled.p`
+  color: lightgray;
   text-decoration: none;
   font-size: 0.5rem;
   margin: 1px;
@@ -104,7 +111,7 @@ export default function FriendPages({
                   <StyledName>
                     {friend.first_name} {friend.last_name}
                   </StyledName>
-                  <StyledCounter>Last Contact:</StyledCounter>
+                  <StyledCounterTitle>Last Contact:</StyledCounterTitle>
                   <StyledCounter>
                     {daysSinceLastContact(friend.contact_history)}
                   </StyledCounter>

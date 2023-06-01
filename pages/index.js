@@ -63,7 +63,10 @@ export default function HomePage({ state }) {
           <FriendsCounter state={state} />
         </StyledHomePage>
         <StyledFooter>
-          <StyledLink href={`/contacts`}> All friends</StyledLink>
+          <StyledBirthdayLink href={`/contacts`}>
+            {" "}
+            All friends
+          </StyledBirthdayLink>
           <StyledBirthdayLink href={`/birthdays`}>Birthdays</StyledBirthdayLink>
         </StyledFooter>
       </StyledDiv>
