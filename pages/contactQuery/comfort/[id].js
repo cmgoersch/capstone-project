@@ -26,7 +26,7 @@ const StyledTitleEmiji = styled.p`
   text-align: center;
   font-size: 4rem;
   z-index: 50;
-  margin: -4rem 0px 0px 0px;
+  margin: -1rem 0 -1rem 0;
 `;
 
 const StyledWidth = styled.div`

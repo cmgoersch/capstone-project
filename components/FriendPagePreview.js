@@ -174,8 +174,8 @@ export default function FriendPagePreview({ friend, friendId }) {
         router.push(`/contactQuery/phone/${friendId}`);
         return; // Verhindert weitere Ausführung
       case "landline":
-        url = `tel:${contactOptions.number}`;
-        break;
+        router.push(`/contactQuery/phone/${friendId}`);
+        return; // Verhindert weitere Ausführung
 
       case "signal":
         url = `tel:${contactOptions.number}`;

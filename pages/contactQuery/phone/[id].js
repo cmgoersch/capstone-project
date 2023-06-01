@@ -1,14 +1,12 @@
-import Header from "@/components/Header";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { StyledFooter } from "@/components/GeneralStyle/Footer.Styled";
-import { StyledQueryLink } from "@/components/Link/QueryLink.Styled";
-import Confetti from "react-confetti";
 import { useEffect } from "react";
 import { useState } from "react";
 import { StyledPhoneLink } from "@/components/Link/PhoneLink.Styled";
 import { StyledPhoneNoLink } from "@/components/Link/PhoneLinkNo.Styled";
+import { keyframes } from "styled-components";
 
 const StyledPhonePage = styled.div`
   background-color: lightgray;
@@ -36,12 +34,34 @@ const StyledTitleTextFriend = styled.p`
   margin: -1rem 0 2rem 0;
 `;
 
+const swing = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
+
 const StyledTitleEmiji = styled.p`
   color: white;
   text-align: center;
   font-size: 7rem;
   z-index: 50;
   margin: 0rem 0px 0px 0px;
+  animation: ${swing} 2s infinite;
 `;
 
 const StyledWidth = styled.div`
