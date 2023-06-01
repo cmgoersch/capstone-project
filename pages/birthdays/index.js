@@ -50,7 +50,7 @@ const StyledSingleFriend = styled.section`
   width: 20rem;
   min-width: 0;
   margin: 0.5rem;
-  padding: 0rem;
+  padding: 1rem;
 `;
 
 const StyledFriend = styled.section`
@@ -82,6 +82,18 @@ const StyledBirthday = styled.p`
   margin: 5px 05px 0px 5px;
 `;
 
+const StyledBirthdayAge = styled.p`
+  display: flex;
+  flex-direction: raw;
+  align-items: center;
+  gap: 0.2rem;
+  justify-content: center;
+  color: black;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin: 5px 05px 0px 5px;
+`;
+
 const StyledButtonWrapper = styled.article`
   display: flex;
   justify-content: right;
@@ -102,6 +114,16 @@ function formatDate(date) {
 }
 
 export default function BirthdayList({ state }) {
+  const calculateAge = (birthday) => {
+    const today = new Date();
+    let age = today.getFullYear() - birthday.getFullYear();
+    const m = today.getMonth() - birthday.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   const calculateDaysUntilBirthday = (birthday) => {
     const today = new Date();
     const nextBirthday = new Date(
@@ -126,6 +148,7 @@ export default function BirthdayList({ state }) {
         daysUntilBirthday: calculateDaysUntilBirthday(
           new Date(friend.birthday)
         ),
+        age: calculateAge(new Date(friend.birthday)),
       }))
       .sort((a, b) => a.daysUntilBirthday - b.daysUntilBirthday)
   );
@@ -151,7 +174,7 @@ export default function BirthdayList({ state }) {
             <StyledBirthdayBox>
               {friends
                 .slice(0, visibleFriends)
-                .map(({ id, friend, daysUntilBirthday }) => {
+                .map(({ id, friend, daysUntilBirthday, age }) => {
                   const birthdayDate = new Date(friend.birthday);
                   const formattedBirthday = formatDate(birthdayDate);
                   return (
@@ -174,12 +197,17 @@ export default function BirthdayList({ state }) {
                               <StyledBirthday>
                                 {formattedBirthday}
                               </StyledBirthday>
+
                               <StyledBirthday>
-                                {friend.nickname}`s next birthday{" "}
                                 <span>
-                                  is in <b>{daysUntilBirthday}</b> days!
+                                  The next birthday is
+                                  <br /> in
+                                  <b>{daysUntilBirthday}</b> days!
                                 </span>
                               </StyledBirthday>
+                              <StyledBirthdayAge>
+                                {friend.nickname} turns <b>{age + 1}</b>
+                              </StyledBirthdayAge>
                             </StyledFriendTextBox>
                           </StyledFriend>
                         </StyledCleanLink>

@@ -6,14 +6,15 @@ export const StyledTitleFriendLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   text-align: center;
-  color: white;
-  border: 0.2rem solid green;
-  background: rgb(0, 150, 64);
+  color: black;
+  font-weight: bolder;
+  border: 0.2rem solid darkgray;
+  background: rgb(190, 190, 190);
   background: radial-gradient(
     circle at 30% 107%,
-    rgba(0, 150, 64, 1) 13%,
-    rgba(36, 139, 81, 1) 33%,
-    rgba(24, 102, 0, 1) 64%
+    rgba(190, 190, 190, 1) 13%,
+    rgba(199, 199, 199, 1) 34%,
+    rgba(227, 227, 227, 1) 58%
   );
   font-size: 0.7rem;
   padding: 0.7rem;
@@ -34,7 +35,7 @@ export const StyledTitleFriendLink = styled(Link)`
   }
 
   &:visited {
-    color: white;
+    color: black;
   }
 
   &:active {

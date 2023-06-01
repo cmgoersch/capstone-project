@@ -7,6 +7,7 @@ import { StyledQueryLink } from "@/components/Link/QueryLink.Styled";
 import Confetti from "react-confetti";
 import { useEffect } from "react";
 import { useState } from "react";
+import { StyledBirthdayLink } from "@/components/Link/BirthdayLink.Styled";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -109,7 +110,7 @@ export default function Aplause({ state }) {
             </StyledTitleText>
 
             <StyledFooter>
-              <StyledQueryLink href="/">Back to start</StyledQueryLink>
+              <StyledBirthdayLink href="/">Back to start</StyledBirthdayLink>
             </StyledFooter>
           </StyledFriend>
         </StyledWidth>

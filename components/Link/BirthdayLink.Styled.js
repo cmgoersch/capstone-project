@@ -21,7 +21,7 @@ export const StyledBirthdayLink = styled(Link)`
   aspect-ratio: 1;
   border-radius: 8rem;
   box-shadow: 0px 1px 5px -2px green;
-  margin: 0.5rem 1rem 0.5rem 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
   width: 6rem;
   height: 6rem;
 

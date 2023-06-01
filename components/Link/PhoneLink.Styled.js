@@ -16,7 +16,7 @@ export const StyledPhoneLink = styled(Link)`
     rgba(36, 139, 81, 1) 33%,
     rgba(24, 102, 0, 1) 64%
   );
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   padding: 0.7rem;
   aspect-ratio: 1;
   border-radius: 8rem;
