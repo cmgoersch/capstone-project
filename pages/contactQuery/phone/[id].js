@@ -7,6 +7,14 @@ import { StyledQueryLink } from "@/components/Link/QueryLink.Styled";
 import Confetti from "react-confetti";
 import { useEffect } from "react";
 import { useState } from "react";
+import { StyledPhoneLink } from "@/components/Link/PhoneLink.Styled";
+import { StyledPhoneNoLink } from "@/components/Link/PhoneLinkNo.Styled";
+
+const StyledPhonePage = styled.div`
+  background-color: lightgray;
+  margin: 0;
+  min-height: 100vh;
+`;
 
 const StyledDiv = styled.div`
   display: flex;
@@ -15,10 +23,17 @@ const StyledDiv = styled.div`
 `;
 
 const StyledTitleText = styled.p`
-  color: white;
+  color: black;
   text-align: center;
   font-size: 1rem;
   margin: 1.4rem;
+`;
+
+const StyledTitleTextFriend = styled.p`
+  color: black;
+  text-align: center;
+  font-size: 2rem;
+  margin: -1rem 0 2rem 0;
 `;
 
 const StyledTitleEmiji = styled.p`
@@ -63,7 +78,7 @@ const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: 4rem 0rem 0rem 5rem;
 `;
 
 export default function Phone({ state }) {
@@ -83,7 +98,7 @@ export default function Phone({ state }) {
   const friend = state[friendId];
 
   return (
-    <>
+    <StyledPhonePage>
       {/* <Header /> */}
 
       <StyledDiv>
@@ -98,23 +113,22 @@ export default function Phone({ state }) {
               />
             </StyledButtonContainer>
             <StyledTitleEmiji>📞</StyledTitleEmiji>
-            <StyledTitleText>
-              Too bad that it did not work out. I am sure your friend{" "}
-              {friend ? friend.nickname : ""} would have been very happy. It
-              will certainly work out next time.
-            </StyledTitleText>
+            <StyledTitleText>You are Calling</StyledTitleText>
+            <StyledTitleTextFriend>
+              {friend ? friend.nickname : ""}
+            </StyledTitleTextFriend>
 
             <StyledFooter>
-              <StyledQueryLink href={`/contactQuery/${friendId}`}>
+              <StyledPhoneLink href={`/contactQuery/${friendId}`}>
                 ✓
-              </StyledQueryLink>
-              <StyledQueryLink href={`/contactQuery/${friendId}`}>
+              </StyledPhoneLink>
+              <StyledPhoneNoLink href={`/contactQuery/${friendId}`}>
                 ✘
-              </StyledQueryLink>
+              </StyledPhoneNoLink>
             </StyledFooter>
           </StyledFriend>
         </StyledWidth>
       </StyledDiv>
-    </>
+    </StyledPhonePage>
   );
 }

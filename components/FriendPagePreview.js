@@ -172,8 +172,7 @@ export default function FriendPagePreview({ friend, friendId }) {
     switch (contactOptions.type) {
       case "mobile":
         router.push(`/contactQuery/phone/${friendId}`);
-        break;
-
+        return; // Verhindert weitere Ausführung
       case "landline":
         url = `tel:${contactOptions.number}`;
         break;
@@ -204,12 +203,12 @@ export default function FriendPagePreview({ friend, friendId }) {
     }
     if (url) {
       window.open(url, "_blank");
+    } else {
+      router.push({
+        pathname: `/contactQuery/${friendId}`,
+      });
     }
-    router.push({
-      pathname: `/contactQuery/${friendId}`,
-    });
   };
-
   const handleClick = () => {
     setValue(!value);
   };
