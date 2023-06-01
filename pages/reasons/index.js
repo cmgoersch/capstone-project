@@ -114,10 +114,10 @@ export default function Reasons() {
         </StyledIndex>
         <StyledFooter>
           <StyledLinkBlack href={`/`}>Back</StyledLinkBlack>
-          <StyledReasonsLink href={`/addContact`}>
+          <StyledAddContactLink href={`/addContact`}>
             Add new <br />
             contact
-          </StyledReasonsLink>
+          </StyledAddContactLink>
           <StyledBirthdayLink href={`/contacts`}>
             All <br /> friends
           </StyledBirthdayLink>

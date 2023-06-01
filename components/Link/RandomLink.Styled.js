@@ -6,11 +6,12 @@ export const StyledRandomLink = styled(Link)`
   align-items: center;
   color: white;
   border: 0.2rem solid green;
+  background: rgb(0, 150, 64);
   background: linear-gradient(
-    270deg,
+    273deg,
     rgba(0, 150, 64, 1) 13%,
-    rgba(47, 172, 102, 1) 29%,
-    rgba(0, 102, 51, 1) 58%
+    rgba(36, 139, 81, 1) 33%,
+    rgba(24, 102, 0, 1) 64%
   );
   font-size: 1rem;
   padding: 0.7rem;

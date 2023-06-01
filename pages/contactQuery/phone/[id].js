@@ -24,9 +24,9 @@ const StyledTitleText = styled.p`
 const StyledTitleEmiji = styled.p`
   color: white;
   text-align: center;
-  font-size: 4rem;
+  font-size: 7rem;
   z-index: 50;
-  margin: -4rem 0px 0px 0px;
+  margin: 0rem 0px 0px 0px;
 `;
 
 const StyledWidth = styled.div`
@@ -66,7 +66,7 @@ const StyledButtonContainer = styled.div`
   margin: auto;
 `;
 
-export default function Aplause({ state }) {
+export default function Phone({ state }) {
   const [width, setWidth] = useState(null);
   const [height, setHeight] = useState(null);
   useEffect(() => {
@@ -84,13 +84,8 @@ export default function Aplause({ state }) {
 
   return (
     <>
-      <Confetti
-        width={width}
-        height={height}
-        numberOfPieces={2500}
-        recycle={false}
-      />
-      <Header />
+      {/* <Header /> */}
+
       <StyledDiv>
         <StyledWidth>
           <StyledFriend>
@@ -102,14 +97,20 @@ export default function Aplause({ state }) {
                 height={140}
               />
             </StyledButtonContainer>
-            <StyledTitleEmiji>😍</StyledTitleEmiji>
+            <StyledTitleEmiji>📞</StyledTitleEmiji>
             <StyledTitleText>
-              Your friend {friend ? friend.nickname : ""} must have been very
-              happy to hear from you. You are a really great friend!
+              Too bad that it did not work out. I am sure your friend{" "}
+              {friend ? friend.nickname : ""} would have been very happy. It
+              will certainly work out next time.
             </StyledTitleText>
 
             <StyledFooter>
-              <StyledQueryLink href="/">Back to start</StyledQueryLink>
+              <StyledQueryLink href={`/contactQuery/${friendId}`}>
+                ✓
+              </StyledQueryLink>
+              <StyledQueryLink href={`/contactQuery/${friendId}`}>
+                ✘
+              </StyledQueryLink>
             </StyledFooter>
           </StyledFriend>
         </StyledWidth>
