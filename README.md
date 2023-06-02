@@ -6,24 +6,20 @@ I started the project on 04.05.23 until the presentation on 06.06.23 continuousl
 
 ---
 
-Here you can find the demo:
+# better-friend-app
 
-### [Click here to go to the Better-Friends-App-demo](https://cp-cmg.vercel.app/)
+An app which shall help you playfully to contact your and more evenly with your circle of friends!
 
----
-
-## Here is a small preview
+Here is a small preview:
 
 [![Screenshots better-friends-app](/public/screenshots/bfa-demo-a.svg)](https://cp-cmg.vercel.app/)
 [![Screenshots better-friends-app](/public/screenshots/bfa-demo-b.svg)](https://cp-cmg.vercel.app/)
 
+Here you can find the demo:
+
+## [Click here to go to the Better-Friends-App-demo](https://cp-cmg.vercel.app/)
+
 ---
-
-my project idea:
-
-## better-friend-app
-
-An app which shall help you playfully to contact your and more evenly with your circle of friends!
 
 ### Function:
 
@@ -45,7 +41,7 @@ This app is for contacts that are important to you. People that you really like 
 
 ---
 
-### Local development
+## Local development
 
 To run project commands locally, you need to install the dependencies using `npm i` first.
 
