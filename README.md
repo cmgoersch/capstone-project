@@ -1,8 +1,21 @@
-## Hi, this will be my capstone project for the bootcamp of NeueFische
+## Hello, this is my final project for the NeueFische bootcamp.
 
 ---
 
-I started on 04/05/23 and will finish and present the project on 06/06/23.
+I started the project on 04.05.23 until the presentation on 06.06.23 continuously worked on it.
+
+---
+
+Here you can find the demo:
+
+### https://cp-cmg.vercel.app/
+
+---
+
+## Here is a small preview
+
+[![Screenshots better-friends-app](/public/screenshots/bfa-demo-a.svg)](https://cp-cmg.vercel.app/)
+[![Screenshots better-friends-app](/public/screenshots/bfa-demo-b.svg)](https://cp-cmg.vercel.app/)
 
 ---
 
@@ -21,6 +34,14 @@ You get a random contact suggested when you open it who is looking forward to a 
 With this app no one will forget about you and your friendships will last longer :)
 
 This app is for contacts that are important to you. People that you really like and that you like to listen to and talk to and who might miss out in a hectic everyday life.
+
+---
+
+### TechStack:
+
+- Next.js
+- React
+- Styled Components
 
 ---
 
