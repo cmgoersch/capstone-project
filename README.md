@@ -1,4 +1,4 @@
-## Hello, this is my final project for the NeueFische bootcamp.
+## Hello, this is my final project for the [NeueFische](https://www.neuefische.de/) Bootcamp and my qualification certificate as a web developer.
 
 ---
 
@@ -8,7 +8,7 @@ I started the project on 04.05.23 until the presentation on 06.06.23 continuousl
 
 Here you can find the demo:
 
-### https://cp-cmg.vercel.app/
+### [Click here to go to the Better-Friends-App-demo](https://cp-cmg.vercel.app/)
 
 ---
 
@@ -44,8 +44,6 @@ This app is for contacts that are important to you. People that you really like 
 - Styled Components
 
 ---
-
-This project was created from the neue fische next template.
 
 ### Local development
 
