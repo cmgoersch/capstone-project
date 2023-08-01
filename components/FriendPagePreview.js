@@ -5,6 +5,7 @@ import { useState } from "react";
 import { hasContactOption } from "../lib/helpers";
 import { useRouter } from "next/router";
 
+
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -170,45 +171,73 @@ export default function FriendPagePreview({ friend, friendId }) {
   const openContactLink = (contactOptions) => {
     let url;
     switch (contactOptions.type) {
-      case "mobile":
-        router.push(`/contactQuery/phone/${friendId}`);
-        return;
-      case "landline":
-        router.push(`/contactQuery/phone/${friendId}`);
-        return;
-
-      case "signal":
-        url = `tel:${contactOptions.number}`;
+      case "mobile": {
+        const anchor = document.createElement("a");
+        anchor.href = `tel:${contactOptions.number}`;
+        anchor.click();
         break;
+    }
 
-      case "telegram":
-        url = `tel:${contactOptions.number}`;
-        break;
+        case "landline": {
+          const anchor = document.createElement("a");
+          anchor.href = `tel:${contactOptions.number}`;
+          anchor.click();
+          break;
+      }
 
-      case "twitter":
-        url = `https://twitter.com/home`;
-        break;
+        case "signal": {
+          const anchor = document.createElement("a");
+          anchor.href = `sgnl://${contactOptions.number}`;  
+          anchor.click();
+          break;
+        }
 
-      case "linkedIn":
-        url = `https://www.linkedin.com/`;
-        break;
+        case "telegram": {
+          const anchor = document.createElement("a");
+          anchor.href = `https://t.me/${contactOptions.username}`;  
+          anchor.target = "_blank";
+          anchor.click();
+          break;
+        }
 
-      case "mail":
-        url = `mailto:${contactOptions.address}`;
-        break;
+        case "twitter": {
+          const anchor = document.createElement("a");
+          anchor.href = "https://twitter.com/home";
+          anchor.target = "_blank";
+          anchor.click();
+          break;
+    }
+    
+    case "linkedIn": {
+          const anchor = document.createElement("a");
+          anchor.href = "https://www.linkedin.com/";
+          anchor.target = "_blank";
+          anchor.click();
+          break;
+    }
+
+    case "mail": {
+      const anchor = document.createElement("a");
+      anchor.href = `mailto:${contactOptions.address}`;
+      anchor.click();
+      break;
+}
 
       case "instagram":
-        url = `https://www.instagram.com/`;
+        const anchor = document.createElement("a");
+        anchor.href = `https://www.instagram.com/`;
+        anchor.target = "_blank";
+          anchor.click();
         break;
-    }
-    if (url) {
-      window.open(url, "_blank");
-    } else {
-      router.push({
-        pathname: `/contactQuery/${friendId}`,
-      });
-    }
-  };
+      }
+      if (url) {
+        window.open(url, "_blank");
+      } else {
+        router.push({
+          pathname: `/contactQuery/${friendId}`,
+        });
+      }
+    };
   const handleClick = () => {
     setValue(!value);
   };
