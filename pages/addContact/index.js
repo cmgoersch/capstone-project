@@ -92,7 +92,7 @@ const StyledAddContact = styled.div`
   justify-content: center;
 
   flex-wrap: wrap;
-  text-align: center;
+  text-align: center; 
 `;
 
 const StyledNewContactForm = styled.div`
